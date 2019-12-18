@@ -7,10 +7,8 @@ import ProjectBlock from "./ProjectBlock";
 
 function MainHome() {
 
-
-
     return (
-        <div>
+        <div className="allBlock">
             <ArenaBlock />
             <ConnexionBlock />
             <ProjectBlock />
