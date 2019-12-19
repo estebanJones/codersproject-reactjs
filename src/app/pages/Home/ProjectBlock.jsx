@@ -11,8 +11,6 @@ function ProjectBlock() {
             fugit explicabo est incidunt fugiat veritatis recusandae molestias adipisci cumque consequuntur aperiam beatae quod?<br />
         </div>
     )
-
-
 }
 
 export default ProjectBlock;

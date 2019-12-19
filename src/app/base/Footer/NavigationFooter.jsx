@@ -5,11 +5,8 @@ function NavigationFooter(props) {
 
   
     return (
-        <button onClick={props.onClick}>{this.props.icon}</button>
+        <button onClick={props.onClick}>{props.icon}</button>
     )
-    
-
-
 
 }
 

@@ -1,6 +1,5 @@
 import React from "react";
 
-
 // Import Modules
 import { Link } from 'react-router-dom';
 
@@ -9,17 +8,17 @@ import { FaCog } from 'react-icons/fa';
 import { FaQuestionCircle } from 'react-icons/fa';
 import { IoMdLogOut } from 'react-icons/io';
 
-function Header() {
+function Header(props) {
 
     const logoutUser = e => {
 
         console.log("Bien dans le Home !");
-        this.props.onLogoutUser();
+        props.onLogoutUser();
     }
 
     const displayModule = (module) => {
 
-        let isOnline = this.props.isOnline;
+        let isOnline = props.isOnline;
 
         switch (module) {
             case "user-experience":
@@ -33,30 +32,34 @@ function Header() {
                         return (
                             <div>loool</div>
                          );
-                        break;
+                        
                 }
+                break;
             case "right-buttons":
-                if (isOnline == false) {
+                if (isOnline === false) {
                     return (
                         <div className="buttonsHeaderDrop">
                         <FaQuestionCircle className="headerRightIcons" />
                         <FaCog className="headerRightIcons" />
-                        <IoMdLogOut className="headerRightIcons" onClick={this.logoutUser} />
+                        <IoMdLogOut className="headerRightIcons" onClick={logoutUser} />
                     </div>
                     );
 
                 }else {
                     return (
-                        <div className="buttonsHeaderDrop"> </div>);
+                        <div className="buttonsHeaderDrop"> </div>
+                        );
+                    
                 }
-         }
-
-
+            default:
+                return(<div className="text-center"><h3>Il faut vous identifieir !</h3></div>);
+        }
+    }
 
         return (
             <header>
                 <div className="leftHeader">
-                    {this.displayModule("user-experience")}
+                    {displayModule("user-experience")}
                 </div>
 
                 <div className="middleHeader">
@@ -67,19 +70,15 @@ function Header() {
                 <div className="rightHeader">
                     <nav>
                         <ul>
-                            <li onClick={e => {this.props.onChangeTab("home")}}>Les Coders</li>
-                            <li onClick={e => {this.props.onChangeTab("arene")}}>Les Clans</li>
+                            <li onClick={e => {props.onChangeTab("home")}}>Les Coders</li>
+                            <li onClick={e => {props.onChangeTab("arene")}}>Les Clans</li>
                         </ul>
 
-                        {this.displayModule("right-buttons")}
+                        {displayModule("right-buttons")}
                     </nav>
                 </div>
             </header>
         )
-    
-
-
-
+     
 }
-
 export default Header;

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 // Import Modules
 import NavigationFooter from "./NavigationFooter.jsx";
@@ -25,7 +25,7 @@ import { FaGithubSquare } from 'react-icons/fa';
 
 
 
-function Footer(props) {
+function Footer() {
 
     const displayModule = (props) => {
 
@@ -75,30 +75,24 @@ function Footer(props) {
                                 </div>
                             </div>
                             );
+
                     }
 
-                
-                break;
-        
             default:
                 break;
         }
-
-
     }
 
-    render() {
+
         return (
             <footer>
                 <div className="leftFooter">
-
                 <nav>
 
                     <div className="breakingNews">
                     <GiMegaphone className="footerSocialIcons" />
                     <p>Ceci est le super texte d'essai de la Breaking news !</p>
                 </div>
-
                     <div className="navLeftFooter">             
                     <Link to="/arene" className="footerNavigationIcons">
                         <NavigationFooter  icon={<FaPlaceOfWorship />} /></Link>
@@ -112,19 +106,15 @@ function Footer(props) {
                     </nav>
 
                 </div>
-
-                <div className="middleFooter" >
-                    {this.displayModule("user-avatar")}
+                     <div className="middleFooter" >
+                        {displayModule("user-avatar")}
                     
                     <div id="trapezoid_reverse"></div>
                 </div>
 
                 <div className="rightFooter">
                     <nav>
-
-                       
-
-                        {this.displayModule("bottom-nav")}
+                        {displayModule("bottom-nav")}
 
 
                         <div className="w-50 d-row jc-end pr-2">
@@ -138,9 +128,7 @@ function Footer(props) {
                     </nav>
                 </div>
             </footer>
-        )
-    }
-
+        );
 }
 
 export default Footer;
