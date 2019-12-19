@@ -5,13 +5,16 @@ function FrontCard(props) {
     const [inputPseudo, setInputPseudo] = useState("");
     const [inputPassword, setInputPassword] = useState("");
     
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    }
     return(
         <div>
         <h3>Se connecter</h3>
         <form>
             <label>Nom d'utilisateur<input type="text" onChange={( { currentTarget: { value }} ) => setInputPseudo(value)} value={inputPseudo}></input></label>
             <label>Mot de passe<input type="password" onChange={( { currentTarget: { value }} ) => setInputPassword(value)} value={inputPassword}></input></label>
-            <button className="btn btn-success">Entrer</button>
+            <button className="btn btn-success" onClick={(e) => handleSubmit(e)}>Entrer</button>
             <p>OU</p>
             <p>Se connecter avec :</p>
             <div className="google">
