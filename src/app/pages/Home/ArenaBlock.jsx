@@ -1,27 +1,35 @@
 import React from "react";
 import arena from "../../../img/arena.png";
 
-
 function ArenaBlock() {
+  return (
+    
+    <div className="container col-lg-5">
+      <div className="arene mb-2 d-flex justify-content-around">
+        <img src={arena} alt="lol" className="logo ml-5 p-3"></img>
+        <h3 className="mr-5">Arène</h3>
+      </div>
 
-    return (
-        <div>
-            <img src={arena} alt="lol"></img>
-            <h3>Arène</h3>
-            <article>
+      <div className="article text-center bg-dark text-light p-5">
+        <h1> A venir </h1>
+        <h2>HTML / CSS</h2>
 
-                <h1> A venir </h1>
-                <h2>HTML / CSS</h2>
+        <h3>Début de la Battle</h3>
+        <strong>Dimanche 21 Octobre à 14:00</strong>
+        <h3>Fin de la Battle</h3>
+        <strong>Dimanche 21 Octobre à 14:00</strong>
+      </div>
 
-                <h3>Début de la Battle</h3>
-                <strong>Dimanche 21 Octobre à 14:00</strong>
+<div>
+<h1 className="text-center bg-dark text-light mt-2 p-5">Récompenses</h1>
+</div>
 
-                <h3>Fin de la Battle</h3>
-                <strong>Dimanche 21 Octobre à 14:00</strong>
 
-            </article>
-        </div>
+
+     </div>
     )
 }
+
+
 
 export default ArenaBlock;

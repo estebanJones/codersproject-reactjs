@@ -7,7 +7,7 @@ function BackCard(props) {
 
 
     return(
-            <div>
+            <div class="col-lg-4">
                 <div>
                     <h2 className="textCenter">Mot de passe oublié ?</h2>
                     <form

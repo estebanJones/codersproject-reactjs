@@ -8,15 +8,15 @@ import NouveauProjet from "./app/pages/Projects/pages/NouveauProjet.jsx";
 // Import Pages
 ////// Home
 ////// Arene
-// import Arene from "./app/pages/Arene/Arene.jsx"
+// import Arene from "./app/pages/Arene/Arene.jsx";
 ////// Projets
-// import Projects from "./app/pages/Projects/Projects.jsx"
-// import ProjetsFinis from "./app/pages/Projects/pages/ProjetsFinis.jsx"
-// import NouveauProjet from "./app/pages/Projects/pages/NouveauProjet.jsx"
+// import Projects from "./app/pages/Projects/Projects.jsx";
+// import ProjetsFinis from "./app/pages/Projects/pages/ProjetsFinis.jsx";
+// import NouveauProjet from "./app/pages/Projects/pages/NouveauProjet.jsx";
 ////// Projet Seul
-// import ProjetSeul from "./app/pages/ProjetSeul/ProjetSeul.jsx"
+// import ProjetSeul from "./app/pages/ProjetSeul/ProjetSeul.jsx";
 ////// Forum
-// import Forum from "./app/pages/Forum/Forum.jsx"
+// import Forum from "./app/pages/Forum/Forum.jsx";
 ////// Quizz
 // import Quizz from "./app/pages/Quizz/Quizz.jsx"
 function RouterCoder() {
@@ -36,13 +36,12 @@ function RouterCoder() {
 
     return (
         <Router>
-            <div>
-                <Route exact path="/"
-                    render={(props) => <MainHome checkUserStatus={isOnline} updateUserToHome={updateUser} onLogoutUser={deconnexionUser} />} />
-                <Route exact path="/arene"
-                    render={(props) => <Arene checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />} />
-                <Route exact path="/projets/creation" render={(props) => <NouveauProjet checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />} />
-                {/* <Route exact path="/projets"
+         <div>
+            <Route exact path="/" 
+            render={(props) => <MainHome checkUserStatus={isOnline} updateUserToHome={updateUser} onLogoutUser={deconnexionUser}/>} />
+             <Route exact path="/arene"
+            render={(props) => <Arene checkUserStatus={isOnline} onLogoutUser={this.deconnexionUser} />} />
+           {/* <Route exact path="/projets"
             render={(props) => <Projects checkUserStatus={isOnline} onLogoutUser={this.deconnexionUser} />} />
             <Route exact path="/projets/nouveau" 
             render={(props) => <ProjetsFinis checkUserStatus={isOnline} onLogoutUser={this.deconnexionUser} />} />

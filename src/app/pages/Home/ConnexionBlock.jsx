@@ -24,11 +24,12 @@ function ConnexionBlock() {
     }
 
     return (
+        <div className="col-lg-2 text-center ">
         <ReactCardFlip isFlipped={statusToFlip} flipDirection="horizontal">
             <FrontCard  onFrontFlip={frontFlip} />
             <BackCard onBackFlip={backFlip}/>
         </ReactCardFlip>
-
+        </div>
     );
 }
 

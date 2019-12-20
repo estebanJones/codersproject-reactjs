@@ -8,11 +8,13 @@ import ProjectBlock from "./ProjectBlock";
 function MainHome() {
 
     return (
-        <div className="allBlock">
+        <div className="container-fluid">
+        <div className="allBlock row col-lg-12">
             <ArenaBlock />
             <ConnexionBlock />
             <ProjectBlock />
 
+        </div>
         </div>
     )
 

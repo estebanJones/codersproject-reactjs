@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 
+// Import base Theme
+import Header from "../../../base/Header/Header.jsx";
+import Footer from "../../../base/Footer/Footer.jsx";
+
 function FrontCard(props) {
 
     const [inputPseudo, setInputPseudo] = useState("");
@@ -16,14 +20,13 @@ function FrontCard(props) {
                 console.log(data);
             })
     }
-
     return (
-        <div>
+        <div id="wrapper" className="bg_projects col-lg-4">
             <h3>Se connecter</h3>
-            <form onSubmit={(e) => handleSubmit(e)}>
+            <form>
                 <label>Nom d'utilisateur<input type="text" onChange={({ currentTarget: { value } }) => setInputPseudo(value)} value={inputPseudo}></input></label>
                 <label>Mot de passe<input type="password" onChange={({ currentTarget: { value } }) => setInputPassword(value)} value={inputPassword}></input></label>
-                <button className="btn btn-success">Entrer</button>
+                <button className="btn btn-success" onClick={(e) => handleSubmit(e)}>Entrer</button>
                 <p>OU</p>
                 <p>Se connecter avec :</p>
                 <div className="google">
@@ -43,5 +46,4 @@ function FrontCard(props) {
         </div>
     );
 }
-
 export default FrontCard;
