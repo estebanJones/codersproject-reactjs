@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import '../src/styles/homePage.css';
 import * as serviceWorker from './serviceWorker';
-import RouterCoder from "./RouterCoder.jsx"
+import RouterCoder from "./RouterCoder.jsx";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 // Import Pages
