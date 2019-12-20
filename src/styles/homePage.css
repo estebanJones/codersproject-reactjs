@@ -1,3 +1,33 @@
-body {
+.logo{
+
+    height: 100px;
+    width: 100px;
+}
+.arene{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: cornflowerblue;
     
+}
+
+
+
+.article {
+    align-items: center;
+    background-color: cornflowerblue;
+}
+
+.recompenses{align-items: center;
+    background-color: cornflowerblue;
+
+}
+.container{
+    background-color: blue;
+    justify-content: space-between;
+}
+
+.allBlock{
+    display: flex;
+    align-items:center;
 }

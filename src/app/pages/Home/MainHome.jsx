@@ -10,7 +10,8 @@ function MainHome() {
 
 
     return (
-        <div>
+        <div className="allBlock">
+            
             <ArenaBlock />
             <ConnexionBlock />
             <ProjectBlock />
