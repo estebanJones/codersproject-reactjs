@@ -6,6 +6,10 @@ import Footer from "../../base/Footer/Footer.jsx";
 
 // Import Images
 import arena from "../../../img/arena.png";
+import battleImg from "../../../img/logo.png";
+
+// Import Icons
+import { GiBattleAxe } from "react-icons/gi";
 
 function MainArene(props) {
 
@@ -20,7 +24,7 @@ function MainArene(props) {
                     <div className="allBlock row w-100 d-flex justify-content-lg-around px-0 mx-0 col-lg-12">
                         <div className="py-4 px-4 col-lg-7">
                         <h1 className="text-center">Battle à venir</h1>
-                    <div className="block-dark p-5 d-flex flex-column ">
+                    <div className="mainAreneButton block-dark p-5 d-flex flex-column ">
                         <img className="p-5 d-flex mx-auto w-50 " src={arena} />
                         <h4 className="text-center"><em>Coming Soon ...</em></h4>
                         </div>
@@ -29,25 +33,135 @@ function MainArene(props) {
         {/* Single List Result */}
         <div className="py-4 px-4 col-lg-4">
         <h1 className="text-center">Battles Terminées</h1> 
-        <div className="single-list-result block-dark custom_scrollbar">
-        <div className="row mx-0  block-dark-hover">
-            <div className="d-flex justify-content-center col-2">
-                test
+        <div className="battle-list-block block-dark custom_scrollbar">
+
+        {/* Single Result */}
+        <div className="row mx-0 single-list-result block-dark-hover">
+            <div className="d-flex justify-content-center col-3">
+            <img src={battleImg} className="h-75 my-auto d-flex justify-content-center" />
             </div>
-            <div className="d-flex justify-content-center col-10">
-            test
+            <div className="d-flex flex-column justify-content-center col-9">
+            <div class="row mx-auto pt-3">
+                <div class="col-2">
+                <GiBattleAxe />
+                </div>
+                <div class="col-10">
+                <h5>HTML / CSS</h5>
+                </div>
+            </div>
+            <p className="text-center"> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
             
         </div>
-        <div className="row mx-0  block-dark-hover">
-            <div className="d-flex justify-content-center col-2">
-                test
+        {/* Single Result */}
+        <div className="row mx-0 single-list-result block-dark-hover">
+            <div className="d-flex justify-content-center col-3">
+            <img src={battleImg} className="h-75 my-auto d-flex justify-content-center" />
             </div>
-            <div className="d-flex justify-content-center col-10">
-            test
+            <div className="d-flex flex-column justify-content-center col-9">
+            <div class="row mx-auto pt-3">
+                <div class="col-2">
+                <GiBattleAxe />
+                </div>
+                <div class="col-10">
+                <h5>HTML / CSS</h5>
+                </div>
+            </div>
+            <p className="text-center"> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
             
         </div>
+        {/* Single Result */}
+        <div className="row mx-0 single-list-result block-dark-hover">
+            <div className="d-flex justify-content-center col-3">
+            <img src={battleImg} className="h-75 my-auto d-flex justify-content-center" />
+            </div>
+            <div className="d-flex flex-column justify-content-center col-9">
+            <div class="row mx-auto pt-3">
+                <div class="col-2">
+                <GiBattleAxe />
+                </div>
+                <div class="col-10">
+                <h5>HTML / CSS</h5>
+                </div>
+            </div>
+            <p className="text-center"> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+            
+        </div>
+        {/* Single Result */}
+        <div className="row mx-0 single-list-result block-dark-hover">
+            <div className="d-flex justify-content-center col-3">
+            <img src={battleImg} className="h-75 my-auto d-flex justify-content-center" />
+            </div>
+            <div className="d-flex flex-column justify-content-center col-9">
+            <div class="row mx-auto pt-3">
+                <div class="col-2">
+                <GiBattleAxe />
+                </div>
+                <div class="col-10">
+                <h5>HTML / CSS</h5>
+                </div>
+            </div>
+            <p className="text-center"> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+            
+        </div>
+        {/* Single Result */}
+        <div className="row mx-0 single-list-result block-dark-hover">
+            <div className="d-flex justify-content-center col-3">
+            <img src={battleImg} className="h-75 my-auto d-flex justify-content-center" />
+            </div>
+            <div className="d-flex flex-column justify-content-center col-9">
+            <div class="row mx-auto pt-3">
+                <div class="col-2">
+                <GiBattleAxe />
+                </div>
+                <div class="col-10">
+                <h5>HTML / CSS</h5>
+                </div>
+            </div>
+            <p className="text-center"> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+            
+        </div>
+        {/* Single Result */}
+        <div className="row mx-0 single-list-result block-dark-hover">
+            <div className="d-flex justify-content-center col-3">
+            <img src={battleImg} className="h-75 my-auto d-flex justify-content-center" />
+            </div>
+            <div className="d-flex flex-column justify-content-center col-9">
+            <div class="row mx-auto pt-3">
+                <div class="col-2">
+                <GiBattleAxe />
+                </div>
+                <div class="col-10">
+                <h5>HTML / CSS</h5>
+                </div>
+            </div>
+            <p className="text-center"> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+            
+        </div>
+        {/* Single Result */}
+        <div className="row mx-0 single-list-result block-dark-hover">
+            <div className="d-flex justify-content-center col-3">
+            <img src={battleImg} className="h-75 my-auto d-flex justify-content-center" />
+            </div>
+            <div className="d-flex flex-column justify-content-center col-9">
+            <div class="row mx-auto pt-3">
+                <div class="col-2">
+                <GiBattleAxe />
+                </div>
+                <div class="col-10">
+                <h5>HTML / CSS</h5>
+                </div>
+            </div>
+            <p className="text-center"> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+            
+        </div>
+        
         </div>
         </div>
 
