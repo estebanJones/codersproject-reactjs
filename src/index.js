@@ -8,6 +8,7 @@ import RouterCoder from "./RouterCoder.jsx";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style/style.css';
+import './style/projects.css';
 
 
 const routing = ( <

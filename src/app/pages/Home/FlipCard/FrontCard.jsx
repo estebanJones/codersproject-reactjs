@@ -7,22 +7,25 @@ import Footer from "../../../base/Footer/Footer.jsx";
 function FrontCard(props) {
   const [inputPseudo, setInputPseudo] = useState("");
   const [inputPassword, setInputPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleSubmit = e => {
+    console.log("je suis dans handleSubmit");
     e.preventDefault();
 
-    fetch("app/connexion/symfony")
-      .then(res => {
-        return res.json();
-      })
-      .then(data => {
-        console.log(data);
-      });
+    // fetch("user/candidat/new")
+    //   .then(res => {
+    //     return res.json();
+    //   })
+    //   .then(data => {
+    //     console.log(data);
+    //   });
   };
   return (
     <div className="login-block block-dark w-100 h-100 px-4 py-4">
       <h4>Connexion</h4>
-      <form>
+
+      <form method="POST" action="user/candidat/new">
         <label className="d-flex flex-column mb-2">
           Nom d'utilisateur
           <input
@@ -40,6 +43,16 @@ function FrontCard(props) {
             type="password"
             onChange={({ currentTarget: { value } }) => setInputPassword(value)}
             value={inputPassword}
+            className="w-100 mt-2"
+          ></input>
+        </label>
+        <label className="d-flex flex-column mb-2">
+          Confirmé mot de passe
+          <input
+            name="passwordConfirm"
+            type="password"
+            onChange={({ currentTarget: { value } }) => setConfirmPassword(value)}
+            value={confirmPassword}
             className="w-100 mt-2"
           ></input>
         </label>

@@ -447,4 +447,27 @@ footer .svgSocial {
   height: 1.5rem;
   fill: white;
 }
+
+.mainContainer {
+  font-size: 1.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 22em;
+}
+
+.mainContainer #projectTitle {
+  width: 26em;
+  height: 2.5em;
+  margin-bottom: 2em;
+}
+
+.mainContainer input {
+  height: 2em;
+}
+
+.mainContainer textarea {
+  width: 26em;
+  height: 10.2em;
+}
 /*# sourceMappingURL=style.css.map */

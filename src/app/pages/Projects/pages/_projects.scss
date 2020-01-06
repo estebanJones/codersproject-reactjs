@@ -1,0 +1,21 @@
+.mainContainer {
+    font-size: 1.5em;
+    display: flex;
+    margin-top: 22em;
+
+    #projectTitle {
+        width: 26em;
+        height: 2.5em;
+        margin-bottom: 2em;
+    }
+
+    input {
+        height: 2em;
+    }
+
+    textarea {
+        width: 26em;
+        height: 10.2em;
+    }
+
+}
