@@ -20,9 +20,10 @@ import { FaTwitterSquare } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithubSquare } from "react-icons/fa";
 
-function Footer() {
-  const displayModule = props => {
+function Footer(props) {
+  const displayModule = module => {
     var isOnline = props.isOnline;
+
     switch (module) {
       case "user-avatar":
         if (isOnline === true) {
@@ -77,6 +78,7 @@ function Footer() {
           return (
             <div className="navRightFooter ">
               <div className="disabled w-100">
+                {console.log(isOnline)}
                 <NavigationFooter
                   className="footerNavigationIcons"
                   icon={<GoBell />}
@@ -129,14 +131,13 @@ function Footer() {
       </div>
       <div className="middleFooter">
         {displayModule("user-avatar")}
-        <GiNinjaHead className="footerMiddleIcon" />
+
         <div id="trapezoid_reverse"></div>
       </div>
 
       <div className="rightFooter">
         <nav>
           {displayModule("bottom-nav")}
-
           <div
             id="footerSocialIcons"
             className="w-50 h-100 d-flex justify-content-end pr-2 align-items-center"

@@ -1,7 +1,17 @@
 * {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
+}
+
+.font-rubik {
+  font-family: 'Rubik', cursive;
+}
+
+hr {
+  border: none;
+  border-bottom: 1px solid #e7e7e7 !important;
+  bottom: 0;
 }
 
 .block-dark {
@@ -16,6 +26,10 @@
 
 .block-dark-hover:hover {
   background-color: #000000a6;
+}
+
+button {
+  border: none;
 }
 
 body {
@@ -36,6 +50,8 @@ body {
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .custom_scrollbar {
@@ -60,6 +76,81 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.arene_link {
+  height: 5vw;
+}
+
+.arene_link a {
+  text-decoration: none;
+}
+
+.arene_link button {
+  cursor: pointer;
+  min-height: 5vh;
+}
+
+.arene_link button h2 {
+  font-weight: 700;
+}
+
+.home-battle-infos {
+  min-height: 40vh;
+}
+
+.home-battle-infos h4 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.home-battle-infos h5 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.home-battle-infos h6 {
+  text-align: center;
+  font-style: italic;
+}
+
+.home-battle-infos .images svg {
+  font-size: 3em;
+}
+
+.login-block {
+  min-height: 50vh;
+  max-height: 50vh;
+}
+
+.login-block form label {
+  text-align: center;
+  background-color: none;
+}
+
+.login-block form input {
+  height: 30px;
+  text-align: center;
+  background-color: #e7e7e7;
+  border: none;
+  color: #2b2b2b;
+}
+
+.login-block #socialLogin svg {
+  height: 2em;
+}
+
+.login-block h4 {
+  font-weight: 700;
+}
+
+.register-block {
+  min-height: 50vh;
+  max-height: 50vh;
+}
+
+.userIsLogged img {
+  height: 500px;
 }
 
 header {
