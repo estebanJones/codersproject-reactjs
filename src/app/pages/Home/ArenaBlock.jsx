@@ -3,14 +3,13 @@ import arena from "../../../img/arena.png";
 
 function ArenaBlock() {
   return (
-    
-    <div className="container col-lg-5">
+    <div className="col-lg-4">
       <div className="arene mb-2 d-flex justify-content-around">
         <img src={arena} alt="lol" className="logo ml-5 p-3"></img>
         <h3 className="mr-5">Arène</h3>
       </div>
 
-      <div className="article text-center bg-dark text-light p-5">
+      <div className="article text-center block-dark p-5">
         <h1> A venir </h1>
         <h2>HTML / CSS</h2>
 
@@ -20,16 +19,11 @@ function ArenaBlock() {
         <strong>Dimanche 21 Octobre à 14:00</strong>
       </div>
 
-<div>
-<h1 className="text-center bg-dark text-light mt-2 p-5">Récompenses</h1>
-</div>
-
-
-
-     </div>
-    )
+      <div>
+        <h1 className="text-center block-dark mt-2 p-5">Récompenses</h1>
+      </div>
+    </div>
+  );
 }
-
-
 
 export default ArenaBlock;

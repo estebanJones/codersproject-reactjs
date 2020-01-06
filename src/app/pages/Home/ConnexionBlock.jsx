@@ -9,28 +9,26 @@ import FrontCard from "./FlipCard/FrontCard";
 import BackCard from "./FlipCard/BackCard";
 import ReactCardFlip from "react-card-flip";
 
-
 function ConnexionBlock() {
-    
-    const [statusToFlip, setStatusToFlip] = useState(false);
-    const frontFlip = () => {
-        // e.preventDefault();
-        setStatusToFlip(true);
-    }
+  const [statusToFlip, setStatusToFlip] = useState(false);
+  const frontFlip = () => {
+    // e.preventDefault();
+    setStatusToFlip(true);
+  };
 
-    const backFlip = () => {
-        // e.preventDefault();
-        setStatusToFlip(false);
-    }
+  const backFlip = () => {
+    // e.preventDefault();
+    setStatusToFlip(false);
+  };
 
-    return (
-        <div className="col-lg-2 text-center ">
-        <ReactCardFlip isFlipped={statusToFlip} flipDirection="horizontal">
-            <FrontCard  onFrontFlip={frontFlip} />
-            <BackCard onBackFlip={backFlip}/>
-        </ReactCardFlip>
-        </div>
-    );
+  return (
+    <div className="col-lg-3 d-flex flex-column text-center justify-content-center">
+      <ReactCardFlip isFlipped={statusToFlip} flipDirection="horizontal">
+        <FrontCard onFrontFlip={frontFlip} />
+        <BackCard onBackFlip={backFlip} />
+      </ReactCardFlip>
+    </div>
+  );
 }
 
 export default ConnexionBlock;

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 
+// Import Component
 import MainHome from "./app/pages/Home/MainHome.jsx";
 import Arene from "./app/pages/Arene/Arene.jsx";
 import NouveauProjet from "./app/pages/Projects/pages/NouveauProjet.jsx";
@@ -20,28 +21,42 @@ import NouveauProjet from "./app/pages/Projects/pages/NouveauProjet.jsx";
 ////// Quizz
 // import Quizz from "./app/pages/Quizz/Quizz.jsx"
 function RouterCoder() {
-    const [userId, setUserId] = useState();
-    const [username, setUsername] = useState("");
-    const [isOnline, setIsOnline] = useState(false);
-    const [isAdmin, setIsAdmin] = useState(true);
+  const [userId, setUserId] = useState();
+  const [username, setUsername] = useState("");
+  const [isOnline, setIsOnline] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(true);
 
-    const updateUser = e => {
-        console.log("Bien dans le Routeur !!!");
-        setIsOnline(true);
-    }
+  const updateUser = e => {
+    console.log("Bien dans le Routeur !!!");
+    setIsOnline(true);
+  };
 
-    const deconnexionUser = e => {
-        setIsOnline(false);
-    }
+  const deconnexionUser = e => {
+    setIsOnline(false);
+  };
 
-    return (
-        <Router>
-         <div>
-            <Route exact path="/" 
-            render={(props) => <MainHome checkUserStatus={isOnline} updateUserToHome={updateUser} onLogoutUser={deconnexionUser}/>} />
-             <Route exact path="/arene"
-            render={(props) => <Arene checkUserStatus={isOnline} onLogoutUser={this.deconnexionUser} />} />
-           {/* <Route exact path="/projets"
+  return (
+    <Router>
+      <div>
+        <Route
+          exact
+          path="/"
+          render={props => (
+            <MainHome
+              checkUserStatus={isOnline}
+              updateUserToHome={updateUser}
+              onLogoutUser={deconnexionUser}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/arene"
+          render={props => (
+            <Arene checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />
+          )}
+        />
+        {/* <Route exact path="/projets"
             render={(props) => <Projects checkUserStatus={isOnline} onLogoutUser={this.deconnexionUser} />} />
             <Route exact path="/projets/nouveau" 
             render={(props) => <ProjetsFinis checkUserStatus={isOnline} onLogoutUser={this.deconnexionUser} />} />
@@ -51,13 +66,9 @@ function RouterCoder() {
             render={(props) => <Forum checkUserStatus={isOnline} onLogoutUser={this.deconnexionUser} />} />
             <Route exact path="/quizz"
             render={(props) => <Quizz checkUserStatus={actualUser[0].isOnline} onLogoutUser={this.deconnexionUser} />} /> */}
-            </div>
-        </Router>
-    )
-
-
-
-
+      </div>
+    </Router>
+  );
 }
 
 export default RouterCoder;
