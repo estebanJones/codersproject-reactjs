@@ -1,5 +1,12 @@
 import React, { useState } from "react";
 
+// Import base Theme
+import Header from "../../../base/Header/Header.jsx";
+import Footer from "../../../base/Footer/Footer.jsx";
+
+// Import Icons
+import { AiFillPlusSquare } from "react-icons/ai";
+
 
 function BackCard(props) {
 
@@ -7,31 +14,31 @@ function BackCard(props) {
 
 
     return(
-            <div class="col-lg-4">
-                <div>
-                    <h2 className="textCenter">Mot de passe oublié ?</h2>
+        <div className="login-block block-dark d-flex flex-column justify-content-between w-100 h-100 px-4 py-4">
+                    <h4>Mot de passe oublié ?</h4>
                     <form
-                        className="formControl mt-6">                
-                        <label className="d-column mb-2">
+                        id="askPassword"
+                        className="formControl mt-6">
+                            <p>Veuillez renseigner votre adresse email afin d'obtenir un lien pour réinitialiser votre mot de passe.</p>                
+                        <label className="mb-2">
                         Adresse mail{" "}
                         <input
                             onChange={({currentTarget: {value}}) => setEmail(value)} value={email}
-                            className="mt-2 font-rubik"
-                            type="text"
+                            className="w-100 mt-2 font-rubik"
+                            type="email"
                         ></input>
                         </label>
-                        <button className="btn-green mt-4 w-100" type="submit">
+                        <button className="btn btn-success w-100 rounded-0 border-none mt-2" type="submit">
                         Valider
                         </button>
-                        <h5
-                        className="mt-5 mx-auto text-center pointer w-50"
+                    </form>
+                    <h5
+                        className="backToLogin mt-5 mx-auto text-center w-100"
                         onClick={props.onBackFlip}
                         >
                         Retour à la connexion
                         </h5>
-                    </form>
                 </div>
-            </div>
           );
 }
 

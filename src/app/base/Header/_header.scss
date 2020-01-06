@@ -8,6 +8,16 @@ header {
     .leftHeader {
         width: 48%;
 
+        h4 {
+            span{
+                font-size: 2.5rem;
+            }
+        }
+
+        .progress {
+            height: 25px;
+            background-color: #517ca6;
+        }
     }
 
     .middleHeader {

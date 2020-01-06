@@ -3,13 +3,9 @@ import { Route, BrowserRouter as Router } from "react-router-dom";
 
 // Import Component
 import MainHome from "./app/pages/Home/MainHome.jsx";
-import Arene from "./app/pages/Arene/Arene.jsx";
+import MainArene from "./app/pages/Arene/MainArene.jsx";
 import NouveauProjet from "./app/pages/Projects/pages/NouveauProjet.jsx";
-//
-// Import Pages
-////// Home
-////// Arene
-// import Arene from "./app/pages/Arene/Arene.jsx";
+
 ////// Projets
 // import Projects from "./app/pages/Projects/Projects.jsx";
 // import ProjetsFinis from "./app/pages/Projects/pages/ProjetsFinis.jsx";
@@ -23,7 +19,7 @@ import NouveauProjet from "./app/pages/Projects/pages/NouveauProjet.jsx";
 function RouterCoder() {
   const [userId, setUserId] = useState();
   const [username, setUsername] = useState("");
-  const [isOnline, setIsOnline] = useState(false);
+  const [isOnline, setIsOnline] = useState(true);
   const [isAdmin, setIsAdmin] = useState(true);
 
   const updateUser = e => {
@@ -53,7 +49,7 @@ function RouterCoder() {
           exact
           path="/arene"
           render={props => (
-            <Arene checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />
+            <MainArene checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />
           )}
         />
         {/* <Route exact path="/projets"
