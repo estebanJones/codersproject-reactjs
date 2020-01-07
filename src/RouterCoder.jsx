@@ -3,9 +3,9 @@ import { Route, BrowserRouter as Router } from "react-router-dom";
 
 // Import Component
 import MainHome from "./app/pages/Home/MainHome.jsx";
-import Arene from "./app/pages/Arene/Arene.jsx";
-import NouveauProjet from "./app/pages/Projects/pages/NouveauProjet.jsx";
-import LogoFormProject from "./app/pages/Projects/pages/LogoFormProject.jsx";
+import MainArene from "./app/pages/Arene/MainArene.jsx";
+import NouveauProjet from "./app/pages/Projects/NouveauProjet.jsx";
+import CreationProjetFormulaire from "./app/pages/Projects/CreationProjetFormulaire.jsx";
 //
 // Import Pages
 ////// Home
@@ -24,7 +24,7 @@ import LogoFormProject from "./app/pages/Projects/pages/LogoFormProject.jsx";
 function RouterCoder() {
   const [userId, setUserId] = useState();
   const [username, setUsername] = useState("");
-  const [isOnline, setIsOnline] = useState(false);
+  const [isOnline, setIsOnline] = useState(true);
   const [isAdmin, setIsAdmin] = useState(true);
 
   const updateUser = e => {
@@ -54,11 +54,11 @@ function RouterCoder() {
           exact
           path="/arene"
           render={props => (
-            <Arene checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />
+            <MainArene checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />
           )}
         />
          <Route exact path="/projets"
-            render={(props) => <LogoFormProject checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />} />
+            render={(props) => <CreationProjetFormulaire checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />} />
         {/*    <Route exact path="/projets/nouveau" 
             render={(props) => <ProjetsFinis checkUserStatus={isOnline} onLogoutUser={this.deconnexionUser} />} />
             <Route exact path="/projet/1"

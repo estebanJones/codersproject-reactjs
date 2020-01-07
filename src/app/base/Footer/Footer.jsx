@@ -4,6 +4,9 @@ import React from "react";
 import NavigationFooter from "./NavigationFooter.jsx";
 import { Link } from "react-router-dom";
 
+// Import Images
+import logo from "../../../img/avatars/avatar-footer.png";
+
 // Import Icons
 import { GiNinjaHead } from "react-icons/gi";
 import { GoBell } from "react-icons/go";
@@ -29,7 +32,7 @@ function Footer(props) {
         if (isOnline === true) {
           return (
             <img
-              src="/img/avatars/avatar-footer.png"
+              src={logo}
               className="user-avatar mt-4"
               alt="img"
             />
@@ -78,7 +81,6 @@ function Footer(props) {
           return (
             <div className="navRightFooter ">
               <div className="disabled w-100">
-                {console.log(isOnline)}
                 <NavigationFooter
                   className="footerNavigationIcons"
                   icon={<GoBell />}

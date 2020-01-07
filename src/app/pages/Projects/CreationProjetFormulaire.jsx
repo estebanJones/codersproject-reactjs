@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import logo  from "./../../../../img/logo.png";
+import logo  from "./../../../img/logo.png";
 
-function LogoFormProject() {
+function CreationProjetFormulaire() {
     const [projectTitle, setProjectTitle] = useState("");
     const [describProject, setDescribProject] = useState("");
 
@@ -36,7 +36,8 @@ function LogoFormProject() {
                                 <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"></input>
                                 <label className="form-check-label" for="inlineCheckbox2">Back-End</label>
                             </div>
-                            <label name="projectDescrib" type="text" onChange={({ currentTarget: { value } }) => setDescribProject(value)} value={describProject}>Description du résultat attendu
+                            <label name="projectDescrib" type="text" onChange={({ currentTarget: { value } }) => setDescribProject(value)} value={describProject}>
+                                Description du résultat attendu
                                 <br></br>   <textarea></textarea>
                             </label>
                         </div>
@@ -54,4 +55,4 @@ function LogoFormProject() {
     );
 }
 
-export default LogoFormProject;
+export default CreationProjetFormulaire;

@@ -49,7 +49,6 @@ body {
         height: 100%;
         overflow-x: hidden;
         overflow-y: auto;
-        padding-top: 60px;
         padding-bottom: 60px;
     }
 }
@@ -72,6 +71,7 @@ body {
 }
 
 @import "../app/pages/Home/home";
+@import "../app/pages/Arene/arene";
 @import "../app/base/Header/header";
 @import "../app/base/Footer/footer";
 @import "../app/pages/Projects/pages/projects";

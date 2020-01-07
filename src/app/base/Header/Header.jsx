@@ -13,34 +13,43 @@ import logo from "../../../img/logo.png";
 
 function Header(props) {
   const logoutUser = e => {
-    console.log("Bien dans le Home !");
     props.onLogoutUser();
   };
 
   const displayModule = module => {
-    let isOnline = props.isOnline;
+    let isOnline = props.checkUserStatus;
+
 
     switch (module) {
       case "user-experience":
         if (isOnline === true) {
           return (
-            <div className="d-column jc-center h-100">
-              <h3 className="text-center">
-                Component d'expérience user à créer
-              </h3>
+            <div className="d-flex flex-column justify-content-center h-100 pl-4">
+              <div className="row mx-0">
+              <div className="col-3">
+              <h4 className="text-uppercase">
+                niveau <span>3</span>
+              </h4>
+              </div>
+              <div className="col-9">
+                <h6 className="text-center">25 / 100 XP</h6>
+              <div class="progress rounded-0" >
+  <div className="progress-bar w-25 bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+              </div>
+              </div>
             </div>
+
           );
-        } else if (isOnline === false) {
-          return <div>loool</div>;
         }
         break;
       case "right-buttons":
-        if (isOnline === false) {
+        if (isOnline === true) {
           return (
             <div className="buttonsHeaderDrop">
               <FaQuestionCircle className="headerRightIcons" />
               <FaCog className="headerRightIcons" />
-              <IoMdLogOut className="headerRightIcons" onClick={logoutUser} />
+              <IoMdLogOut className="headerRightIcons" onClick={props.onLogoutUser} />
             </div>
           );
         } else {

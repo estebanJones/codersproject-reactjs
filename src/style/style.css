@@ -50,7 +50,6 @@ body {
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  padding-top: 60px;
   padding-bottom: 60px;
 }
 
@@ -76,6 +75,28 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.bg_home .allBlock {
+  max-height: 70vh;
+}
+
+.bg_home #awards svg {
+  height: 2em;
+  width: 2em;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .arene_link {
@@ -115,7 +136,7 @@ body {
 }
 
 .home-battle-infos .images svg {
-  font-size: 3em;
+  height: 3em;
 }
 
 .login-block {
@@ -144,6 +165,23 @@ body {
   font-weight: 700;
 }
 
+.login-block #passLost h6, .login-block #passLost h3, .login-block .backToLogin {
+  cursor: pointer;
+}
+
+.home-project-list .block-home-list {
+  min-height: 47vh;
+  max-height: 47vh;
+}
+
+.home-project-list .single-list-result:nth-child(even) {
+  background-color: #00000063;
+}
+
+.home-project-list .single-list-result:nth-child(even):hover {
+  background-color: #0000007e;
+}
+
 .register-block {
   min-height: 50vh;
   max-height: 50vh;
@@ -151,6 +189,32 @@ body {
 
 .userIsLogged img {
   height: 500px;
+}
+
+.bg_arene {
+  background-image: url("../img/arene-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.bg_arene .allBlock {
+  max-height: 70vh;
+}
+
+.bg_arene .single-list-result {
+  height: 55vh;
+  max-height: 55vh;
 }
 
 header {
@@ -167,6 +231,15 @@ header {
 
 header .leftHeader {
   width: 48%;
+}
+
+header .leftHeader h4 span {
+  font-size: 2.5rem;
+}
+
+header .leftHeader .progress {
+  height: 25px;
+  background-color: #517ca6;
 }
 
 header .middleHeader {

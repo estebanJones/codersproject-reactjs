@@ -4,6 +4,7 @@
     "sources": [
         "style.scss",
         "../app/pages/Home/_home.scss",
+        "../app/pages/Arene/_arene.scss",
         "../app/base/Header/_header.scss",
         "../app/base/Footer/_footer.scss",
         "../app/pages/Projects/pages/_projects.scss"

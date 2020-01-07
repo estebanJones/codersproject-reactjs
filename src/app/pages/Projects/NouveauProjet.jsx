@@ -1,11 +1,11 @@
 import React from "react";
-import LogoFormProject from "./LogoFormProject";
+import CreationProjetFormulaire from "./CreationProjetFormulaire";
 
 
 function NouveauProjet() {
     return (
         <div>
-            <LogoFormProject />
+            <CreationProjetFormulaire />
         </div>
     );
 }
