@@ -16,7 +16,7 @@ function MainHome(props) {
   } else if(isOnline === true){
 var blockState = <LoggedUser />
   }
-  console.log(blockState);
+
   return (
     <div id="wrapper">
       <Header 

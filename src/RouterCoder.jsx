@@ -4,6 +4,7 @@ import { Route, BrowserRouter as Router } from "react-router-dom";
 // Import Component
 import MainHome from "./app/pages/Home/MainHome.jsx";
 import MainArene from "./app/pages/Arene/MainArene.jsx";
+import MainProfile from "./app/pages/UserProfile/MainProfile.jsx";
 import NouveauProjet from "./app/pages/Projects/pages/NouveauProjet.jsx";
 
 ////// Projets
@@ -50,6 +51,13 @@ function RouterCoder() {
           path="/arene"
           render={props => (
             <MainArene checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />
+          )}
+        />
+        <Route
+          exact
+          path="/mon-profile/"
+          render={props => (
+            <MainProfile checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />
           )}
         />
         {/* <Route exact path="/projets"

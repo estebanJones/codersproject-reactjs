@@ -1,0 +1,39 @@
+.bg_userProfile {
+    background-image: url("../img/background.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .allBlock{
+        max-height: 80vh;
+
+        .imgUser, .infosUser{
+        
+            height: 70vh;
+
+                
+        }
+
+        .imgUser{
+            img{
+                width: 85%;
+            }
+        }
+
+        .descriptionUser{
+            svg{
+                float: right;
+                height: 2em;
+            }
+
+            img{
+                height: 60px;
+            }
+        }
+    }
+    
+
+}

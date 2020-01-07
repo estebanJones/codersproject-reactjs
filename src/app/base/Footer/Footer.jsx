@@ -31,11 +31,13 @@ function Footer(props) {
       case "user-avatar":
         if (isOnline === true) {
           return (
+            <Link to="/mon-profile/">
             <img
               src={logo}
-              className="user-avatar mt-4"
+              className="user-avatar mt-4 ml-3"
               alt="img"
             />
+            </Link>
           );
         } else if (isOnline === false) {
           return <GiNinjaHead className="footerMiddleIcon" />;
@@ -133,7 +135,9 @@ function Footer(props) {
         </nav>
       </div>
       <div className="middleFooter">
+   
         {displayModule("user-avatar")}
+
 
         <div id="trapezoid_reverse"></div>
       </div>
