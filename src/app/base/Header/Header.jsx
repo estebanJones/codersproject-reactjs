@@ -3,6 +3,7 @@ import React from "react";
 // Import Modules
 import { Link } from "react-router-dom";
 
+
 // Import Icons
 import { FaCog } from "react-icons/fa";
 import { FaQuestionCircle } from "react-icons/fa";
@@ -47,7 +48,10 @@ function Header(props) {
         if (isOnline === true) {
           return (
             <div className="buttonsHeaderDrop">
-              <FaQuestionCircle className="headerRightIcons" />
+             
+  <FaQuestionCircle className="headerRightIcons" />
+
+              
               <FaCog className="headerRightIcons" />
               <IoMdLogOut className="headerRightIcons" onClick={props.onLogoutUser} />
             </div>
@@ -78,19 +82,16 @@ function Header(props) {
       <div className="rightHeader">
         <nav>
           <ul>
-            <li
-              onClick={e => {
-                props.onChangeTab("home");
-              }}
-            >
+            <li>
+               <Link to="/les-coders/">
+                      
               Les Coders
+              </Link>
             </li>
-            <li
-              onClick={e => {
-                props.onChangeTab("arene");
-              }}
-            >
+            <li>
+            <Link to="/les-clans/">
               Les Clans
+              </Link>
             </li>
           </ul>
 

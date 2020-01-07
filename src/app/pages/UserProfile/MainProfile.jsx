@@ -89,9 +89,9 @@ function MainProfile(props) {
                         <div className="row mx-0 mt-2 h-25 ">
                             <div className="px-0 pr-1 col-6 ">
                         <div className="descriptionUser block-dark h-100 p-2 d-flex flex-column px-5 ">
-                        <h5 className="text-center w-100"><strong>Projets Terminés</strong><FaPenSquare /></h5>
+                        <h5 className="text-center w-100"><strong>Stats</strong><FaPenSquare /></h5>
                         
-                        <p className="text-center mt-3">Aucun projet terminé pour le moment.</p>
+                        <p className="text-center mt-3">Aucune statistique pour le moment.</p>
                         </div>
                         </div>
                         <div className="descriptionUser block-dark col-6  p-2 d-flex flex-column px-5 ">

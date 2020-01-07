@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 
-// Import Component
+// Import Pages
 import MainHome from "./app/pages/Home/MainHome.jsx";
 import MainArene from "./app/pages/Arene/MainArene.jsx";
 import MainProfile from "./app/pages/UserProfile/MainProfile.jsx";
+import MainCoders from "./app/pages/Coders/MainCoders.jsx";
+import MainClans from "./app/pages/Clans/MainClans.jsx";
 import NouveauProjet from "./app/pages/Projects/pages/NouveauProjet.jsx";
 
 ////// Projets
@@ -58,6 +60,20 @@ function RouterCoder() {
           path="/mon-profile/"
           render={props => (
             <MainProfile checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />
+          )}
+        />
+        <Route
+          exact
+          path="/les-coders/"
+          render={props => (
+            <MainCoders checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />
+          )}
+        />
+        <Route
+          exact
+          path="/les-clans/"
+          render={props => (
+            <MainClans checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />
           )}
         />
         {/* <Route exact path="/projets"

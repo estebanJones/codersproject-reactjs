@@ -317,6 +317,11 @@ header .rightHeader nav ul li {
   border-bottom: 1px solid #e7e7e7;
 }
 
+header .rightHeader nav ul li a {
+  color: #e7e7e7;
+  text-decoration: none;
+}
+
 header .rightHeader nav .headerRightIcons {
   margin-right: 1em;
 }
@@ -569,5 +574,17 @@ footer .svgSocial {
 
 .bg_userProfile .allBlock .descriptionUser img {
   height: 60px;
+}
+
+.bg_home #searchUserBar input:focus {
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.bg_home #mainUsersResult {
+  height: 70vh;
+}
+
+.bg_home #mainUsersResult .single-list-result {
+  height: 100px;
 }
 /*# sourceMappingURL=style.css.map */
