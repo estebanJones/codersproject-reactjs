@@ -13,15 +13,29 @@ function FrontCard(props) {
 
   const handleSubmit = e => {
     e.preventDefault();
+    const myHeaders = new Headers();
+    const myInit = {
+      method: "POST",
+      body: JSON.stringify(
+        {
+          username: inputPseudo,
+          password: inputPassword
+        }
+      ),
+      cache: "default",
+      "Content-type": "application/json"
+    }
 
-    fetch("app/connexion/symfony")
-      .then(res => {
-        return res.json();
+    fetch("http://127.0.0.1:8000/api/user/connection", myInit)
+      .then(response => {
+        return response.json();
       })
-      .then(data => {
-        console.log(data);
+      .then(result => {
+        return console.log(result);
       });
   };
+
+
   return (
     <div className="login-block block-dark w-100 h-100 px-4 py-4">
       <h4>Connexion</h4>
@@ -84,8 +98,8 @@ function FrontCard(props) {
         <div className="mt-3">
           <a id="passLost" onClick={props.onFrontFlip}>
             <h6>Identifiants oubliés ?</h6></a>
-            <a id="passLost" onClick={props.onFrontFlip}><h3 className="mb-0 pt-3"><AiFillPlusSquare />Créer un compte</h3></a>
-          
+          <a id="passLost" onClick={props.onFrontFlip}><h3 className="mb-0 pt-3"><AiFillPlusSquare />Créer un compte</h3></a>
+
         </div>
       </form>
     </div>
