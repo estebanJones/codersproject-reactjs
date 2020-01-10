@@ -18,10 +18,10 @@ import { GiGraduateCap } from "react-icons/gi";
 import { GiFist } from "react-icons/gi";
 import { GiMegaphone } from "react-icons/gi";
 import { FaPlaceOfWorship } from "react-icons/fa";
-import { FaFacebookSquare } from "react-icons/fa";
-import { FaTwitterSquare } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
-import { FaGithubSquare } from "react-icons/fa";
+// import { FaFacebookSquare } from "react-icons/fa";
+// import { FaTwitterSquare } from "react-icons/fa";
+// import { FaLinkedin } from "react-icons/fa";
+// import { FaGithubSquare } from "react-icons/fa";
 
 function Footer(props) {
   const displayModule = module => {
@@ -104,7 +104,8 @@ function Footer(props) {
             </div>
           );
         }
-
+        break;
+        
       default:
         break;
     }

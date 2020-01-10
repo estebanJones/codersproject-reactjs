@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 // Import Icons
 import { FaPlaceOfWorship } from "react-icons/fa";
-import { FaProjectDiagram } from "react-icons/fa";
+// import { FaProjectDiagram } from "react-icons/fa";
 import { IoLogoHtml5 } from "react-icons/io";
 import { IoLogoCss3 } from "react-icons/io";
 

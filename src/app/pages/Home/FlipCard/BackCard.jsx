@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 
 // Import base Theme
-import Header from "../../../base/Header/Header.jsx";
-import Footer from "../../../base/Footer/Footer.jsx";
 
 // Import Icons
-import { AiFillPlusSquare } from "react-icons/ai";
+// import { AiFillPlusSquare } from "react-icons/ai";
 
 
 function BackCard(props) {

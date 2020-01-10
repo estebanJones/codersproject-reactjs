@@ -5,7 +5,6 @@ import { Route, BrowserRouter as Router } from "react-router-dom";
 import MainHome from "./app/pages/Home/MainHome.jsx";
 import MainArene from "./app/pages/Arene/MainArene.jsx";
 import MainProfile from "./app/pages/UserProfile/MainProfile.jsx";
-import NouveauProjet from "./app/pages/Projects/NouveauProjet.jsx";
 
 ////// Projets
 // import Projects from "./app/pages/Projects/Projects.jsx";

@@ -1,5 +1,7 @@
 import React from "react";
 import $ from "jquery";
+
+
 // Import Structure
 import Header from "../../base/Header/Header.jsx";
 import Footer from "../../base/Footer/Footer.jsx";
@@ -14,27 +16,42 @@ import { FaPenSquare } from "react-icons/fa";
 import { MdRadioButtonUnchecked } from "react-icons/md";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 import CheckBoxSpeciality from "./CheckBoxSpeciality.jsx";
+import { useRef } from "react";
 
 function MainProfile(props) {
 
-  var isOnline = props.checkUserStatus;
-  var onLogout = props.onLogoutUser;
+  const isOnline = props.checkUserStatus;
+  const onLogout = props.onLogoutUser;
+  let describRef = useRef(null);
+  let checkBoxForm = useRef(null);
+
+
+  const componentDidMount = () => {
+  }
+
+  const componentWillUnmount = () => {
+
+  }
+
 
   const transformEditDescrib = () => {
-    $('.inputDescrib').replaceWith(function(){
+    $(describRef).replaceWith(function(){
       return $('<input/>', {
         'class': "inputDescription",
         text:"text"
       });
    })
-  }
 
-  const handleChange = (e) => {
-    // console.log(e.currentTarget.value);
+  //   $('.inputDescrib').replaceWith(function(){
+  //     return $('<input/>', {
+  //       'class': "inputDescription",
+  //       text:"text"
+  //     });
+  //  })
   }
 
   const transformEditCheckbox = () => {
-    $('.checkBoxForm').replaceWith(function(){
+    $(checkBoxForm).replaceWith(function(){
       return $(<CheckBoxSpeciality />, {
         className:"row mx-0 d-flex justify-content-around pt-3",
       });
@@ -53,13 +70,11 @@ function MainProfile(props) {
         text: newDescrib
       });
     })
-  }
-  
+  } 
+
   const onSubmitEditUser = () => {
 
-
   }
-  
 
   return (
     <div id="wrapper">
@@ -72,7 +87,7 @@ function MainProfile(props) {
         <div className="allBlock row w-100 d-flex justify-content-lg-around px-0 mx-0 col-lg-12">
           <div  className="imgUser py-4 px-4 col-lg-4 ">
               <div className="d-flex flex-column ">
-                  <img src={userAvatar} className="img-fluid mx-auto mt-5" />
+                  <img src={userAvatar} className="img-fluid mx-auto mt-5" alt="img" />
                   <canvas id="doughnutChart"></canvas>
               </div>
           </div>
@@ -82,7 +97,7 @@ function MainProfile(props) {
                   <form onSubmit={onSubmitEditUser}>
                     <div className="descriptionUser block-dark p-2 d-flex flex-column px-5">
                       <h5 className="text-center w-100"><strong>Description</strong><FaPenSquare onClick={transformEditDescrib}/></h5>
-                      <p className="text-center inputDescrib">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum itaque hic eos offi
+                      <p className="text-center" ref={element => describRef = element}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum itaque hic eos offi
                       cia in dolorem officiis veritatis deserunt doloremque. Sit animi dolore soluta repudiandae, reprehenderit aliquid fugiat recusa
                       ndae odit ipsumorem ipsum dolor sit amet consectetur adipisicing elit. Earum itaque hic eos officia in dolorem officiis veritatis d
                       eserunt doloremque. Sit animi dolore soluta repudiandae, reprehenderit aliquid fugiat recusandae odit ipsum.</p>
@@ -91,7 +106,7 @@ function MainProfile(props) {
                       <div className="px-0 pr-1 col-6">
                         <div className="descriptionUser block-dark h-100 p-2 d-flex flex-column px-5 ">
                           <h5 className="text-center w-100"><strong>Spécialité</strong><FaPenSquare onClick={transformEditCheckbox}/></h5>
-                            <div className="row mx-0 d-flex justify-content-around pt-3 checkBoxForm">
+                            <div className="row mx-0 d-flex justify-content-around pt-3" ref={el => checkBoxForm = el}>
                               <div className="d-flex justify-content-center">
                                 <IoIosCheckmarkCircle />
                                 <h5 className="ml-2 my-auto">Front-End</h5>
@@ -115,23 +130,23 @@ function MainProfile(props) {
                             <div className="d-flex justify-content-center">
                                <div className="form-check">
                                   <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"></input>
-                                  <img src={badge1} className="img-fluid" />
+                                  <img src={badge1} className="img-fluid" alt="img"/>
                                </div>
                                <div className="d-flex justify-content-center">
                                   <div className="form-check">
                                     <input className="form-check-input" type="checkbox" value="" id="defaultCheck2"></input>
-                                    <img src={badge2} className="img-fluid" />
+                                    <img src={badge2} className="img-fluid" alt="img"/>
                                   </div>
                                 </div>
                                 <div className="d-flex justify-content-center">
                                   <div className="form-check">
                                     <input className="form-check-input" type="checkbox" value="" id="defaultCheck3"></input>
-                                    <img src={badge1} className="img-fluid" />
+                                    <img src={badge1} className="img-fluid" alt="img"/>
                                   </div>
                                 </div>
                                 <div className="d-flex justify-content-center">
                                   <input className="form-check-input mr-2" type="checkbox" value="" id="defaultCheck4"></input>
-                                  <img src={badge2} className="img-fluid" />
+                                  <img src={badge2} className="img-fluid" alt="img"/>
                                 </div>
                               </div>
                           </div>

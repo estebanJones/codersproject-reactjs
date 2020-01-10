@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
 // Import base Theme
-import Header from "../../../base/Header/Header.jsx";
-import Footer from "../../../base/Footer/Footer.jsx";
 
 // Import Icons
 import { AiFillPlusSquare } from "react-icons/ai";
@@ -12,16 +10,33 @@ function FrontCard(props) {
   const [inputPassword, setInputPassword] = useState("");
 
   const handleSubmit = e => {
+    // Gere la requete 
+    console.log("dans handle");
     e.preventDefault();
 
-    fetch("app/connexion/symfony")
-      .then(res => {
-        return res.json();
+    // INITIALIZE THE REQUEST
+    const myInit = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(
+        {
+          username: inputPseudo,
+          password: inputPassword
+        }
+      ),
+      cache: "default"
+    };
+    
+    fetch("http://127.0.0.1:8000/api/user/connection", myInit)      
+    .then(response => {
+       return response.json();
       })
-      .then(data => {
-        console.log(data);
+      .then(result => {
+        return console.log(result);
       });
   };
+
+
   return (
     <div className="login-block block-dark w-100 h-100 px-4 py-4">
       <h4>Connexion</h4>
@@ -47,7 +62,7 @@ function FrontCard(props) {
           ></input>
         </label>
         <button
-          className="btn btn-success w-100 rounded-0 border-none"
+          className="btn btn-success w-100 rounded-0 border-none" type="submit"
           onClick={e => handleSubmit(e)}
         >
           Entrer
@@ -91,4 +106,5 @@ function FrontCard(props) {
     </div>
   );
 }
+
 export default FrontCard;
