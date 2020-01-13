@@ -26,17 +26,17 @@ function Header(props) {
           return (
             <div className="d-flex flex-column justify-content-center h-100 pl-4">
               <div className="row mx-0">
-              <div className="col-3">
-              <h4 className="text-uppercase">
-                niveau <span>3</span>
-              </h4>
-              </div>
-              <div className="col-9">
-                <h6 className="text-center">25 / 100 XP</h6>
-              <div class="progress rounded-0" >
-  <div className="progress-bar w-25 bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
-              </div>
+                <div className="col-3">
+                  <h4 className="text-uppercase">
+                    niveau <span>3</span>
+                  </h4>
+                </div>
+                <div className="col-9">
+                  <h6 className="text-center">25 / 100 XP</h6>
+                  <div className="progress rounded-0" >
+                    <div className="progress-bar w-25 bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
               </div>
             </div>
 

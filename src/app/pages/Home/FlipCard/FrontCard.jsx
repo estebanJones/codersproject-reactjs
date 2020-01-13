@@ -12,25 +12,28 @@ function FrontCard(props) {
   const [inputPassword, setInputPassword] = useState("");
 
   const handleSubmit = e => {
+    console.log("dans handle");
     e.preventDefault();
-    const myHeaders = new Headers();
-    const myInit = {
-      method: "POST",
-      body: JSON.stringify(
-        {
-          username: inputPseudo,
-          password: inputPassword
-        }
-      ),
-      cache: "default",
-      "Content-type": "application/json"
-    }
-
-    fetch("http://127.0.0.1:8000/api/user/connection", myInit)
+    fetch("http://127.0.0.1:8000/api/user/connection",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(
+          {
+            username: inputPseudo,
+            password: inputPassword
+          }
+        ),
+        cache: "default"
+      })
       .then(response => {
+        console.log("1st promise");
         return response.json();
       })
       .then(result => {
+        console.log("deuxieme partie");
         return console.log(result);
       });
   };
@@ -39,7 +42,7 @@ function FrontCard(props) {
   return (
     <div className="login-block block-dark w-100 h-100 px-4 py-4">
       <h4>Connexion</h4>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label className="d-flex flex-column mb-2">
           Nom d'utilisateur
           <input
@@ -62,7 +65,7 @@ function FrontCard(props) {
         </label>
         <button
           className="btn btn-success w-100 rounded-0 border-none"
-          onClick={e => handleSubmit(e)}
+
         >
           Entrer
         </button>
