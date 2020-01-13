@@ -104,7 +104,8 @@ function Footer(props) {
             </div>
           );
         }
-
+        break;
+        
       default:
         break;
     }

@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
 // Import base Theme
-import Header from "../../../base/Header/Header.jsx";
-import Footer from "../../../base/Footer/Footer.jsx";
 
 // Import Icons
 import { AiFillPlusSquare } from "react-icons/ai";
@@ -64,8 +62,13 @@ function FrontCard(props) {
           ></input>
         </label>
         <button
+<<<<<<< HEAD
           className="btn btn-success w-100 rounded-0 border-none"
 
+=======
+          className="btn btn-success w-100 rounded-0 border-none" type="submit"
+          onClick={e => handleSubmit(e)}
+>>>>>>> 776cd9252b23701f2d47b905888b212f8206f95a
         >
           Entrer
         </button>
@@ -108,4 +111,5 @@ function FrontCard(props) {
     </div>
   );
 }
+
 export default FrontCard;
