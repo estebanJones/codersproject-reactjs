@@ -9,7 +9,7 @@ import FrontCard from "./FlipCard/FrontCard";
 import BackCard from "./FlipCard/BackCard";
 import ReactCardFlip from "react-card-flip";
 
-function ConnexionBlock() {
+function ConnexionBlock(props) {
   const [statusToFlip, setStatusToFlip] = useState(false);
   const [statusToRegister, setStatusToRegister] = useState(false);
   const frontFlip = () => {

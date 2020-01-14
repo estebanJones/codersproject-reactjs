@@ -15,7 +15,7 @@ function BackCard(props) {
     const [inputEmailRegister, setInputEmailRegister] = useState("");
 
     const [inputEmailForgetPass, setInputEmailForgetPass] = useState("");
-
+    
     const onRegister = (e) => {
         e.preventDefault();
             console.log("handle");
