@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 
-// Import Component
-import MainHome from "./app/pages/Home/MainHome.jsx";
-import MainArene from "./app/pages/Arene/MainArene.jsx";
-import MainProfile from "./app/pages/UserProfile/MainProfile.jsx";
-import NouveauProjet from "./app/pages/Projects/NouveauProjet.jsx";
+// Import Pages
 
-////// Projets
-// import Projects from "./app/pages/Projects/Projects.jsx";
+// Home
+import MainHome from "./app/pages/Home/MainHome.jsx";
+
+// Arene
+import MainArene from "./app/pages/Arene/MainArene.jsx";
+
+// User
+import MainProfile from "./app/pages/UserProfile/MainProfile.jsx";
+
+// Projets
+import NouveauProjet from "./app/pages/Projects/NouveauProjet.jsx";
+import MyApp from "./app/pages/Projects/Gerer/MyApp.jsx";
 // import ProjetsFinis from "./app/pages/Projects/pages/ProjetsFinis.jsx";
 // import NouveauProjet from "./app/pages/Projects/pages/NouveauProjet.jsx";
 ////// Projet Seul
@@ -54,10 +60,11 @@ function RouterCoder() {
           )}
         />
         <Route exact path="/mon-profile/" render={props => ( <MainProfile checkUserStatus={isOnline} onLogoutUser={deconnexionUser} /> )}/>
+        <Route exact path="/projets/nouveau" render={props => ( <NouveauProjet checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />) } />
+        <Route exact path="/projet/:id/gerer" render={props => ( <MyApp checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />) } />
         {/* <Route exact path="/projets"
             render={(props) => <Projects checkUserStatus={isOnline} onLogoutUser={this.deconnexionUser} />} />
-            <Route exact path="/projets/nouveau" 
-            render={(props) => <ProjetsFinis checkUserStatus={isOnline} onLogoutUser={this.deconnexionUser} />} />
+            
             <Route exact path="/projet/1"
             render={(props) => <ProjetSeul checkUserStatus={isOnline} onLogoutUser={this.deconnexionUser} />} />
             <Route exact path="/forum"

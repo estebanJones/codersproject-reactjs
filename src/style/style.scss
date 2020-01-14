@@ -14,10 +14,22 @@ hr {
     bottom: 0;
 }
 
+.h-80{
+    height: 80% !important;
+}
+.h-20{
+    height: 20% !important;
+}
+
 //  2 - Les Blocks
 
 .block-dark {
     background-color: #0000008c;
+    color: #e7e7e7;
+}
+
+.block-light {
+    background-color: #0000003f;
     color: #e7e7e7;
 }
 
@@ -75,3 +87,5 @@ body {
 @import "../app/base/Header/header";
 @import "../app/base/Footer/footer";
 @import "../app/pages/UserProfile/userprofile";
+@import "../app/pages/Projects/Gerer/gestionprojet";
+@import "../app/pages/Projects/projects";

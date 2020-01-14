@@ -1,0 +1,16 @@
+.bg_projects {
+    background-image: url("../img/projets-bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .allBlock{
+        max-height: 70vh;
+        height: 70vh;
+    }
+
+
+}

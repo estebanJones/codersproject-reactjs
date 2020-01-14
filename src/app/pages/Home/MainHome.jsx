@@ -8,8 +8,10 @@ import Footer from "../../base/Footer/Footer.jsx";
 
 function MainHome(props) {
 
-  var isOnline = props.checkUserStatus;
+  let isOnline = props.checkUserStatus;
   var onLogout = props.onLogoutUser;
+
+
 
   if(isOnline === false) {
     var blockState = <ConnexionBlock />
