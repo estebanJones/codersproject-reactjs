@@ -11,6 +11,7 @@ import ReactCardFlip from "react-card-flip";
 
 function ConnexionBlock() {
   const [statusToFlip, setStatusToFlip] = useState(false);
+  const [statusToRegister, setStatusToRegister] = useState(false);
   const frontFlip = () => {
     // e.preventDefault();
     setStatusToFlip(true);
@@ -18,14 +19,28 @@ function ConnexionBlock() {
 
   const backFlip = () => {
     // e.preventDefault();
+    if (statusToRegister) {
+      setStatusToRegister(false);
+    }
     setStatusToFlip(false);
   };
+
+  const registerFlip = () => {
+    console.log("dans register");
+    setStatusToRegister(true);
+    setStatusToFlip(true);
+
+  }
 
   return (
     <div className="col-lg-3 px-0 d-flex flex-column text-center justify-content-center">
       <ReactCardFlip isFlipped={statusToFlip} flipDirection="horizontal">
-        <FrontCard onFrontFlip={frontFlip} />
-        <BackCard onBackFlip={backFlip} />
+        <FrontCard onFrontFlip={frontFlip}
+          onRegisterFlip={registerFlip} />
+        <BackCard onBackFlip={backFlip}
+          statusRegisterPage={statusToRegister}
+          checkStatusToFlip={statusToFlip}
+        />
       </ReactCardFlip>
     </div>
   );
