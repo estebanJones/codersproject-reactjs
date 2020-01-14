@@ -11,16 +11,45 @@ import { AiFillPlusSquare } from "react-icons/ai";
 function BackCard(props) {
     const [inputPseudoRegister, setInputPseudoRegister] = useState("");
     const [inputPasswordRegister, setInputPasswordRegister] = useState("");
-    const [emailRegister, setEmailRegister] = useState("");
+    const [inputPasswordConfirmRegister, setInputPasswordConfirmRegister] = useState("");
+    const [inputEmailRegister, setInputEmailRegister] = useState("");
 
-    const [emailForgetPass, setEmailForgetPass] = useState("");
+    const [inputEmailForgetPass, setInputEmailForgetPass] = useState("");
+
+    const onRegister = (e) => {
+        e.preventDefault();
+            console.log("handle");
+            e.preventDefault();
+            // JENVOIES LES INFOS REACT A SYMFONY
+            fetch("http://127.0.0.1:8000/api/user/new", {
+              headers: { 'Content-Type': 'application/json' },
+              method: "POST",
+              body: JSON.stringify(
+                {
+                  username: inputPseudoRegister,
+                  password: inputPasswordRegister,
+                  passwordConfirm: inputPasswordConfirmRegister,
+                  email: inputEmailRegister
+                }
+              ),
+            })
+              .then(res => {
+                return res.json();
+              })
+              // JE RECUPERE LA REPONSE
+              .then(data => {
+                // JE CREAIS UN LOCAL STORAGE ( SESSION )
+                console.log(data);
+              });
+    }
 
     const displayPageForgetOrCreateAccount = () => {
+
         if (props.checkStatusToFlip && props.statusRegisterPage) {
             return (
                 <div className="login-block block-dark w-100 h-100 px-4 py-4">
                     <h4>Inscription</h4>
-                    <form>
+                    <form onSubmit={e => onRegister(e)}>
                         <label className="d-flex flex-column mb-2">
                             Nom d'utilisateur
                      <input
@@ -46,8 +75,8 @@ function BackCard(props) {
                      <input
                                 name="passwordConfirm"
                                 type="password"
-                                onChange={({ currentTarget: { value } }) => setInputPasswordRegister(value)}
-                                value={inputPasswordRegister}
+                                onChange={({ currentTarget: { value } }) => setInputPasswordConfirmRegister(value)}
+                                value={inputPasswordConfirmRegister}
                                 className="w-100 mt-2"
                             ></input>
                         </label>
@@ -56,14 +85,14 @@ function BackCard(props) {
                      <input
                                 name="email"
                                 type="email"
-                                onChange={({ currentTarget: { value } }) => setInputPasswordRegister(value)}
-                                value={inputPasswordRegister}
+                                onChange={({ currentTarget: { value } }) => setInputEmailRegister(value)}
+                                value={inputEmailRegister}
                                 className="w-100 mt-2"
                             ></input>
                         </label>
                         <button
                             className="btn btn-success w-100 rounded-0 border-none">
-                            Entrer
+                            Valider
                     </button>
                     </form>
                     <h5
@@ -85,7 +114,7 @@ function BackCard(props) {
                             <label className="mb-2">
                                 Adresse mail{" "}
                                 <input
-                                    onChange={({ currentTarget: { value } }) => setEmailForgetPass(value)} value={emailForgetPass}
+                                    onChange={({ currentTarget: { value } }) => setInputEmailForgetPass(value)} value={inputEmailForgetPass}
                                     className="w-100 mt-2 font-rubik"
                                     type="email"
                                 ></input>

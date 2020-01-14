@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 
 // Import Component
@@ -32,40 +32,44 @@ function RouterCoder() {
     setIsOnline(false);
   };
 
+  const StatusUserContext = createContext(updateUser);
+  
   return (
-    <Router>
-      <div>
-        <Route
-          exact
-          path="/"
-          render={props => (
-            <MainHome
-              checkUserStatus={isOnline}
-              updateUserToHome={updateUser}
-              onLogoutUser={deconnexionUser}
-            />
-          )}
-        />
-        <Route
-          exact
-          path="/arene"
-          render={props => (
-            <MainArene checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />
-          )}
-        />
-        <Route exact path="/mon-profile/" render={props => ( <MainProfile checkUserStatus={isOnline} onLogoutUser={deconnexionUser} /> )}/>
-        {/* <Route exact path="/projets"
-            render={(props) => <Projects checkUserStatus={isOnline} onLogoutUser={this.deconnexionUser} />} />
-            <Route exact path="/projets/nouveau" 
-            render={(props) => <ProjetsFinis checkUserStatus={isOnline} onLogoutUser={this.deconnexionUser} />} />
-            <Route exact path="/projet/1"
-            render={(props) => <ProjetSeul checkUserStatus={isOnline} onLogoutUser={this.deconnexionUser} />} />
-            <Route exact path="/forum"
-            render={(props) => <Forum checkUserStatus={isOnline} onLogoutUser={this.deconnexionUser} />} />
-            <Route exact path="/quizz"
-            render={(props) => <Quizz checkUserStatus={actualUser[0].isOnline} onLogoutUser={this.deconnexionUser} />} /> */}
-      </div>
-    </Router>
+    <StatusUserContext.Provider>
+      <Router>
+        <div>
+          <Route
+            exact
+            path="/"
+            render={props => (
+              <MainHome
+                checkUserStatus={isOnline}
+                updateUserToHome={updateUser}
+                onLogoutUser={deconnexionUser}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/arene"
+            render={props => (
+              <MainArene checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />
+            )}
+          />
+          <Route exact path="/mon-profile/" render={props => ( <MainProfile checkUserStatus={isOnline} onLogoutUser={deconnexionUser} /> )}/>
+          {/* <Route exact path="/projets"
+              render={(props) => <Projects checkUserStatus={isOnline} onLogoutUser={this.deconnexionUser} />} />
+              <Route exact path="/projets/nouveau" 
+              render={(props) => <ProjetsFinis checkUserStatus={isOnline} onLogoutUser={this.deconnexionUser} />} />
+              <Route exact path="/projet/1"
+              render={(props) => <ProjetSeul checkUserStatus={isOnline} onLogoutUser={this.deconnexionUser} />} />
+              <Route exact path="/forum"
+              render={(props) => <Forum checkUserStatus={isOnline} onLogoutUser={this.deconnexionUser} />} />
+              <Route exact path="/quizz"
+              render={(props) => <Quizz checkUserStatus={actualUser[0].isOnline} onLogoutUser={this.deconnexionUser} />} /> */}
+        </div>
+      </Router>
+    </StatusUserContext.Provider> 
   );
 }
 

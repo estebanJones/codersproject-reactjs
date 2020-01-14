@@ -6,12 +6,14 @@ import Footer from "../../../base/Footer/Footer.jsx";
 
 // Import Icons
 import { AiFillPlusSquare } from "react-icons/ai";
+import { useContext } from "react";
 
 function FrontCard(props) {
   const [inputPseudo, setInputPseudo] = useState("");
   const [inputPassword, setInputPassword] = useState("");
-
+  
   const handleSubmit = e => {
+    console.log("handle");
     e.preventDefault();
     // JENVOIES LES INFOS REACT A SYMFONY
     fetch("http://127.0.0.1:8000/api/login", {
@@ -54,8 +56,13 @@ function FrontCard(props) {
       });
   };
 
+  // const themeContextUserConnect = () => {
+  //   const theme = useContext(StatusUserContext);
+  //   console.log(theme);
 
 
+  // }
+  
 
 
 
