@@ -13,8 +13,16 @@ function FrontCard(props) {
 
   const handleSubmit = e => {
     e.preventDefault();
-
-    fetch("app/connexion/symfony")
+    fetch("http://127.0.0.1:8000/api/user/connection", {
+      headers: { 'Content-Type': 'application/json' },
+      method: "POST",
+      body: JSON.stringify(
+        {
+          username: inputPseudo,
+          password: inputPassword
+        }
+      ),
+    })
       .then(res => {
         return res.json();
       })
@@ -84,8 +92,8 @@ function FrontCard(props) {
         <div className="mt-3">
           <a id="passLost" onClick={props.onFrontFlip}>
             <h6>Identifiants oubliés ?</h6></a>
-            <a id="passLost" onClick={props.onFrontFlip}><h3 className="mb-0 pt-3"><AiFillPlusSquare />Créer un compte</h3></a>
-          
+          <a id="passLost" onClick={props.onFrontFlip}><h3 className="mb-0 pt-3"><AiFillPlusSquare />Créer un compte</h3></a>
+
         </div>
       </form>
     </div>

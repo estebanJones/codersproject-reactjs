@@ -39,7 +39,7 @@
     ]
   },
   "devDependencies": {
-    "css-loader": "^3.4.0",
+    "css-loader": "^3.4.2",
     "react-social-icons": "^4.1.0"
   }
 }
