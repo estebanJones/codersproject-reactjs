@@ -1,28 +1,70 @@
 import React, { useState } from "react";
-// import Poste from "./component/Poste";
-// import Table from "./componentRecrutement/Offres";
-// import Card from "./component/Card";
 
+
+// Import Components
+import ModalRecruit from "./componentRecrutement/ModalRecruit.jsx";
+import ModalEditRecruit from "./componentRecrutement/ModalEditRecruit";
 
 // Import Icons
-import {IoMdAdd} from "react-icons/io";
 import {MdCompareArrows} from "react-icons/md";
 
 
 const Recrutement = () => {
   const [value, setValue] = useState([]);
   const [inputTitle, setInputTitle] = useState("");
-  const [inputSpec, setInputSpec] = useState("");
+  const [inputDescription, setInputDescription] = useState("");
+  const [inputSpec, setInputSpec] = useState("front");
+
+  const getSpec = (spec) => {
+
+    switch(spec){
+      case "front":
+      return "Front-End";
+      case "back":
+      return "Back-End";
+      case "graph":
+      return "Graphisme";
+      case "manage":
+      return "Management";
+      default:
+        return null;
+    }
+
+  }
 
   const add = () => {
+
+    console.log(inputSpec);
+
+
     setValue([
       ...value,
       {
         title: inputTitle,
+        description: inputDescription,
         spec: inputSpec
       }
     ]);
     setInputTitle("");
+    setInputDescription(""); 
+
+  };
+
+  const modifier = () => {
+
+    console.log(inputSpec);
+
+
+    setValue([
+      ...value,
+      {
+        title: inputTitle,
+        description: inputDescription,
+        spec: inputSpec
+      }
+    ]);
+    setInputTitle("");
+    setInputDescription("");
     setInputSpec("");
   };
 
@@ -41,9 +83,12 @@ const Recrutement = () => {
           <h2 className="m-2 text-center"><MdCompareArrows /> Recrutement</h2>
           </div>
           <div className="col-lg-3 px-0 d-flex justify-content-end">
-          <button
-          onClick={add}
-          className="btn btn-success rounded-0 mx-0 p-3"><IoMdAdd /></button>
+          <ModalRecruit
+          ajouterOffre={add}
+          modalInputTitle={setInputTitle}
+          modalInputDesc={setInputDescription}
+          modalInputSpec={setInputSpec}
+          />
 
         </div>
       </div>
@@ -51,23 +96,26 @@ const Recrutement = () => {
       <div id="poste" className="w-100 custom_scrollbar mt-2 pr-1">
         {value.map((currentValue, index) => {
           return (
-            <div className="poste">
-              <h3>
-                {index}
-                {currentValue.title}
-              </h3>
-              <p>{currentValue.spec}</p>
+            <div className="poste d-flex flex-column justify-content-between">
+              <div className="d-flex flex-column justify-content-center h-100">
+              <h5 className="text-center">{currentValue.title}</h5>
+                <p className="text-center mb-0">{getSpec(currentValue.spec)}</p>
+              </div>
+              
               <div className="row mx-0">
                 <div className="col-lg-6 px-0  w-100">
-                <button
-                onClick={suppr}
-                className="btn btn-primary rounded-0">
-                Modifier </button>
+                <ModalEditRecruit
+                modifierOffre={modifier}
+                modalInputTitle={setInputTitle}
+                modalInputDesc={setInputDescription}
+                modalInputSpec={setInputSpec}
+
+                />
                 </div>
                 <div className="col-lg-6 px-0 w-100">
                 <button
                 onClick={suppr}
-                className="btn btn-danger rounded-0">
+                className="btn btn-danger rounded-0 w-100 m-0">
                 Supprimer </button>
                 </div>
               </div>

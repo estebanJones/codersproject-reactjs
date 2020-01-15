@@ -25,8 +25,8 @@ function ArenaBlock() {
         <h4>prochainement</h4>
         <h1 className="mb-2">HTML / CSS</h1>
         <div className="images mb-4 d-flex justify-content-center">
-          <IoLogoHtml5 />
-          <IoLogoCss3 />
+          <IoLogoHtml5 size="2.5em" />
+          <IoLogoCss3 size="2.5em" />
         </div>
         <h5 className="mb-2">Début de la Battle</h5>
         <h6 className="mb-3">Dimanche 21 Octobre à 14:00</h6>
