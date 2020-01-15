@@ -8,15 +8,36 @@ import Footer from "../../../base/Footer/Footer.jsx";
 import { AiFillPlusSquare } from "react-icons/ai";
 import { useContext } from "react";
 
+import { StatusUserContext } from "../../../contexts/ThemeContext";
+
+function testGui(e) {
+  console.log("dans testGui");
+  e.preventDefault();
+  fetch("http://192.168.1.31:8000/api/user/show_all_task", {
+    headers: { 'Content-Type': 'application/json' },
+    method: 'POST',
+    body: JSON.stringify(
+      {
+        projectId: 1,
+      }
+    )
+  })
+    .then(res => res.json())
+    .then(data => {
+      console.log("dans testGui deuxiemee rep");
+      console.log(data);
+    })
+}
 function FrontCard(props) {
+
   const [inputPseudo, setInputPseudo] = useState("");
   const [inputPassword, setInputPassword] = useState("");
-  
+
   const handleSubmit = e => {
     console.log("handle");
     e.preventDefault();
     // JENVOIES LES INFOS REACT A SYMFONY
-    fetch("http://127.0.0.1:8000/api/login", {
+    fetch("http://192.168.1.40:8000/api/login", {
       headers: { 'Content-Type': 'application/json' },
       method: "POST",
       body: JSON.stringify(
@@ -55,19 +76,12 @@ function FrontCard(props) {
         console.log(test);
       });
   };
-
-  // const themeContextUserConnect = () => {
-  //   const theme = useContext(StatusUserContext);
-  //   console.log(theme);
-
-
-  // }
-  
-
-
+  const { isOnline, setIsOnline } = useContext(StatusUserContext);
 
   return (
     <div className="login-block block-dark w-100 h-100 px-4 py-4">
+      {console.log("dans frontCard", { isOnline })};
+      <button>Test contexte</button>
       <h4>Connexion</h4>
       <form>
         <label className="d-flex flex-column mb-2">
@@ -92,7 +106,7 @@ function FrontCard(props) {
         </label>
         <button
           className="btn btn-success w-100 rounded-0 border-none"
-          onClick={e => handleSubmit(e)}
+          onClick={e => testGui(e)}
         >
           Entrer
         </button>

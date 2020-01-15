@@ -8,6 +8,8 @@ import React, { useState } from "react";
 import FrontCard from "./FlipCard/FrontCard";
 import BackCard from "./FlipCard/BackCard";
 import ReactCardFlip from "react-card-flip";
+import { useContext } from "react";
+import { StatusUserContext } from "../../contexts/ThemeContext";
 
 function ConnexionBlock(props) {
   const [statusToFlip, setStatusToFlip] = useState(false);
@@ -29,11 +31,13 @@ function ConnexionBlock(props) {
     console.log("dans register");
     setStatusToRegister(true);
     setStatusToFlip(true);
-
   }
+
+  const { isOnline, setIsOnline } = useContext(StatusUserContext);
 
   return (
     <div className="col-lg-3 px-0 d-flex flex-column text-center justify-content-center">
+      {console.log({ isOnline })};
       <ReactCardFlip isFlipped={statusToFlip} flipDirection="horizontal">
         <FrontCard onFrontFlip={frontFlip}
           onRegisterFlip={registerFlip} />

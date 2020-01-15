@@ -15,32 +15,37 @@ function BackCard(props) {
     const [inputEmailRegister, setInputEmailRegister] = useState("");
 
     const [inputEmailForgetPass, setInputEmailForgetPass] = useState("");
-    
+
     const onRegister = (e) => {
         e.preventDefault();
-            console.log("handle");
-            e.preventDefault();
-            // JENVOIES LES INFOS REACT A SYMFONY
-            fetch("http://127.0.0.1:8000/api/user/new", {
-              headers: { 'Content-Type': 'application/json' },
-              method: "POST",
-              body: JSON.stringify(
+        console.log("handle");
+        e.preventDefault();
+        // JENVOIES LES INFOS REACT A SYMFONY
+        fetch("http://127.0.0.1:8000/api/user/new", {
+            headers: { 'Content-Type': 'application/json' },
+            method: "POST",
+            body: JSON.stringify(
                 {
-                  username: inputPseudoRegister,
-                  password: inputPasswordRegister,
-                  passwordConfirm: inputPasswordConfirmRegister,
-                  email: inputEmailRegister
+                    username: inputPseudoRegister,
+                    password: inputPasswordRegister,
+                    passwordConfirm: inputPasswordConfirmRegister,
+                    email: inputEmailRegister
                 }
-              ),
-            })
-              .then(res => {
+            ),
+        })
+            .then(res => {
                 return res.json();
-              })
-              // JE RECUPERE LA REPONSE
-              .then(data => {
-                // JE CREAIS UN LOCAL STORAGE ( SESSION )
-                console.log(data);
-              });
+            })
+            // JE RECUPERE LA REPONSE
+            .then(data => {
+                // SI L INSCRIPTION EST UN SUCCESS
+                // RETOURNER SUR LE FLIP LOGIN
+                if (data.state === "success") {
+                    console.log("dans le if");
+                    props.onBackFlip();
+                }
+
+            });
     }
 
     const displayPageForgetOrCreateAccount = () => {
@@ -106,28 +111,28 @@ function BackCard(props) {
 
         } else if (props.checkStatusToFlip === true && props.statusRegisterPage === false) {
             return (<div className="login-block block-dark d-flex flex-column justify-content-between w-100 h-100 px-4 py-4">
-                        <h4>Mot de passe oublié ?</h4>
-                        <form
-                            id="askPassword"
-                            className="formControl mt-6">
-                            <p>Veuillez renseigner votre adresse email afin d'obtenir un lien pour réinitialiser votre mot de passe.</p>
-                            <label className="mb-2">
-                                Adresse mail{" "}
-                                <input
-                                    onChange={({ currentTarget: { value } }) => setInputEmailForgetPass(value)} value={inputEmailForgetPass}
-                                    className="w-100 mt-2 font-rubik"
-                                    type="email"
-                                ></input>
-                            </label>
-                            <button className="btn btn-success w-100 rounded-0 border-none mt-2" type="submit">
-                                Valider
+                <h4>Mot de passe oublié ?</h4>
+                <form
+                    id="askPassword"
+                    className="formControl mt-6">
+                    <p>Veuillez renseigner votre adresse email afin d'obtenir un lien pour réinitialiser votre mot de passe.</p>
+                    <label className="mb-2">
+                        Adresse mail{" "}
+                        <input
+                            onChange={({ currentTarget: { value } }) => setInputEmailForgetPass(value)} value={inputEmailForgetPass}
+                            className="w-100 mt-2 font-rubik"
+                            type="email"
+                        ></input>
+                    </label>
+                    <button className="btn btn-success w-100 rounded-0 border-none mt-2" type="submit">
+                        Valider
                                         </button>
-                        </form>
-                        <h5
-                            className="backToLogin mt-5 mx-auto text-center w-100"
-                            onClick={props.onBackFlip}>
-                            Retour à la connexion</h5>
-                    </div>
+                </form>
+                <h5
+                    className="backToLogin mt-5 mx-auto text-center w-100"
+                    onClick={props.onBackFlip}>
+                    Retour à la connexion</h5>
+            </div>
             );
         }
     }
