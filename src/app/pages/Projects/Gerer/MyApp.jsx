@@ -19,7 +19,7 @@ const MyApp = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
 
   const { projectId } = useParams();  
 
-  const [currentTab, setCurrentTab] = useState("recrutement");
+  const [currentTab, setCurrentTab] = useState("information");
 
   const changeTab = (tab) => {
     setCurrentTab(tab);

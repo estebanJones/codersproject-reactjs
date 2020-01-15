@@ -10,7 +10,7 @@ import { IoLogoCss3 } from "react-icons/io";
 function ArenaBlock() {
   return (
     <div className="col-lg-4">
-      <div className="arene_link mb-2">
+      <div className="arene_link mb-2 h-15">
         <Link to="/arene" >
           <button className="d-flex flex-column w-100 h-100 block-dark-hover justify-content-center">
             <div className="d-flex justify-content-center ">
@@ -21,7 +21,7 @@ function ArenaBlock() {
         </Link>
       </div>
 
-      <div className="home-battle-infos text-center block-dark p-5">
+      <div className="home-battle-infos text-center block-dark p-5 h-60">
         <h4>prochainement</h4>
         <h1 className="mb-2">HTML / CSS</h1>
         <div className="images mb-4 d-flex justify-content-center">
@@ -34,7 +34,7 @@ function ArenaBlock() {
         <h6>Dimanche 21 Octobre à 14:00</h6>
       </div>
 
-      <div id="awards" className="block-dark mt-2 p-4">
+      <div id="awards" className="block-dark mt-2 p-4 h-25">
         <h2 className="text-center">Récompenses</h2>
         <div className="row mt-4 mx-0 d-flex justify-content-center">
           <div className=" d-flex flex-column justify-content-center w-25">

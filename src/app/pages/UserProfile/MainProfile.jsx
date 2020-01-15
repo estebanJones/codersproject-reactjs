@@ -104,6 +104,10 @@ function MainProfile(props) {
                                 <MdRadioButtonUnchecked />
                                 <h5 className="ml-2 my-auto">Management</h5>
                               </div>
+                              <div className="d-flex justify-content-center">
+                                <MdRadioButtonUnchecked />
+                                <h5 className="ml-2 my-auto">Management</h5>
+                              </div>
                           </div>
                         </div>
                       </div>

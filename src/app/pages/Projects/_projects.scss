@@ -1,7 +1,7 @@
 .bg_projects {
     background-image: url("../img/projets-bg.png");
     background-size: cover;
-    background-position: center;
+    background-position: bottom;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
@@ -10,6 +10,50 @@
     .allBlock{
         max-height: 70vh;
         height: 70vh;
+
+
+        .searchProjects{
+
+            align-items: center;
+            input{
+                background-color: transparent;
+                border: none;
+                border-bottom: 1px solid #e7e7e7 !important;
+                
+                font-style: italic;
+            }
+            input:active, input:focus, button:active, button:focus{
+                box-shadow: none;
+                color: #e7e7e7;
+            }
+        }
+
+        .btn-default {
+            background-color: #000000b4 !important;
+            color: #e7e7e7;
+        }
+        
+        .btn-default:hover {
+            background-color: #000000a6 !important;
+        }
+
+        .modal-content{
+            background-color: #2b2b2bec !important;
+            
+        }
+
+        .close{
+            color: #fff !important;
+        }
+
+        a:hover{
+            text-decoration: none;
+        }
+
+        ul li{
+            list-style-type: none;
+        }
+
     }
 
 

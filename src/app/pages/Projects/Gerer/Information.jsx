@@ -2,6 +2,7 @@ import React from "react";
 
 // Import Icons
 import {IoMdInformationCircle} from "react-icons/io";
+import {FaPlus} from "react-icons/fa";
 
 
 class Information extends React.Component {
@@ -36,23 +37,37 @@ class Information extends React.Component {
             <div className="row mx-0 h-100">
               <div className="langue d-flex flex-column justify-content-start col-lg-6 px-0 mx-0">
                 <div className="block-light mr-2 h-100 p-2">
-                <div className="h-50 d-flex align-items-center flex-column">
-                  <p>Technologies utilisées</p>
-                  <select name="cars" className="form-control rounded-0">
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="fiat">Fiat</option>
-                    <option value="audi">Audi</option>
-                  </select>
-                </div>
-                <div className="h-50 d-flex align-items-center flex-column">
+                <div className="h-30 d-flex align-items-center flex-column">
+                  
                   <p>Frameworks et Outils</p>
-                  <select name="cars" className="form-control rounded-0">
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="fiat">Fiat</option>
-                    <option value="audi">Audi</option>
+                  <div className="row mx-0 w-100">
+                  <select name="cars" className="form-control rounded-0 col-lg-10">
+                    <option value="volvo">Symfony</option>
+                    <option value="saab">React</option>
+                    <option value="fiat">Angular</option>
+                    <option value="audi">Node.js</option>
+                    <option value="saab">Bootstrap</option>
+                    <option value="fiat">Laravel</option>
+                    <option value="audi">Wordpress</option>
+                    <option value="audi">Prestashop</option>
+                    <option value="saab">Spring</option>
+                    <option value="fiat">Ruby on Rails</option>
                   </select>
+                  <div className="col-lg-2 px-0">
+                  <button className="btn btn-success rounded-0 w-100 m-0 h-100 ml-1"><FaPlus /></button>
+                  </div>
+                  </div>
+                </div>
+                <div className="h-75 mt-4 d-flex align-items-center flex-column">
+                  <p>Fonctionnalités attendues</p>
+                  <div className="row mx-0 w-100">
+                  <div className="col-lg-10 px-0">
+                  <input name="cars" className="form-control rounded-0" />
+                  </div>
+                  <div className="col-lg-2 px-0">
+                  <button className="btn btn-success rounded-0 w-100 m-0 h-100 ml-1"><FaPlus /></button>
+                  </div>
+                  </div>
                 </div>
                 </div>
               </div>

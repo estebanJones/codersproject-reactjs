@@ -11,11 +11,13 @@ const Parametre = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
           <h2 className="m-2 text-center"><MdSettings /> Paramètres</h2>
           <div className="h-75 d-flex justify-content-between">
             <div className="row mx-0 w-100">
-            <div className="col-lg-6 px-0 d-flex flex-column justify-content-center block-dark-hover">
+            <div className="col-lg-6 px-0 d-flex flex-column justify-content-center ">
 
-              <div className="col-lg-12 d-flex flex-column justify-content-start">
+              <div className="col-lg-12 px-0 d-flex flex-column justify-content-start h-50 ">
 
-              <h4 className="m-5 text-center mb-4">Recrutement</h4>
+                <div className="h-50 block-dark">
+
+              <h4 className="p-3 text-center mb-3">Recrutement</h4>
               <div className="row mx-0 d-flex justify-content-center mt-4">
                 <div className="col-2 d-flex flex-column justify-content-center">
                 <input type="checkbox" id="join" name="join" className="form-control" />
@@ -39,13 +41,21 @@ const Parametre = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
                 </div>
               </div>
               </div>
+              <div className="h-50 block-dark mt-1 px-4">
+              <h4 className="p-3 text-center mb-3">Repository</h4>
+              <p className="text-center">Liez votre projet à un repository de votre choix.
+              </p>
+              <input type="text" className="form-control rounded-0 mt-2" />
+              <p className="text-center mt-2"><em>Entrez une URL</em></p>
+              </div>
+              </div>
 
             </div>
             <div className="col-lg-6 px-0 d-flex flex-column justify-content-center pl-2">
 
             <div className="col-lg-12 d-flex flex-column justify-content-start block-dark-hover ">
 
-<h4 className="m-5 text-center mb-4">Permissions</h4>
+<h4 className="p-3 text-center mb-3">Permissions</h4>
 <div className="row mx-0 d-flex justify-content-center mt-4">
   <div className="col-2 d-flex flex-column justify-content-center">
   <input type="checkbox" id="tache" name="tache" className="form-control" />

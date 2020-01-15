@@ -14,12 +14,48 @@ hr {
   bottom: 0;
 }
 
+.h-90 {
+  height: 90% !important;
+}
+
+.h-85 {
+  height: 85% !important;
+}
+
 .h-80 {
   height: 80% !important;
 }
 
+.h-70 {
+  height: 70% !important;
+}
+
+.h-65 {
+  height: 65% !important;
+}
+
+.h-60 {
+  height: 60% !important;
+}
+
+.h-30 {
+  height: 30% !important;
+}
+
+.h-25 {
+  height: 25% !important;
+}
+
 .h-20 {
   height: 20% !important;
+}
+
+.h-15 {
+  height: 15% !important;
+}
+
+.h-10 {
+  height: 10% !important;
 }
 
 .block-dark {
@@ -39,6 +75,16 @@ hr {
 
 .block-dark-hover:hover {
   background-color: #000000a6;
+}
+
+.block-light-hover {
+  background-color: #00000062;
+  color: #e7e7e7;
+}
+
+.block-light-hover:hover {
+  background-color: #0000003f;
+  cursor: default;
 }
 
 button {
@@ -83,6 +129,11 @@ body {
   background-color: #e7e7e7;
 }
 
+input:active, input:focus {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
 .bg_home {
   background-image: url("../img/background.gif");
   background-size: cover;
@@ -112,10 +163,6 @@ body {
       align-self: center;
 }
 
-.arene_link {
-  height: 5vw;
-}
-
 .arene_link a {
   text-decoration: none;
 }
@@ -127,10 +174,6 @@ body {
 
 .arene_link button h2 {
   font-weight: 700;
-}
-
-.home-battle-infos {
-  min-height: 40vh;
 }
 
 .home-battle-infos h4 {
@@ -738,7 +781,7 @@ footer .svgSocial {
 .bg_projects {
   background-image: url("../img/projets-bg.png");
   background-size: cover;
-  background-position: center;
+  background-position: bottom;
   background-repeat: no-repeat;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -755,5 +798,49 @@ footer .svgSocial {
 .bg_projects .allBlock {
   max-height: 70vh;
   height: 70vh;
+}
+
+.bg_projects .allBlock .searchProjects {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.bg_projects .allBlock .searchProjects input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #e7e7e7 !important;
+  font-style: italic;
+}
+
+.bg_projects .allBlock .searchProjects input:active, .bg_projects .allBlock .searchProjects input:focus, .bg_projects .allBlock .searchProjects button:active, .bg_projects .allBlock .searchProjects button:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: #e7e7e7;
+}
+
+.bg_projects .allBlock .btn-default {
+  background-color: #000000b4 !important;
+  color: #e7e7e7;
+}
+
+.bg_projects .allBlock .btn-default:hover {
+  background-color: #000000a6 !important;
+}
+
+.bg_projects .allBlock .modal-content {
+  background-color: #2b2b2bec !important;
+}
+
+.bg_projects .allBlock .close {
+  color: #fff !important;
+}
+
+.bg_projects .allBlock a:hover {
+  text-decoration: none;
+}
+
+.bg_projects .allBlock ul li {
+  list-style-type: none;
 }
 /*# sourceMappingURL=style.css.map */

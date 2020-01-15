@@ -10,8 +10,8 @@ import { FaProjectDiagram } from "react-icons/fa";
 function ProjectBlock() {
   return (
     <div className="col-lg-4">
-      <div className="arene_link mb-2">
-        <Link to="/arene" >
+      <div className="arene_link mb-2 h-15">
+        <Link to="/projets" >
           <button className="d-flex flex-column w-100 h-100 block-dark-hover justify-content-center">
             <div className="d-flex justify-content-center ">
               <FaProjectDiagram className="mr-3 display-4 " />

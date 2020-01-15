@@ -8,15 +8,16 @@ class HomeProjectList extends React.Component {
     render(){
         return (
         
-            <div className="d-flex justify-content-center home-project-list block-dark mt-2 px-1 pt-3">
+            <div className="d-flex justify-content-center home-project-list block-dark mt-2 px-1 pt-3 h-85">
             <div className="d-flex flex-column justify-content-start">
-                <h1 className="mb-4 mt-2 text-center">Susceptible de vous intéresser</h1>
+                <div className="h-15">
+                <h3 className="mb-4 mt-2 text-center">Susceptible de vous intéresser</h3>
+                </div>
 
-
-            <div className="block-home-list custom_scrollbar">
+            <div className="block-home-list custom_scrollbar h-85 mb-0">
 
                 {/* Single List Result */}
-                <div className="single-list-result block-dark-hover pointer py-4 px-4">
+                <div className="single-list-result block-dark-hover pointer py-2 px-4">
                 <div className="row mx-0">
                     <div className="d-flex justify-content-center col-2">
                         <GoTasklist />
@@ -34,7 +35,7 @@ class HomeProjectList extends React.Component {
                     </div>
 
                 {/* Single List Result */}
-                <div className="single-list-result  block-dark-hover pointer py-4 px-4">
+                <div className="single-list-result  block-dark-hover pointer py-2 px-4">
                 <div className="row mx-0">
                     <div className="d-flex justify-content-center col-2">
                         <GoTasklist />
@@ -52,7 +53,7 @@ class HomeProjectList extends React.Component {
                     </div>
 
                 {/* Single List Result */}
-                <div className="single-list-result  block-dark-hover pointer py-4 px-4">
+                <div className="single-list-result  block-dark-hover pointer py-2 px-4">
                 <div className="row mx-0">
                     <div className="d-flex justify-content-center col-2">
                         <GoTasklist />
@@ -70,7 +71,7 @@ class HomeProjectList extends React.Component {
                     </div>
 
                 {/* Single List Result */}
-                <div className="single-list-result  block-dark-hover pointer py-4 px-4">
+                <div className="single-list-result  block-dark-hover pointer py-2 px-4">
                 <div className="row mx-0">
                     <div className="d-flex justify-content-center col-2">
                         <GoTasklist />
@@ -87,7 +88,7 @@ class HomeProjectList extends React.Component {
                     </div>
                     </div>
                 {/* Single List Result */}
-                <div className="single-list-result  block-dark-hover pointer py-4 px-4">
+                <div className="single-list-result  block-dark-hover pointer py-2 px-4">
                 <div className="row mx-0">
                     <div className="d-flex justify-content-center col-2">
                         <GoTasklist />
@@ -104,7 +105,7 @@ class HomeProjectList extends React.Component {
                     </div>
                     </div>
                 {/* Single List Result */}
-                <div className="single-list-result  block-dark-hover pointer py-4 px-4">
+                <div className="single-list-result  block-dark-hover pointer py-2 px-4">
                 <div className="row mx-0">
                     <div className="d-flex justify-content-center col-2">
                         <GoTasklist />
@@ -121,7 +122,7 @@ class HomeProjectList extends React.Component {
                     </div>
                     </div>
                 {/* Single List Result */}
-                <div className="single-list-result  block-dark-hover pointer py-4 px-4">
+                <div className="single-list-result  block-dark-hover pointer py-2 px-4">
                 <div className="row mx-0">
                     <div className="d-flex justify-content-center col-2">
                         <GoTasklist />
