@@ -10,10 +10,21 @@ import {MdCompareArrows} from "react-icons/md";
 
 
 const Recrutement = () => {
-  const [value, setValue] = useState([]);
+
+  let response = [
+    {title: 'Super Title', description: 'Description', spec: 'front'},
+    {title: 'Super Title', description: 'Description', spec: 'back'}
+    
+  ];
+
+
+  const [value, setValue] = useState(response);
   const [inputTitle, setInputTitle] = useState("");
   const [inputDescription, setInputDescription] = useState("");
   const [inputSpec, setInputSpec] = useState("front");
+
+
+
 
   const getSpec = (spec) => {
 
