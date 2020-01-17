@@ -14,7 +14,7 @@ const Recrutement = () => {
   const [inputTitle, setInputTitle] = useState("");
   const [inputDescription, setInputDescription] = useState("");
   const [inputSpec, setInputSpec] = useState("front");
-
+  const [statusModal, setStatusModal ] = useState(false);
   const getSpec = (spec) => {
 
     switch(spec){
@@ -32,8 +32,9 @@ const Recrutement = () => {
 
   }
 
+  
   const add = () => {
-
+    
     console.log(inputSpec);
 
 
@@ -72,6 +73,10 @@ const Recrutement = () => {
     console.log("delete", value);
   };
 
+  const openningModal = () => {
+    setStatusModal(true);
+  }
+
   return (
 
 <div className="h-100 d-flex flex-column ">
@@ -83,7 +88,9 @@ const Recrutement = () => {
           <h2 className="m-2 text-center"><MdCompareArrows /> Recrutement</h2>
           </div>
           <div className="col-lg-3 px-0 d-flex justify-content-end">
-          <ModalRecruit
+          <ModalRecruit onClick={openningModal}
+          statusModal={statusModal}
+          setStatusModal={setStatusModal}
           ajouterOffre={add}
           modalInputTitle={setInputTitle}
           modalInputDesc={setInputDescription}
