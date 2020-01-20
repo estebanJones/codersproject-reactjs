@@ -52,8 +52,8 @@ const listProject = projects.map((project) =>
       <main className="bg_projects">
         <div className="allBlock row w-100 d-flex justify-content-lg-around mx-0 col-lg-12">
 
-        <div className="h-100 d-flex flex-column justify-content-center col-lg-3 pl-0 pr-2">
-
+        <div className="h-100 d-flex flex-column justify-content-center col-lg-3 pl-0 pr-0 pr-lg-2">
+          
           <div className="h-20">
 
               <ModalNouveauProject/>
@@ -96,20 +96,20 @@ const listProject = projects.map((project) =>
           
         </div>
 
-        <div className="h-100 d-flex flex-column justify-content-center col-lg-6 px-0">
+        <div className="h-100 d-flex flex-column justify-content-center col-lg-6 px-0 mt-2 mb-lg-0">
  
         <div className="block-dark h-100">
                 
                 
-                <div className="row mx-0 p-2 h-10 d-flex flex-column justify-content-start">
-                    <div className="searchProjects col-lg-6 pl-0 pr-2 d-flex justify-content-center h-10">
+                <div className="row mx-0 p-2 h-10 d-flex  justify-content-start mb-2 mb-lg-0">
+                    <div className="searchProjects col-6 pl-0 pr-2 d-flex justify-content-center h-100">
                         <input type="search" className="form-control rounded-0 text-center" placeholder="Chercher par Nom" />
                     </div>
-                    <div className="col-lg-6 px-0 d-flex justify-content-center h-10">
+                    <div className="col-6 px-0 d-flex justify-content-center h-100">
                         <button className="btn block-dark-hover w-100 rounded-0 mx-0 text-white">FILTRER</button>
                     </div>
                 </div>
-                    <div className="col-12 h-90 px-2 d-flex justify-content-start">
+                    <div className="col-12 h-90 px-2 d-flex justify-content-start  mb-2 mb-lg-0">
                         <div className="row w-100 mx-0 h-100 custom_scrollbar">
 
                             {listProject}
@@ -119,7 +119,8 @@ const listProject = projects.map((project) =>
             </div>
         </div>
 
-        <div className="h-100 d-flex flex-column justify-content-center col-lg-3 mx-0 pr-0 pl-2">
+        <div className="h-100 d-flex flex-column justify-content-center col-lg-3 mx-0 pr-0 pl-0 pl-lg-2">
+          
           <div className="h-80">
           <div className="block-dark h-100 p-2 text-center">
               <div className="h-10">

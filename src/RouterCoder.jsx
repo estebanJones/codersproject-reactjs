@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 
 // Import Pages
@@ -22,7 +22,11 @@ function RouterCoder() {
 
   const updateUser = e => {
     console.log("Bien dans le Routeur !!!");
-    setIsOnline(true);
+    const myStorage = localStorage;
+    const token = myStorage.getItem('userData');
+    if (token) {
+      return setIsOnline(true);
+    }
   };
 
   const deconnexionUser = e => {
@@ -54,7 +58,6 @@ function RouterCoder() {
         <Route exact path="/projet/:id/gerer" render={props => ( <MyApp checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />) } />
         <Route exact path="/projet/:id/" render={props => ( <ProjetSeul checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />) } />
         <Route exact path="/projets/" render={props => ( <MainProjects checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />) } />
-
       </div>
     </Router>
   );

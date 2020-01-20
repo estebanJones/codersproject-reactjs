@@ -33,7 +33,7 @@ function Header(props) {
               </div>
               <div className="col-9">
                 <h6 className="text-center">25 / 100 XP</h6>
-              <div class="progress rounded-0" >
+              <div className="progress rounded-0" >
   <div className="progress-bar w-25 bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
               </div>

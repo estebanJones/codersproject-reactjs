@@ -6,14 +6,21 @@ import Footer from "../../../base/Footer/Footer.jsx";
 
 // Import Icons
 import { AiFillPlusSquare } from "react-icons/ai";
+import { useContext } from "react";
+
+import { StatusUserContext } from "../../../contexts/ThemeContext";
+
 
 function FrontCard(props) {
+
   const [inputPseudo, setInputPseudo] = useState("");
   const [inputPassword, setInputPassword] = useState("");
 
   const handleSubmit = e => {
+    console.log("handle");
     e.preventDefault();
-    fetch("http://127.0.0.1:8000/api/user/connection", {
+    // JENVOIES LES INFOS REACT A SYMFONY
+    fetch("http://127.0.0.1:8000/user/login", {
       headers: { 'Content-Type': 'application/json' },
       method: "POST",
       body: JSON.stringify(
@@ -26,12 +33,38 @@ function FrontCard(props) {
       .then(res => {
         return res.json();
       })
+      // JE RECUPERE LA REPONSE
       .then(data => {
-        console.log(data);
+        // JE CREAIS UN LOCAL STORAGE ( SESSION )
+        const myStorage = localStorage;
+        // J INITIALISE LE CONTENU DANS UN OBJET SESSION
+        let myDatas = {
+          "id": data.id,
+          "token": data.token
+        }
+        // SI IL Y A UN TOKEN ALORS IL PEUT AVOIR ACCES
+        if (myDatas.token) {
+          console.log(data);
+
+
+          // SI IL N Y A PAS DE TOKEN
+        } else {
+          console.log(data);
+          console.log("Aucun token");
+        }
+        // JE TRANSFORME L OBJET EN STRING
+        myDatas = JSON.stringify(myDatas);
+        myStorage.setItem('userData', myDatas);
+        const test = myStorage.getItem('userData');
+        console.log(test);
       });
   };
+  const { isOnline, setIsOnline } = useContext(StatusUserContext);
+
   return (
     <div className="login-block block-dark w-100 h-100 px-4 py-4">
+      {console.log("dans frontCard", { isOnline })};
+      <button>Test contexte</button>
       <h4>Connexion</h4>
       <form>
         <label className="d-flex flex-column mb-2">
@@ -92,7 +125,7 @@ function FrontCard(props) {
         <div className="mt-3">
           <a id="passLost" onClick={props.onFrontFlip}>
             <h6>Identifiants oubliés ?</h6></a>
-          <a id="passLost" onClick={props.onFrontFlip}><h3 className="mb-0 pt-3"><AiFillPlusSquare />Créer un compte</h3></a>
+          <a id="passLost" onClick={props.onRegisterFlip}><h3 className="mb-0 pt-3"><AiFillPlusSquare />Créer un compte</h3></a>
 
         </div>
       </form>
