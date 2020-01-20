@@ -17,8 +17,6 @@ function BackCard(props) {
 
     const onRegister = (e) => {
         e.preventDefault();
-        console.log("handle");
-        e.preventDefault();
         // JENVOIES LES INFOS REACT A SYMFONY
         fetch("http://127.0.0.1:8000/user/newUser", {
             headers: { 'Content-Type': 'application/json' },
@@ -39,7 +37,6 @@ function BackCard(props) {
                 // SI L INSCRIPTION EST UN SUCCESS
                 // RETOURNER SUR LE FLIP LOGIN
                 if (data.state === "success") {
-                    console.log("dans le if");
                     props.onBackFlip();
                 }
 

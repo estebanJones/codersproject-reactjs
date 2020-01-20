@@ -14,6 +14,8 @@ import { StatusUserContext } from "../../contexts/ThemeContext";
 function ConnexionBlock(props) {
   const [statusToFlip, setStatusToFlip] = useState(false);
   const [statusToRegister, setStatusToRegister] = useState(false);
+
+  let updateUser = props.updateUser
   const frontFlip = () => {
     // e.preventDefault();
     setStatusToFlip(true);
@@ -37,8 +39,9 @@ function ConnexionBlock(props) {
       {console.log({ isOnline })};
       <ReactCardFlip isFlipped={statusToFlip} flipDirection="horizontal">
         <FrontCard onFrontFlip={frontFlip}
-                   onRegisterFlip={registerFlip} 
-                   />
+          onRegisterFlip={registerFlip}
+          updateUser={updateUser}
+        />
         <BackCard onBackFlip={backFlip}
           statusRegisterPage={statusToRegister}
           checkStatusToFlip={statusToFlip}

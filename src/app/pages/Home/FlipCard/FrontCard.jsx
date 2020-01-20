@@ -18,7 +18,7 @@ function FrontCard(props) {
 
   const handleSubmit = e => {
     console.log("handle");
-    e.preventDefault();
+    // e.preventDefault();
     // JENVOIES LES INFOS REACT A SYMFONY
     fetch("http://127.0.0.1:8000/user/login", {
       headers: { 'Content-Type': 'application/json' },
@@ -35,35 +35,14 @@ function FrontCard(props) {
       })
       // JE RECUPERE LA REPONSE
       .then(data => {
-        // JE CREAIS UN LOCAL STORAGE ( SESSION )
-        const myStorage = localStorage;
-        // J INITIALISE LE CONTENU DANS UN OBJET SESSION
-        let myDatas = {
-          "id": data.id,
-          "token": data.token
-        }
-        // SI IL Y A UN TOKEN ALORS IL PEUT AVOIR ACCES
-        if (myDatas.token) {
-          console.log(data);
-
-
-          // SI IL N Y A PAS DE TOKEN
-        } else {
-          console.log(data);
-          console.log("Aucun token");
-        }
         // JE TRANSFORME L OBJET EN STRING
-        myDatas = JSON.stringify(myDatas);
-        myStorage.setItem('userData', myDatas);
-        const test = myStorage.getItem('userData');
-        console.log(test);
+        localStorage.setItem('userToken', data.token);
       });
   };
   const { isOnline, setIsOnline } = useContext(StatusUserContext);
 
   return (
     <div className="login-block block-dark w-100 h-100 px-4 py-4">
-      {console.log("dans frontCard", { isOnline })};
       <button>Test contexte</button>
       <h4>Connexion</h4>
       <form>
