@@ -26,9 +26,6 @@ hr {
   height: 80% !important;
 }
 
-.h-75 {
-  height: 75% !important;
-}
 .h-70 {
   height: 70% !important;
 }
@@ -732,6 +729,10 @@ footer .svgSocial {
   height: 18%;
   margin: 0.9% 0.9% 0;
   background-color: rgba(0, 0, 0, 0.2);
+}
+
+.singleFonctAtt {
+  height: 40px !important;
 }
 
 /* recrutement */

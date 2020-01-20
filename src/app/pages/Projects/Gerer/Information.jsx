@@ -2,31 +2,37 @@ import React, {useState} from "react";
 
 // Import Icons
 import {IoMdInformationCircle} from "react-icons/io";
+import {TiDelete} from "react-icons/ti";
 import {FaPlus,FaSymfony, FaReact, FaGithub} from "react-icons/fa";
 
 const Information = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
 
-  let resFrameworkOutils = [
-    {id: 1, name: 'symfony'},
-    {id: 2, name: 'react'},
-    {id: 3, name: 'github'},
-    {id: 4, name: 'symfony'},
-    {id: 5, name: 'react'},
-    {id: 6, name: 'github'},
-    {id: 7, name: 'symfony'},
-    {id: 8, name: 'react'},
-    {id: 9, name: 'github'},
-  ];
-  let resFonctionsAttendues = [
-    {id: 1, title: 'La fonction attendue'},
-    {id: 2, title: 'react'},
-    {id: 3, title: 'github'},
-    {id: 4, title: 'react'},
-    {id: 5, title: 'github'},
-    {id: 6, title: 'github'},
-    {id: 7, title: 'react'},
-    {id: 8, title: 'github'},
-  ];
+  const [frameTools, setFrameTools] = useState([
+    {name: 'symfony'},
+    {name: 'react'},
+    {name: 'github'},
+    {name: 'symfony'},
+    {name: 'react'},
+    {name: 'github'},
+    {name: 'symfony'},
+    {name: 'react'},
+    {name: 'github'},
+  ]);
+  const [fonctionsAtt, setFonctionsAtt] = useState([
+    {title: 'La fonction attendue'},
+    {title: 'react'},
+    {title: 'github'},
+    {title: 'react'},
+    {title: 'github'},
+    {title: 'github'},
+    {title: 'react'},
+    {title: 'github'},
+  ]);
+
+  const [inputFrameTool, setInputFrameTool] = useState("symfony");
+  const [inputFonctionsAtt, setInputFonctionsAtt] = useState("symfony");
+
+ 
 
   let displayTools = (name) => {
 
@@ -47,23 +53,55 @@ const Information = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
 
   }
 
-  const getSelectedTools = () => {
+  // const getSelectedTools = () => {
 
-    let toolToAdd = document.getElementById('toolsSelect');
+  //   let toolToAdd = document.getElementsByName('tools');
+  //   return toolToAdd;
 
-    console.log(document.getElementsByName("tools"));
+  // // }
 
-    return toolToAdd 
+  const addFrameTools = () => {
+
+
+    setFrameTools([
+      ...frameTools,
+      {
+        name: inputFrameTool
+      }
+    ]);
   }
 
-  const add = (e, name) => {
-    console.log(name);
+  const addFonctionsAtt = () => {
+
+    setFonctionsAtt([
+      ...fonctionsAtt,
+      {
+        title: inputFonctionsAtt
+      }
+    ]);
+
+    setInputFonctionsAtt("");
+
   }
 
+  const supprFrameTools = (index) => {
+
+    const frameToolsCopy = [...frameTools];
+
+    frameToolsCopy.splice(index, 1);
+
+    setFrameTools(frameToolsCopy);
+  };
+  const supprFonction = (index) => {
+
+    const fonctionAttCopy = [...fonctionsAtt];
+
+    fonctionAttCopy.splice(index, 1);
+
+    setFonctionsAtt(fonctionAttCopy);
+  };
   
 
-  const [frameworksAndTools, setframeworksAndTools] = useState(resFrameworkOutils);;
-  const [fonctionsAttendues, setfonctionsAttendues] = useState(resFonctionsAttendues);;
 
     return (
       <div className="contenu_information d-flex align-items-center flex-column">
@@ -98,33 +136,26 @@ const Information = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
                   
                   <p>Frameworks et Outils</p>
                   <div className="row mx-0 w-100 h-30 py-2">
-                  <select name="tools" className="form-control rounded-0 col-lg-10 h-100">
+                  <select onChange={e => setInputFrameTool(e.currentTarget.value)} name="tools" className="form-control rounded-0 col-lg-10 h-100">
                     <option value="symfony">Symfony</option>
                     <option value="react">React</option>
                     <option value="github">Github</option>
-                    {/* <option value="audi">Node.js</option>
-                    <option value="saab">Bootstrap</option>
-                    <option value="fiat">Laravel</option>
-                    <option value="audi">Wordpress</option>
-                    <option value="audi">Prestashop</option>
-                    <option value="saab">Spring</option>
-                    <option value="fiat">Ruby on Rails</option> */}
                   </select>
 
                   <div className="col-lg-2 px-0">
-                  <button onClick={(e) => (e,add())} className="btn btn-success rounded-0  m-0 h-100 ml-1 w-100"><FaPlus /></button>
+                  <button onClick={addFrameTools} className="btn btn-success rounded-0  m-0 h-100 ml-1 w-100"><FaPlus /></button>
                   </div>
                   </div>
                   <div className="row mx-0 h-50 w-100 mt-1 d-flex justify-content-center custom_scrollbar">
-                  {frameworksAndTools.map(frAndTools => {
+                  {frameTools.map((frAndTools, index) => {
         return (
-          <div className="col-lg-2 px-0 pl-1 h-100 ">
+          <div className="col-lg-2 px-0 pl-1 h-100 mb-1 ">
             <div id={frAndTools.id} className="block-dark-hover d-flex flex-column justify-content-between h-100 px-0">
               <div className="px-0 h-100 d-flex flex-column justify-content-center ">
               { displayTools(frAndTools.name) }
               </div>
               <div className="px-0 p-1 d-flex flex-column justify-content-center">
-              <button  className="btn btn-danger w-100 mx-0 rounded-0 my-0 w-100"><FaPlus className="align-self-center" /></button>
+              <button onClick={(e) => supprFrameTools(index)} className="btn btn-danger w-100 mx-0 rounded-0 my-0 w-100"><TiDelete size="1.5rem" className="align-self-center" /></button>
               </div>
             </div> 
         </div>
@@ -138,23 +169,23 @@ const Information = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
                   <p className="h-10 mb-0">Fonctionnalités attendues</p>
                   <div className="row mx-0 w-100 h-15">
                   <div className="col-lg-10 px-0">
-                  <input name="cars" className="form-control rounded-0 h-100" />
+                  <input value={inputFonctionsAtt} onChange={(e) => setInputFonctionsAtt(e.currentTarget.value)} name="cars" className="form-control rounded-0 h-100" />
                   </div>
                   <div className="col-lg-2 px-0 pl-1">
-                  <button className="btn btn-success rounded-0 m-0 w-100 h-100 "><FaPlus /></button>
+                  <button onClick={addFonctionsAtt} className="btn btn-success rounded-0 m-0 w-100 h-100 "><FaPlus /></button>
                   </div>
                   </div>
 
                   <div className="mx-0 h-75 w-100 mt-1 d-flex flex-column justify-content-start custom_scrollbar">
-                  {fonctionsAttendues.map(fonctionAttendue => {
+                  {fonctionsAtt.map((fonctionAttendue, index) => {
         return (
-          <div className="px-0 h-100 ">
+          <div className="px-0 h-100 singleFonctAtt">
             <div id={fonctionAttendue.id} className="block-dark-hover d-flex justify-content-between h-100 px-0">
-              <div className="px-0 h-100 d-flex flex-column justify-content-center ">
+              <div className="px-2 h-100 d-flex flex-column justify-content-center ">
               <h6>{fonctionAttendue.title}</h6>
               </div>
               <div className="px-0 p-1 h-100 d-flex flex-column justify-content-center">
-              <button  className="btn btn-danger w-100 mx-0 rounded-0 my-0 h-100"><FaPlus className="align-self-center" /></button>
+              <button onClick={(e) => supprFonction(index)} className="btn btn-danger w-100 mx-0 rounded-0 my-0 h-100 d-flex flex-column justify-content-center"><TiDelete size="1.5em" className="my-auto" /></button>
               </div>
             </div> 
         </div>

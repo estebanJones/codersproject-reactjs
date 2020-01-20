@@ -8,23 +8,21 @@ import logo from "../../../../img/avatars/avatar-footer.png";
 
 const Equipe = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
 
-  let response = [
+
+
+  const [teammateTab, setteammateTab] = useState([
     {id: 1, username: 'remi'},
     {id: 2, username: 'jordan'}
-  ];
+  ]);
 
-  const [teammateTab, setteammateTab] = useState(response);
+  const suppr = (index) => {
 
-    const supprimerTeamMate = (e, indexTeamMate) => {
+    const teamMateCopy = [...teammateTab];
 
+    teamMateCopy.splice(index, 1);
 
-      
-      //   const index_teammate =  teammateTab.findIndex(teammate => {teammate.id = indexTeamMate });
-
-
-      // teammateTab.splice(index_teammate, 1);
-
-    }
+    setteammateTab(teamMateCopy);
+  };
 
 
 
@@ -34,7 +32,7 @@ const Equipe = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
 
       <ul className="row mx-0 h-85 custom_scrollbar">
       
-      {teammateTab.map(teammate => {
+      {teammateTab.map((teammate, index) => {
         return (
           <div className="col-lg-2 px-0 pr-1 h-25">
             <li id={teammate.id} className="block-dark-hover d-flex flex-column justify-content-center h-100 px-2">
@@ -42,7 +40,7 @@ const Equipe = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
               <h6 className="text-center h-25 d-flex flex-column justify-content-center">
                 
                 {teammate.username}</h6>
-              <button onClick={(e) => supprimerTeamMate(e, teammate.id)} className="btn btn-danger w-100 mx-0 rounded-0">Expulser</button>
+              <button onClick={(e) => suppr(index)} className="btn btn-danger w-100 mx-0 rounded-0">Expulser</button>
             </li> 
         </div>
         )

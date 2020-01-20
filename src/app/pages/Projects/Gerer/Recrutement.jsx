@@ -7,22 +7,39 @@ import ModalEditRecruit from "./componentRecrutement/ModalEditRecruit";
 
 // Import Icons
 import {MdCompareArrows} from "react-icons/md";
+import { useEffect } from "react";
 
 
-const Recrutement = () => {
+const Recrutement = () => {  
 
-  let response = [
+  const [offer, setOffers] = useState([
     {title: 'Super Title', description: 'Description', spec: 'front'},
     {title: 'Super Title', description: 'Description', spec: 'back'}
-    
-  ];
-
-
-  const [value, setValue] = useState(response);
+  ]);
   const [inputTitle, setInputTitle] = useState("");
   const [inputDescription, setInputDescription] = useState("");
   const [inputSpec, setInputSpec] = useState("front");
 
+  
+  // useEffect(() => {
+  //   fetchOffers(); 
+  // }, [])
+
+  // const fetchOffers = () => {
+    
+  //   fetch('http://127.0.0.1:8000/api/user/create_project', {
+  //     method : 'POST',
+  //     headers: {"Content-Type": "application/json" },
+  //     body: JSON.stringify({
+  //       projectID : titleValue,
+  //       description : descValue,
+  //       spec: specValue,
+  //       userId : "1"
+  //   })
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => console.log(data))
+  // }
 
 
 
@@ -43,17 +60,14 @@ const Recrutement = () => {
 
   }
 
-  const add = () => {
+  const add = (title, desc, spec) => {
 
-    console.log(inputSpec);
-
-
-    setValue([
-      ...value,
+    setOffers([
+      ...offer,
       {
-        title: inputTitle,
-        description: inputDescription,
-        spec: inputSpec
+        title: title,
+        description: desc,
+        spec: spec
       }
     ]);
     setInputTitle("");
@@ -63,11 +77,11 @@ const Recrutement = () => {
 
   const modifier = () => {
 
-    console.log(inputSpec);
 
 
-    setValue([
-      ...value,
+
+    setOffers([
+      ...offer,
       {
         title: inputTitle,
         description: inputDescription,
@@ -79,8 +93,15 @@ const Recrutement = () => {
     setInputSpec("");
   };
 
-  const suppr = () => {
-    console.log("delete", value);
+  const suppr = (index) => {
+
+    const offerCopy = [...offer];
+
+    offerCopy.splice(index, 1);
+
+    console.log(offerCopy);
+
+    setOffers(offerCopy);
   };
 
   return (
@@ -105,12 +126,13 @@ const Recrutement = () => {
       </div>
 
       <div id="poste" className="w-100 custom_scrollbar mt-2 pr-1">
-        {value.map((currentValue, index) => {
+        {offer.map((currentValue, index) => {
           return (
             <div className="poste d-flex flex-column justify-content-between">
               <div className="d-flex flex-column justify-content-center h-100">
               <h5 className="text-center">{currentValue.title}</h5>
                 <p className="text-center mb-0">{getSpec(currentValue.spec)}</p>
+                
               </div>
               
               <div className="row mx-0">
@@ -125,7 +147,7 @@ const Recrutement = () => {
                 </div>
                 <div className="col-lg-6 px-0 w-100">
                 <button
-                onClick={suppr}
+                onClick={(e) => suppr(index)}
                 className="btn btn-danger rounded-0 w-100 m-0">
                 Supprimer </button>
                 </div>
