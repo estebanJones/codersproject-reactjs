@@ -27,7 +27,7 @@ function MainHome(props) {
         <main className="bg_home">
           <div className="allBlock row w-100 d-flex justify-content-lg-around px-0 mx-0 col-lg-12">
             <ArenaBlock />
-            {blockState}
+              {blockState}
             <ProjectBlock />
           </div>
         </main>

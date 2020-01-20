@@ -13,7 +13,6 @@ function BackCard(props) {
     const [inputPasswordRegister, setInputPasswordRegister] = useState("");
     const [inputPasswordConfirmRegister, setInputPasswordConfirmRegister] = useState("");
     const [inputEmailRegister, setInputEmailRegister] = useState("");
-
     const [inputEmailForgetPass, setInputEmailForgetPass] = useState("");
 
     const onRegister = (e) => {
@@ -21,14 +20,13 @@ function BackCard(props) {
         console.log("handle");
         e.preventDefault();
         // JENVOIES LES INFOS REACT A SYMFONY
-        fetch("http://127.0.0.1:8000/api/user/new", {
+        fetch("http://127.0.0.1:8000/user/newUser", {
             headers: { 'Content-Type': 'application/json' },
             method: "POST",
             body: JSON.stringify(
                 {
                     username: inputPseudoRegister,
                     password: inputPasswordRegister,
-                    passwordConfirm: inputPasswordConfirmRegister,
                     email: inputEmailRegister
                 }
             ),

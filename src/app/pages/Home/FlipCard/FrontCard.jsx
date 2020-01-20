@@ -10,24 +10,7 @@ import { useContext } from "react";
 
 import { StatusUserContext } from "../../../contexts/ThemeContext";
 
-function testGui(e) {
-  console.log("dans testGui");
-  e.preventDefault();
-  fetch("http://192.168.1.31:8000/api/user/show_all_task", {
-    headers: { 'Content-Type': 'application/json' },
-    method: 'POST',
-    body: JSON.stringify(
-      {
-        projectId: 1,
-      }
-    )
-  })
-    .then(res => res.json())
-    .then(data => {
-      console.log("dans testGui deuxiemee rep");
-      console.log(data);
-    })
-}
+
 function FrontCard(props) {
 
   const [inputPseudo, setInputPseudo] = useState("");
@@ -37,7 +20,7 @@ function FrontCard(props) {
     console.log("handle");
     e.preventDefault();
     // JENVOIES LES INFOS REACT A SYMFONY
-    fetch("http://192.168.1.40:8000/api/login", {
+    fetch("http://127.0.0.1:8000/user/login", {
       headers: { 'Content-Type': 'application/json' },
       method: "POST",
       body: JSON.stringify(
@@ -106,7 +89,7 @@ function FrontCard(props) {
         </label>
         <button
           className="btn btn-success w-100 rounded-0 border-none"
-          onClick={e => testGui(e)}
+          onClick={e => handleSubmit(e)}
         >
           Entrer
         </button>

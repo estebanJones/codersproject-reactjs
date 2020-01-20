@@ -22,7 +22,11 @@ function RouterCoder() {
 
   const updateUser = e => {
     console.log("Bien dans le Routeur !!!");
-    return setIsOnline(true);
+    const myStorage = localStorage;
+    const token = myStorage.getItem('userData');
+    if (token) {
+      return setIsOnline(true);
+    }
   };
 
   const deconnexionUser = e => {

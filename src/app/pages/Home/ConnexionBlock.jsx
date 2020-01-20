@@ -21,9 +21,6 @@ function ConnexionBlock(props) {
 
   const backFlip = () => {
     // e.preventDefault();
-    if (statusToRegister) {
-      setStatusToRegister(false);
-    }
     setStatusToFlip(false);
   };
 
@@ -40,7 +37,8 @@ function ConnexionBlock(props) {
       {console.log({ isOnline })};
       <ReactCardFlip isFlipped={statusToFlip} flipDirection="horizontal">
         <FrontCard onFrontFlip={frontFlip}
-          onRegisterFlip={registerFlip} />
+                   onRegisterFlip={registerFlip} 
+                   />
         <BackCard onBackFlip={backFlip}
           statusRegisterPage={statusToRegister}
           checkStatusToFlip={statusToFlip}
