@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 // Import Structure
 import Header from "../../../base/Header/Header.jsx";
@@ -43,7 +44,23 @@ const MyApp = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
     }
   }
 
+  const [project, setProject] = useState([]);
+  const { id } = useParams();
 
+
+  useEffect(() => {fetch('http://127.0.0.1:8000/api/show_one_project', {
+        method : 'POST',
+        headers: {"Content-Type": "application/json" },
+        body: JSON.stringify({
+          id_project : id,
+      })
+      })
+        .then(res =>res.json())
+        .then(data => { setProject(data) })
+     },[])
+
+      console.log(id);
+      console.log(project);
 
 
     return (

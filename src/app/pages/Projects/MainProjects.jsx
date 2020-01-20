@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
+
 import { Link, useParams } from "react-router-dom";
 
 // Import Structure
@@ -13,38 +14,49 @@ import ModalNouveauProject from "./components/ModalNouveauProject.jsx";
 import {MdLocalOffer} from "react-icons/md";
 import {GoChecklist} from "react-icons/go";
 import {FaProjectDiagram, FaPlusCircle} from "react-icons/fa";
+import ProjetSeul from "./ProjetSeul.jsx";
 
 
 
 
-const MainProjects = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
+const MainProjects = (props,{ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
 
   const [projects, setProjects] = useState([]);
 
-  let listAllProjects = () => {
-      console.log('dans ma liste projects');
+  useEffect(() => {fetch('http://127.0.0.1:8000/api/show_all_project', {
+        method : 'POST',
+        headers: {"Content-Type": "application/json" },
+      })
+        .then(res =>res.json())
+        .then(data => { setProjects(data) })
+     },[])
 
 
-  
-    };
+const listProject = projects.map((project) =>
+    <div className="col-4 px-0 mb-1 h-50">
+        <Link to={`projet/${project.id}`} handler={ProjetSeul}>
+            <div key={project.id} className="block-dark-hover mr-1 h-100">
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+            </div>
+        </Link>
+    </div>
 
-  listAllProjects();
-
-
+ );
 
     return (
       <div id="wrapper">
-      <Header 
+      <Header
           checkUserStatus={isOnline}
           onLogoutUser={onLogout} />
       <main className="bg_projects">
         <div className="allBlock row w-100 d-flex justify-content-lg-around mx-0 col-lg-12">
 
         <div className="h-100 d-flex flex-column justify-content-center col-lg-3 pl-0 pr-2">
-          
+
           <div className="h-20">
-          
-              <ModalNouveauProject />
+
+              <ModalNouveauProject/>
 
           </div>
           <div className="h-80 pt-2">
@@ -100,76 +112,14 @@ const MainProjects = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => 
                     <div className="col-12 h-90 px-2 d-flex justify-content-start">
                         <div className="row w-100 mx-0 h-100 custom_scrollbar">
 
-                            
-                            <div className="col-4 px-0 mb-1 h-50">
-                            <Link to="projet/1/">
-                                <div className="block-dark-hover mr-1 h-100">
-                                    test
-                                </div>
-                                </Link>
-                            </div>
-                            <div className="col-4 px-0 mb-1 h-50">
-                            <Link to="projet/2/">
-                                <div className="block-dark-hover mr-1 h-100">
-                                    test
-                                </div>
-                                </Link>
-                            </div>
-                            <div className="col-4 px-0 mb-1 h-50">
-                            <Link to="projet/3/">
-                                <div className="block-dark-hover mr-1 h-100">
-                                    test
-                                </div>
-                                </Link>
-                            </div>
-                            <div className="col-4 px-0 mb-1 h-50">
-                            <Link to="projet/4/">
-                                <div className="block-dark-hover mr-1 h-100">
-                                    test
-                                </div>
-                                </Link>
-                            </div>
-                            <div className="col-4 px-0 mb-1 h-50">
-                            <Link to="projet/5/">
-                                <div className="block-dark-hover mr-1 h-100">
-                                    test
-                                </div>
-                                </Link>
-                            </div>
-                            <div className="col-4 px-0 mb-1 h-50">
-                            <Link to="projet/6/">
-                                <div className="block-dark-hover mr-1 h-100">
-                                    test
-                                </div>
-                                </Link>
-                            </div>
-                            <div className="col-4 px-0 mb-1 h-50">
-                            <Link to="projet/7/">
-                                <div className="block-dark-hover mr-1 h-100">
-                                    test
-                                </div>
-                                </Link>
-                            </div>
-                            <div className="col-4 px-0 mb-1 h-50">
-                            <Link to="projet/8/">
-                                <div className="block-dark-hover mr-1 h-100">
-                                    test
-                                </div>
-                                </Link>
-                            </div>
-                            
+                            {listProject}
                             
                             </div>
                     </div>
-            
-
-
             </div>
-          
         </div>
 
         <div className="h-100 d-flex flex-column justify-content-center col-lg-3 mx-0 pr-0 pl-2">
-          
           <div className="h-80">
           <div className="block-dark h-100 p-2 text-center">
               <div className="h-10">

@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-
 
 
 // Import Structure
@@ -17,20 +16,25 @@ import {IoIosBarcode, IoMdCodeWorking} from "react-icons/io";
 
 
 
-const ProjetSeul = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
+const ProjetSeul = (props,{ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
 
-  const [projects, setProjects] = useState([]);
-
-  let listAllProjects = () => {
-      console.log('dans ma liste projects');
+  const [project, setProject] = useState([]);
+  const { id } = useParams();
 
 
-  
-    };
+  useEffect(() => {fetch('http://127.0.0.1:8000/api/show_one_project', {
+        method : 'POST',
+        headers: {"Content-Type": "application/json" },
+        body: JSON.stringify({
+          id_project : id,
+      })
+      })
+        .then(res =>res.json())
+        .then(data => { setProject(data) })
+     },[])
 
-  listAllProjects();
-
-
+      console.log(id);
+      console.log(project);
 
     return (
       <div id="wrapper">
@@ -43,12 +47,12 @@ const ProjetSeul = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
                {/** Left Column */}
 
         <div className="h-100 d-flex flex-column justify-content-center col-lg-12 px-0 h-10">
-            <h2 className="text-center">Mon Super Projet</h2>          
+            <h2 className="text-center">{project.title}</h2>
         </div>
         <div className="h-100 d-flex flex-column justify-content-center col-lg-3 px-0 h-90">
- 
+
         <div className="block-dark h-75">
-                           
+
         <h4 className="text-center mt-3 mb-2"><IoMdCodeWorking className="pb-1" /> Fonctionnalités attendues</h4>
         <ul className="h-85 mt-2 px-4 custom_scrollbar">
           <li className="h-10 mb-1 text-center block-light-hover d-flex flex-column justify-content-center">
@@ -92,30 +96,30 @@ const ProjetSeul = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
 
             </div>
         <div className="block-dark h-25 mt-2">
-                           
+
         <h4 className="text-center mt-3 mb-2"><FaSuitcase className="pb-1" /> Outils & Frameworks</h4>
 
         <div class="row mx-0 h-50 w-100 pl-1 d-flex justify-content-center">
           <div className="col-6 col-lg-3 pr-1 pl-0 w-100 h-100">
             <div className="block-dark-hover w-100 h-100 text-center d-flex flex-column justify-content-center">
               <FaSymfony className="mx-auto" size="2em" />
-              </div>          
+              </div>
               </div>
           <div className="col-6 col-lg-3 pr-1 pl-0  w-100 h-100">
             <div className="block-dark-hover w-100 h-100 text-center d-flex flex-column justify-content-center">
               <FaReact className="mx-auto" size="2em" />
-              </div>          
+              </div>
               </div>
           <div className="col-6 col-lg-3 pr-1 pl-0  w-100 h-100">
             <div className="block-dark-hover w-100 h-100 text-center d-flex flex-column justify-content-center">
               <FaGithub className="mx-auto" size="2em" />
-              </div>          
+              </div>
               </div>
 
         </div>
 
             </div>
-          
+
         </div>
 
                {/** Middle Column */}
@@ -134,7 +138,7 @@ const ProjetSeul = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
             </div>
         
         <div className="block-dark-hover h-20 mt-2 ">
-        <Link to="/projet/1/gerer" className="h-100 w-100 d-flex flex-column justify-content-center text-white">                
+        <Link to={`${project.id}/gerer`} className="h-100 w-100 d-flex flex-column justify-content-center text-white">                
         <h4 className="text-center"><GoTools className="pb-1" /> Gérer le projet</h4>
         </Link>
             </div>
@@ -155,11 +159,7 @@ const ProjetSeul = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
                            
         <h4 className="text-center mt-3 mb-2"><FaClipboard className="pb-1" /> Description</h4>
         <p className="pb-0 text-center p-3">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam iure maxime atque dolore at voluptatum? Unde illo quo, nulla, ratione aperiam id consectetur nam soluta, dignissimos nemo corrupti facilis rerum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam iure maxime atque dolore at voluptatum? Unde illo quo, nulla, ratione aperiam id consectetur nam soluta, dignissimos nemo corrupti facilis rerum?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam iure maxime atque dolore at voluptatum? Unde illo quo, nulla, ratione aperiam id consectetur nam soluta, dignissimos nemo corrupti facilis rerum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam iure maxime atque dolore at voluptatum? Unde illo quo, nulla, ratione aperiam id consectetur nam soluta, dignissimos nemo corrupti facilis rerum?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam iure maxime atque dolore at voluptatum? Unde illo quo, nulla, ratione aperiam id consectetur nam soluta, dignissimos nemo corrupti facilis rerum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam iure maxime atque dolore at voluptatum? Unde illo quo, nulla, ratione aperiam id consectetur nam soluta, dignissimos nemo corrupti facilis rerum?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam iure maxime atque dolore at voluptatum? Unde illo quo, nulla, ratione aperiam id consectetur nam soluta, dignissimos nemo corrupti facilis rerum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam iure maxime atque dolore at voluptatum? Unde illo quo, nulla, ratione aperiam id consectetur nam soluta, dignissimos nemo corrupti facilis rerum?
-        
+          {project.description}
         </p>
 
             </div>
