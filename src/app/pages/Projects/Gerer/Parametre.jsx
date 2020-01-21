@@ -27,6 +27,7 @@ const Parametre = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
           setJoinValue(data.project.coders_join_confirmed);
           setCommentValue(data.project.coders_com_post);
           setTaskValue(data.project.coders_can_create_task);
+          console.log(data.project)
         })
      },[])
 
@@ -43,7 +44,7 @@ const updateProject = (e) => {
       }])
       })
         .then(res =>res.json())
-        .then(data => { console.log(data); alert(data.state) })
+        .then(data => { alert(data.state) })
 }
 
 return (
