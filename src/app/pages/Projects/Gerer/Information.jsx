@@ -1,17 +1,112 @@
-import React from "react";
+import React, {useState} from "react";
 
 // Import Icons
 import {IoMdInformationCircle} from "react-icons/io";
-import {FaPlus} from "react-icons/fa";
+import {TiDelete} from "react-icons/ti";
+import {FaPlus,FaSymfony, FaReact, FaGithub} from "react-icons/fa";
+
+const Information = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
+
+  const [frameTools, setFrameTools] = useState([
+    {name: 'symfony'},
+    {name: 'react'},
+    {name: 'github'},
+    {name: 'symfony'},
+    {name: 'react'},
+    {name: 'github'},
+    {name: 'symfony'},
+    {name: 'react'},
+    {name: 'github'},
+  ]);
+  const [fonctionsAtt, setFonctionsAtt] = useState([
+    {title: 'La fonction attendue'},
+    {title: 'react'},
+    {title: 'github'},
+    {title: 'react'},
+    {title: 'github'},
+    {title: 'github'},
+    {title: 'react'},
+    {title: 'github'},
+  ]);
+
+  const [inputFrameTool, setInputFrameTool] = useState("symfony");
+  const [inputFonctionsAtt, setInputFonctionsAtt] = useState("symfony");
+
+ 
+
+  let displayTools = (name) => {
+
+    switch(name){
+      case "symfony":
+        return <FaSymfony size="1.5em" className="mx-auto" />;
+      case "react":
+        return <FaReact size="1.5em" className="mx-auto"  />;
+      case "angular":
+        return <FaGithub size="1.5em" className="mx-auto"  />;
+      case "node":
+        return <FaGithub size="1.5em" className="mx-auto"  />;
+      case "github":
+        return <FaGithub size="1.5em" className="mx-auto"  />;
+      default:
+        return null;
+    }
+
+  }
+
+  // const getSelectedTools = () => {
+
+  //   let toolToAdd = document.getElementsByName('tools');
+  //   return toolToAdd;
+
+  // // }
+
+  const addFrameTools = () => {
 
 
-class Information extends React.Component {
-  state = {};
-  render() {
+    setFrameTools([
+      ...frameTools,
+      {
+        name: inputFrameTool
+      }
+    ]);
+  }
+
+  const addFonctionsAtt = () => {
+
+    setFonctionsAtt([
+      ...fonctionsAtt,
+      {
+        title: inputFonctionsAtt
+      }
+    ]);
+
+    setInputFonctionsAtt("");
+
+  }
+
+  const supprFrameTools = (index) => {
+
+    const frameToolsCopy = [...frameTools];
+
+    frameToolsCopy.splice(index, 1);
+
+    setFrameTools(frameToolsCopy);
+  };
+  const supprFonction = (index) => {
+
+    const fonctionAttCopy = [...fonctionsAtt];
+
+    fonctionAttCopy.splice(index, 1);
+
+    setFonctionsAtt(fonctionAttCopy);
+  };
+  
+
+
     return (
       <div className="contenu_information d-flex align-items-center flex-column">
-        <h2><IoMdInformationCircle /> Informations</h2>
-        <div className="row mx-0 w-100 h-100">
+        <h2 className="h-10"><IoMdInformationCircle /> Informations</h2>
+        <div className="row mx-0 w-100 h-90">
 
           <div className="col-lg-4 px-0  d-flex flex-column justify-content-center ">
 
@@ -37,43 +132,76 @@ class Information extends React.Component {
             <div className="row mx-0 h-100">
               <div className="langue d-flex flex-column justify-content-start col-lg-6 px-0 mx-0">
                 <div className="block-light mr-2 h-100 p-2">
-                <div className="h-30 d-flex align-items-center flex-column">
+                <div className="h-40 d-flex align-items-center flex-column">
                   
                   <p>Frameworks et Outils</p>
-                  <div className="row mx-0 w-100">
-                  <select name="cars" className="form-control rounded-0 col-lg-10">
-                    <option value="volvo">Symfony</option>
-                    <option value="saab">React</option>
-                    <option value="fiat">Angular</option>
-                    <option value="audi">Node.js</option>
-                    <option value="saab">Bootstrap</option>
-                    <option value="fiat">Laravel</option>
-                    <option value="audi">Wordpress</option>
-                    <option value="audi">Prestashop</option>
-                    <option value="saab">Spring</option>
-                    <option value="fiat">Ruby on Rails</option>
+                  <div className="row mx-0 w-100 h-30 py-2">
+                  <select onChange={e => setInputFrameTool(e.currentTarget.value)} name="tools" className="form-control rounded-0 col-lg-10 h-100">
+                    <option value="symfony">Symfony</option>
+                    <option value="react">React</option>
+                    <option value="github">Github</option>
                   </select>
+
                   <div className="col-lg-2 px-0">
-                  <button className="btn btn-success rounded-0 w-100 m-0 h-100 ml-1"><FaPlus /></button>
+                  <button onClick={addFrameTools} className="btn btn-success rounded-0  m-0 h-100 ml-1 w-100"><FaPlus /></button>
                   </div>
+                  </div>
+                  <div className="row mx-0 h-50 w-100 mt-1 d-flex justify-content-center custom_scrollbar">
+                  {frameTools.map((frAndTools, index) => {
+        return (
+          <div className="col-lg-2 px-0 pl-1 h-100 mb-1 ">
+            <div id={frAndTools.id} className="block-dark-hover d-flex flex-column justify-content-between h-100 px-0">
+              <div className="px-0 h-100 d-flex flex-column justify-content-center ">
+              { displayTools(frAndTools.name) }
+              </div>
+              <div className="px-0 p-1 d-flex flex-column justify-content-center">
+              <button onClick={(e) => supprFrameTools(index)} className="btn btn-danger w-100 mx-0 rounded-0 my-0 w-100"><TiDelete size="1.5rem" className="align-self-center" /></button>
+              </div>
+            </div> 
+        </div>
+        )
+        
+        
+        })}
                   </div>
                 </div>
-                <div className="h-75 mt-4 d-flex align-items-center flex-column">
-                  <p>Fonctionnalités attendues</p>
-                  <div className="row mx-0 w-100">
+                <div className="h-60 mt-2 d-flex align-items-center flex-column py-2">
+                  <p className="h-10 mb-0">Fonctionnalités attendues</p>
+                  <div className="row mx-0 w-100 h-15">
                   <div className="col-lg-10 px-0">
-                  <input name="cars" className="form-control rounded-0" />
+                  <input value={inputFonctionsAtt} onChange={(e) => setInputFonctionsAtt(e.currentTarget.value)} name="cars" className="form-control rounded-0 h-100" />
                   </div>
-                  <div className="col-lg-2 px-0">
-                  <button className="btn btn-success rounded-0 w-100 m-0 h-100 ml-1"><FaPlus /></button>
+                  <div className="col-lg-2 px-0 pl-1">
+                  <button onClick={addFonctionsAtt} className="btn btn-success rounded-0 m-0 w-100 h-100 "><FaPlus /></button>
                   </div>
                   </div>
+
+                  <div className="mx-0 h-75 w-100 mt-1 d-flex flex-column justify-content-start custom_scrollbar">
+                  {fonctionsAtt.map((fonctionAttendue, index) => {
+        return (
+          <div className="px-0 h-100 singleFonctAtt">
+            <div id={fonctionAttendue.id} className="block-dark-hover d-flex justify-content-between h-100 px-0">
+              <div className="px-2 h-100 d-flex flex-column justify-content-center ">
+              <h6>{fonctionAttendue.title}</h6>
+              </div>
+              <div className="px-0 p-1 h-100 d-flex flex-column justify-content-center">
+              <button onClick={(e) => supprFonction(index)} className="btn btn-danger w-100 mx-0 rounded-0 my-0 h-100 d-flex flex-column justify-content-center"><TiDelete size="1.5em" className="my-auto" /></button>
+              </div>
+            </div> 
+        </div>
+        )
+        
+        
+        })} </div>
                 </div>
                 </div>
               </div>
               <div className="logo d-flex align-items-center justify-content-start flex-column col-lg-6 px-0 mx-0">
-              <div className="block-light h-100 p-2">
-                <img src="http://placehold.it/450x450" alt="" />
+              <div className="block-light h-100 w-100 p-2">
+                <div className="h-70 pb-2">
+                <img src="http://placehold.it/400x400" alt="" className="w-100 h-100" />
+                </div>
+                <div className="h-15 ">
                 <input
                   type="file"
                   name=""
@@ -82,17 +210,15 @@ class Information extends React.Component {
                   className="form-control rounded-0"
                 />
                 </div>
-              </div>
-
-
-              </div>
-              <div className="row mx-0 h-100">
-              <div className="langue d-flex flex-column justify-content-start col-lg-12 px-0 mx-0">
-                <div className="block-light mt-2 h-100 p-2">
-                  <button className="btn btn-success rounded-0 w-100 h-100"><h6 className="text-uppercase mb-0">Mettre à Jour</h6></button>
+                
+                  
+                <button className="btn btn-success rounded-0 w-100 h-15 m-0"><h6 className="text-uppercase mb-0">Mettre à Jour</h6></button>
                 </div>
               </div>
+
+
               </div>
+
 
 
           </div>
@@ -102,7 +228,7 @@ class Information extends React.Component {
 
       </div>
     );
-  }
+  
 }
 
 export default Information;
