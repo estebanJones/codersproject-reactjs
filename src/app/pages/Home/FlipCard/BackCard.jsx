@@ -91,7 +91,7 @@ function BackCard(props) {
                             ></input>
                         </label>
                         <button
-                            className="btn btn-success w-100 rounded-0 border-none">
+                            className="btn btn-success w-100 rounded-0 border-none m-0">
                             Valider
                     </button>
                     </form>

@@ -49,7 +49,7 @@ function Footer(props) {
         if (isOnline === true) {
           return (
             <div className="navRightFooter">
-              {console.log("dans is true footer", { isOnline })};
+              
               <NavigationFooter
                 className="footerNavigationIcons"
                 icon={<GoBell />}
@@ -83,9 +83,8 @@ function Footer(props) {
         } else if (isOnline === false) {
           return (
             <div className="navRightFooter ">
-              {console.log("dans is false footer", { isOnline })};
               <div className="disabled w-100">
-                {console.log(isOnline)}
+
                 <NavigationFooter
                   className="footerNavigationIcons"
                   icon={<GoBell />}

@@ -22,7 +22,7 @@ import ProjetSeul from "./ProjetSeul.jsx";
 const MainProjects = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
 
   const [projects, setProjects] = useState([]);
-  const [managerProject, setManagerProject] = useState([])
+  const [search, setSearch] = useState('');
 
 
   useEffect(() => {
@@ -34,8 +34,22 @@ const MainProjects = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => 
         .then(data => { setProjects(data.projects)})
      },[])
 
+     let updateSearch = (event) => {
+         setSearch(
+             event.currentTarget.value
+         )
 
-const listProject = projects.map((project) =>
+     }  
+    
+     let filteredProjects = projects.filter(
+         (project) => {
+             return project.title.toLowerCase().indexOf(search.toLowerCase()) !== -1;
+         }
+
+     );
+
+
+const listProject = filteredProjects.map((project) =>
     <div className="col-4 px-0 mb-1 h-50">
         <Link to={`projet/${project._id}`} handler={ProjetSeul}>
             <div key={project._id} className="block-dark-hover mr-1 h-100">
@@ -99,14 +113,18 @@ const listProject = projects.map((project) =>
           
         </div>
 
-        <div className="h-100 d-flex flex-column justify-content-center col-lg-6 px-0 mt-2 mb-lg-0">
+        <div className="h-100 d-flex flex-column justify-content-center col-lg-6 px-0 mt-lg-0 mb-lg-0">
  
         <div className="block-dark h-100">
                 
                 
                 <div className="row mx-0 p-2 h-10 d-flex  justify-content-start mb-2 mb-lg-0">
                     <div className="searchProjects col-6 pl-0 pr-2 d-flex justify-content-center h-100">
-                        <input type="search" className="form-control rounded-0 text-center" placeholder="Chercher par Nom" />
+                        <input type="text"
+                        value={search}
+                        onChange={updateSearch}
+                         className="form-control rounded-0 text-center" 
+                         placeholder="Chercher par Nom" />
                     </div>
                     <div className="col-6 px-0 d-flex justify-content-center h-100">
                         <button className="btn block-dark-hover w-100 rounded-0 mx-0 text-white">FILTRER</button>
