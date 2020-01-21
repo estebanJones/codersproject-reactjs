@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useEffect } from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 
 // Import Pages
@@ -17,19 +17,29 @@ import MyApp from "./app/pages/Projects/Gerer/MyApp.jsx";
 function RouterCoder() {
   const [userId, setUserId] = useState();
   const [username, setUsername] = useState("");
-  const [isOnline, setIsOnline] = useState(true);
+  const [isOnline, setIsOnline] = useState(false);
   const [isAdmin, setIsAdmin] = useState(true);
 
+  useEffect(() => {
+    const myStorage = localStorage.getItem("userToken");
+    if (myStorage) {
+      console.log("dans useeffect true");
+      setIsOnline(true);
+    } else {
+      setIsOnline(false);
+      console.log("dans useeffect false");
+    }
+  })
+
   const updateUser = e => {
-    console.log("Bien dans le Routeur !!!");
     const myStorage = localStorage;
     const token = myStorage.getItem('userData');
-    if (token) {
-      return setIsOnline(true);
-    }
+    return setIsOnline(true);
+
   };
 
   const deconnexionUser = e => {
+    localStorage.removeItem("userToken");
     setIsOnline(false);
   };
 
@@ -54,10 +64,10 @@ function RouterCoder() {
             <MainArene checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />
           )}
         />
-        <Route exact path="/mon-profile/" render={props => ( <MainProfile checkUserStatus={isOnline} onLogoutUser={deconnexionUser} /> )}/>
-        <Route exact path="/projet/:id/gerer" render={props => ( <MyApp checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />) } />
-        <Route exact path="/projet/:id/" render={props => ( <ProjetSeul checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />) } />
-        <Route exact path="/projets/" render={props => ( <MainProjects checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />) } />
+        <Route exact path="/mon-profile/" render={props => (<MainProfile checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />)} />
+        <Route exact path="/projet/:id/gerer" render={props => (<MyApp checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />)} />
+        <Route exact path="/projet/:id/" render={props => (<ProjetSeul checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />)} />
+        <Route exact path="/projets/" render={props => (<MainProjects checkUserStatus={isOnline} onLogoutUser={deconnexionUser} />)} />
       </div>
     </Router>
   );

@@ -10,10 +10,11 @@ import ThemeUserContextProvider from "../../contexts/ThemeContext";
 function MainHome(props) {
 
   let isOnline = props.checkUserStatus;
-  var onLogout = props.onLogoutUser;
+  let onLogout = props.onLogoutUser;
+  let updateUser = props.updateUserToHome
 
-  if(isOnline === false) {
-    var blockState = <ConnexionBlock />
+  if (isOnline === false) {
+    var blockState = <ConnexionBlock updateUser={updateUser} />
   } else if (isOnline === true) {
     var blockState = <LoggedUser />
   }
@@ -27,7 +28,7 @@ function MainHome(props) {
         <main className="bg_home">
           <div className="allBlock row w-100 d-flex justify-content-lg-around px-0 mx-0 col-lg-12">
             <ArenaBlock />
-              {blockState}
+            {blockState}
             <ProjectBlock />
           </div>
         </main>
