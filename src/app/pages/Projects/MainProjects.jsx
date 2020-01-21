@@ -23,19 +23,20 @@ const MainProjects = (props,{ checkUserStatus: isOnline, onLogoutUser: onLogout 
 
   const [projects, setProjects] = useState([]);
 
-  useEffect(() => {fetch('http://127.0.0.1:8000/api/show_all_project', {
+  useEffect(() => {
+      fetch('http://127.0.0.1:8000/project/show_all_project', {
         method : 'POST',
         headers: {"Content-Type": "application/json" },
       })
         .then(res =>res.json())
-        .then(data => { setProjects(data) })
+        .then(data => { setProjects(data.projects)})
      },[])
 
 
 const listProject = projects.map((project) =>
     <div className="col-4 px-0 mb-1 h-50">
-        <Link to={`projet/${project.id}`} handler={ProjetSeul}>
-            <div key={project.id} className="block-dark-hover mr-1 h-100">
+        <Link to={`projet/${project._id}`} handler={ProjetSeul}>
+            <div key={project._id} className="block-dark-hover mr-1 h-100">
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
             </div>
@@ -56,7 +57,7 @@ const listProject = projects.map((project) =>
           
           <div className="h-20">
 
-              <ModalNouveauProject/>
+              <ModalNouveauProject listPro={setProjects}/>
 
           </div>
           <div className="h-80 pt-2">

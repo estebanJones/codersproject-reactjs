@@ -22,19 +22,19 @@ const ProjetSeul = (props,{ checkUserStatus: isOnline, onLogoutUser: onLogout })
   const { id } = useParams();
 
 
-  useEffect(() => {fetch('http://127.0.0.1:8000/api/show_one_project', {
+  useEffect(() => {fetch('http://127.0.0.1:8000/project/show_one_project', {
         method : 'POST',
         headers: {"Content-Type": "application/json" },
         body: JSON.stringify({
-          id_project : id,
+          projectId : id,
       })
       })
         .then(res =>res.json())
-        .then(data => { setProject(data) })
+        .then(data => { setProject(data.project) })
      },[])
 
-      console.log(id);
-      console.log(project);
+      // console.log(id);
+      // console.log(project.title);
 
     return (
       <div id="wrapper">
@@ -138,7 +138,7 @@ const ProjetSeul = (props,{ checkUserStatus: isOnline, onLogoutUser: onLogout })
             </div>
         
         <div className="block-dark-hover h-20 mt-2 ">
-        <Link to={`${project.id}/gerer`} className="h-100 w-100 d-flex flex-column justify-content-center text-white">                
+        <Link to={`${project._id}/gerer`} className="h-100 w-100 d-flex flex-column justify-content-center text-white">                
         <h4 className="text-center"><GoTools className="pb-1" /> Gérer le projet</h4>
         </Link>
             </div>

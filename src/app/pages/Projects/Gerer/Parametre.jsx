@@ -15,36 +15,35 @@ const Parametre = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
 
   const [taskValue, setTaskValue] = useState(false);
 
-  useEffect(() => {fetch('http://127.0.0.1:8000/api/show_one_project', {
+  useEffect(() => {fetch('http://127.0.0.1:8000/project/show_one_project', {
         method : 'POST',
         headers: {"Content-Type": "application/json" },
         body: JSON.stringify({
-          id_project : id,
+          projectId : id,
       })
       })
         .then(res =>res.json())
         .then(data => {
-          setJoinValue(data.coders_join_confirmed);
-          setCommentValue(data.coders_com_post);
-          setTaskValue(data.coders_can_create_task);
+          setJoinValue(data.project.coders_join_confirmed);
+          setCommentValue(data.project.coders_com_post);
+          setTaskValue(data.project.coders_can_create_task);
         })
      },[])
 
 
 const updateProject = (e) => {
 
-  fetch('http://127.0.0.1:8000/api/user/update_project', {
-        method : 'POST',
+  fetch(`http://127.0.0.1:8000/project/${id}`, {
+        method : 'PATCH',
         headers: {"Content-Type": "application/json" },
-        body: JSON.stringify({
-          id_project : id,
+        body: JSON.stringify([{
           coders_join_confirmed : joinValue,
           coders_com_post : commentValue,
           coders_can_create_task : taskValue
-      })
+      }])
       })
         .then(res =>res.json())
-        .then(data => { alert(data.mess) })
+        .then(data => { console.log(data); alert(data.state) })
 }
 
 return (

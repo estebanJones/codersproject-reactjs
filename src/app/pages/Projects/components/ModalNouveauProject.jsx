@@ -18,11 +18,13 @@ function ModalPage(props) {
   const openModal = () => {
     setStatusModal(true);
   }
-  
+
+  const stopSubmit = e => {
+    e.preventDefault()
+  }
 
 function ajouterOffre(e) {
   console.log("dans testGui");
-  e.preventDefault();
   fetch("http://127.0.0.1:8000/project/create_project", {
     headers: { 'Content-Type': 'application/json' },
     method: 'POST',
@@ -37,12 +39,18 @@ function ajouterOffre(e) {
     .then(data => {
       console.log("retour projet creation");
       console.log(data);
+      setStatusModal(false);
     })
+
+    fetch('http://127.0.0.1:8000/project/show_all_project', {
+        method : 'POST',
+        headers: {"Content-Type": "application/json" },
+      })
+        .then(res =>res.json())
+        .then(data => { props.listPro(data.projects)})
 }
 
-  const stopSubmit = e => {
-    e.preventDefault()
-  }
+  
         return (
             <div className="h-100">
               <MDBBtn className="btn block-dark-hover text-white w-100 p-4 h-100 m-0 rounded-0" onClick={openModal}><FaPlusCircle size="2em" className="mr-2" /> Créer un nouveau Projet</MDBBtn>
@@ -51,7 +59,7 @@ function ajouterOffre(e) {
                 <MDBModalBody className="p-2">
                 <h5 className="text-center mt-4 mb-3">Démarrez un nouveau projet.</h5>
                 <p className="text-center mb-4">Ouvrez des postes, gérez votre planning de tâches et plus encore !</p>
-                <form>
+                <form onSubmit={(e) => stopSubmit(e)}>
                   <h5 className="text-center">Titre</h5>
                   <input
                   
@@ -64,7 +72,7 @@ function ajouterOffre(e) {
                   className="form-control w-100 rounded-0"
                   rows="5"
                   onChange={({currentTarget: {value}}) => setInputDesc(value)}></textarea>
-        <form onSubmit={(e) => stopSubmit(e)}>
+        
 
                   <h5 className="text-center mt-4">Image</h5>
                     <div className="d-flex justify-content-center col-12" >

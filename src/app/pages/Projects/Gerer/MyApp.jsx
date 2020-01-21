@@ -48,7 +48,7 @@ const MyApp = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
   const { id } = useParams();
 
 
-  useEffect(() => {fetch('http://127.0.0.1:8000/api/show_one_project', {
+  useEffect(() => {fetch('http://127.0.0.1:8000/project/show_one_project', {
         method : 'POST',
         headers: {"Content-Type": "application/json" },
         body: JSON.stringify({
@@ -56,11 +56,11 @@ const MyApp = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
       })
       })
         .then(res =>res.json())
-        .then(data => { setProject(data) })
+        .then(data => { setProject(data.project) })
      },[])
 
-      console.log(id);
-      console.log(project);
+      // console.log(id);
+      // console.log(project);
 
 
     return (
