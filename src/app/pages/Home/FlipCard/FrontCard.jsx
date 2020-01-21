@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 
 // Import base Theme
 import Header from "../../../base/Header/Header.jsx";
@@ -11,14 +11,14 @@ import { useContext } from "react";
 import { StatusUserContext } from "../../../contexts/ThemeContext";
 
 
+
 function FrontCard(props) {
 
   const [inputPseudo, setInputPseudo] = useState("");
   const [inputPassword, setInputPassword] = useState("");
 
   const handleSubmit = e => {
-    console.log("handle");
-    // e.preventDefault();
+    e.preventDefault();
     // JENVOIES LES INFOS REACT A SYMFONY
     fetch("http://127.0.0.1:8000/user/login", {
       headers: { 'Content-Type': 'application/json' },
@@ -36,9 +36,12 @@ function FrontCard(props) {
       // JE RECUPERE LA REPONSE
       .then(data => {
         // JE TRANSFORME L OBJET EN STRING
+        localStorage.setItem('userId', data.user._id);
         localStorage.setItem('userToken', data.token);
+        window.location.reload(false);
       });
   };
+
   const { isOnline, setIsOnline } = useContext(StatusUserContext);
 
   return (

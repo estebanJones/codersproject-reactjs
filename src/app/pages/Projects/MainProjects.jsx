@@ -19,9 +19,11 @@ import ProjetSeul from "./ProjetSeul.jsx";
 
 
 
-const MainProjects = (props,{ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
+const MainProjects = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
 
   const [projects, setProjects] = useState([]);
+  const [managerProject, setManagerProject] = useState([])
+
 
   useEffect(() => {
       fetch('http://127.0.0.1:8000/project/show_all_project', {

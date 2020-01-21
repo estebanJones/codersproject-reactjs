@@ -10,6 +10,8 @@ function ModalPage(props) {
   const [inputTitle, setInputTitle] = useState("");
   const [inputDesc, setInputDesc] = useState("");
   const [inputSpec, setInputSpec] = useState("");
+  const [userId, setUserId] = useState(localStorage.getItem("userId"));
+
 
   const closeModal = () => {
     setStatusModal(false);
@@ -24,12 +26,12 @@ function ModalPage(props) {
   }
 
 function ajouterOffre(e) {
-  console.log("dans testGui");
   fetch("http://127.0.0.1:8000/project/create_project", {
     headers: { 'Content-Type': 'application/json' },
     method: 'POST',
     body: JSON.stringify(
       {
+        user_id: userId,
         title: inputTitle,
         description: inputDesc
       }
@@ -43,14 +45,13 @@ function ajouterOffre(e) {
     })
 
     fetch('http://127.0.0.1:8000/project/show_all_project', {
-        method : 'POST',
+        method : 'GET',
         headers: {"Content-Type": "application/json" },
       })
         .then(res =>res.json())
         .then(data => { props.listPro(data.projects)})
 }
 
-  
         return (
             <div className="h-100">
               <MDBBtn className="btn block-dark-hover text-white w-100 p-4 h-100 m-0 rounded-0" onClick={openModal}><FaPlusCircle size="2em" className="mr-2" /> Créer un nouveau Projet</MDBBtn>
@@ -62,17 +63,17 @@ function ajouterOffre(e) {
                 <form onSubmit={(e) => stopSubmit(e)}>
                   <h5 className="text-center">Titre</h5>
                   <input
-                  
+
                   className="form-control w-100 rounded-0"
                   type="text"
                   onChange={({currentTarget: {value}}) => setInputTitle(value)}
                   />
                   <h5 className="text-center mt-4">Description</h5>
-                  <textarea  
+                  <textarea
                   className="form-control w-100 rounded-0"
                   rows="5"
                   onChange={({currentTarget: {value}}) => setInputDesc(value)}></textarea>
-        
+
 
                   <h5 className="text-center mt-4">Image</h5>
                     <div className="d-flex justify-content-center col-12" >

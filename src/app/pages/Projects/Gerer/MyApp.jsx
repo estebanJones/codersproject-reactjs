@@ -59,9 +59,6 @@ const MyApp = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
         .then(data => { setProject(data.project) })
      },[])
 
-      // console.log(id);
-      // console.log(project);
-
 
     return (
       <div id="wrapper">

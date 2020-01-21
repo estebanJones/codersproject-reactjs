@@ -16,7 +16,7 @@ import {IoIosBarcode, IoMdCodeWorking} from "react-icons/io";
 
 
 
-const ProjetSeul = (props,{ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
+const ProjetSeul = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
 
   const [project, setProject] = useState([]);
   const { id } = useParams();
