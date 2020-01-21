@@ -105,7 +105,7 @@ const Recrutement = () => {
   };
 
   const openningModal = () => {
-    setStatusModal(true);
+    // setStatusModal(true);
   }
 
   return (
@@ -119,9 +119,10 @@ const Recrutement = () => {
           <h2 className="m-2 text-center"><MdCompareArrows /> Recrutement</h2>
           </div>
           <div className="col-lg-3 px-0 d-flex justify-content-end">
-          <ModalRecruit onClick={openningModal}
-          statusModal={statusModal}
-          setStatusModal={setStatusModal}
+          <ModalRecruit 
+          // onClick={openningModal}
+          // statusModal={statusModal}
+          // setStatusModal={setStatusModal}
           ajouterOffre={add}
           modalInputTitle={setInputTitle}
           modalInputDesc={setInputDescription}
