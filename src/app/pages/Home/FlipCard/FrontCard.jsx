@@ -43,7 +43,6 @@ function FrontCard(props) {
 
   return (
     <div className="login-block block-dark w-100 h-100 px-4 py-4">
-      <button>Test contexte</button>
       <h4>Connexion</h4>
       <form>
         <label className="d-flex flex-column mb-2">
@@ -67,7 +66,7 @@ function FrontCard(props) {
           ></input>
         </label>
         <button
-          className="btn btn-success w-100 rounded-0 border-none"
+          className="btn btn-success w-100 rounded-0 border-none mx-0"
           onClick={e => handleSubmit(e)}
         >
           Entrer
@@ -104,7 +103,7 @@ function FrontCard(props) {
         <div className="mt-3">
           <a id="passLost" onClick={props.onFrontFlip}>
             <h6>Identifiants oubliés ?</h6></a>
-          <a id="passLost" onClick={props.onRegisterFlip}><h3 className="mb-0 pt-3"><AiFillPlusSquare />Créer un compte</h3></a>
+          <a id="passLost" onClick={props.onRegisterFlip}><h3 className="mb-0 pt-3"><AiFillPlusSquare className="pb-1" />Créer un compte</h3></a>
 
         </div>
       </form>
