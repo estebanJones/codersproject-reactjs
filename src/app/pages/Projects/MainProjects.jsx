@@ -25,7 +25,7 @@ const MainProjects = (props,{ checkUserStatus: isOnline, onLogoutUser: onLogout 
 
   useEffect(() => {
       fetch('http://127.0.0.1:8000/project/show_all_project', {
-        method : 'POST',
+        method : 'GET',
         headers: {"Content-Type": "application/json" },
       })
         .then(res =>res.json())
