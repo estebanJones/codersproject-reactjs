@@ -12,17 +12,8 @@ const Equipe = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
 
 
   const [teammateTab, setteammateTab] = useState([]);
-  const [username, setUsername] = useState([])
 
   const { id } = useParams();
-  console.log(id)
-
-  const user_id: string = teammateTab.map((teammate) => {
-    return(
-      teammate.user_id)}
-  )
-  console.log(user_id[0])
-
 
   useEffect(() => {fetch('http://127.0.0.1:8000/teammate/show_all', {
     method : 'POST',
@@ -31,20 +22,9 @@ const Equipe = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
       projectId : id,
   })
   })
-    .then(res =>res.json())
-    .then(data => { setteammateTab(data.teammate); console.log(data.teammate) })
+    .then(res => res.json())
+    .then(teammates => { setteammateTab(teammates);})
  },[])
-
- useEffect(() => {fetch('http://127.0.0.1:8000/user/show_all', {
-  method : 'POST',
-  headers: {"Content-Type": "application/json" },
-  body: JSON.stringify({
-    userId : user_id,
-})
-})
-  .then(res =>res.json())
-  .then(data => { console.log(data) })
-},[])
 
 
   const suppr = (index) => {
