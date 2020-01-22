@@ -13,12 +13,13 @@ import Equipe from "./Equipe";
 import Recrutement from "./Recrutement";
 import ToDoList from "./ToDoList";
 import Parametre from "./Parametre";
+import ToDoList2 from "./ToDoList2.jsx";
 
 
 
 const MyApp = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
 
-  const { projectId } = useParams();  
+  const { projectId } = useParams();
 
   const [currentTab, setCurrentTab] = useState("information");
 
@@ -48,70 +49,71 @@ const MyApp = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
   const { id } = useParams();
 
 
-  useEffect(() => {fetch('http://127.0.0.1:8000/project/show_one_project', {
-        method : 'POST',
-        headers: {"Content-Type": "application/json" },
-        body: JSON.stringify({
-          id_project : id,
+  useEffect(() => {
+    fetch('http://127.0.0.1:8000/project/show_one_project', {
+      method: 'POST',
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id_project: id,
       })
-      })
-        .then(res =>res.json())
-        .then(data => { setProject(data.project) })
-     },[])
+    })
+      .then(res => res.json())
+      .then(data => { setProject(data.project) })
+  }, [])
 
 
-    return (
-      <div id="wrapper">
-      <Header 
-          checkUserStatus={isOnline}
-          onLogoutUser={onLogout} />
+  return (
+    <div id="wrapper">
+      <Header
+        checkUserStatus={isOnline}
+        onLogoutUser={onLogout} />
       <main className="bg_projects">
         <div className="allBlock row w-100 d-flex justify-content-lg-around mx-0 col-lg-12">
 
-        <div className="list h-100 d-flex flex-column align-items-center justify-content-center col-lg-3 mx-0">
-          <ul className="mb-0 h-100 d-flex flex-column w-100">
-            <li onClick={e => {
-              changeTab("information");
-            }}>
-Informations
+          <div className="list h-100 d-flex flex-column align-items-center justify-content-center col-lg-3 mx-0">
+            <ul className="mb-0 h-100 d-flex flex-column w-100">
+              <li onClick={e => {
+                changeTab("information");
+              }}>
+                Informations
             </li>
-            <li onClick={e => {
-              changeTab("equipe");
-            }}>
-Équipe
+              <li onClick={e => {
+                changeTab("equipe");
+              }}>
+                Équipe
             </li>
-            <li onClick={e => {
-              changeTab("recrutement");
-            }}>
-Recrutement
+              <li onClick={e => {
+                changeTab("recrutement");
+              }}>
+                Recrutement
             </li>
-            <li onClick={e => {
-              changeTab("to_do_list");
-            }}>
-To-Do List
+              <li onClick={e => {
+                changeTab("to_do_list");
+              }}>
+                To-Do List
             </li>
-            <li onClick={e => {
-              changeTab("parametres");
-            }}>
-Paramètres
+              <li onClick={e => {
+                changeTab("parametres");
+              }}>
+                Paramètres
             </li>
 
             </ul>
-          
-        </div>
 
-        <div className="contenu d-flex flex-column justify-content-start h-100 col-9 p-2">
-          {change(currentTab)}
+          </div>
+
+          <div className="contenu d-flex flex-column justify-content-start h-100 col-9 p-2">
+            {change(currentTab)}
+          </div>
         </div>
-      </div>
 
       </main>
 
       <Footer isOnline={isOnline} />
     </div>
-      
-    );
-  }
+
+  );
+}
 
 
 export default MyApp;
