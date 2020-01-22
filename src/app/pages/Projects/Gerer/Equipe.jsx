@@ -13,6 +13,7 @@ const Equipe = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
   const { id } = useParams();
 
 
+<<<<<<< HEAD
   useEffect(() => {
     fetch('http://127.0.0.1:8000/teammate/show_all', {
       method: 'POST',
@@ -25,6 +26,22 @@ const Equipe = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
       .then(data => { setteammateTab(data) })
   }, [])
 
+=======
+  const [teammateTab, setteammateTab] = useState([]);
+
+  const { id } = useParams();
+
+  useEffect(() => {fetch('http://127.0.0.1:8000/teammate/show_all', {
+    method : 'POST',
+    headers: {"Content-Type": "application/json" },
+    body: JSON.stringify({
+      projectId : id,
+  })
+  })
+    .then(res => res.json())
+    .then(teammates => { setteammateTab(teammates);})
+ },[])
+>>>>>>> 35fdce1af1ddeee19bcb072d42590e7ce2dcd39c
 
 
   const suppr = (index) => {
