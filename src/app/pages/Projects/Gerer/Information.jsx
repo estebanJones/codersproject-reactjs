@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 // Import Icons
 import { IoMdInformationCircle } from "react-icons/io";
@@ -105,10 +105,22 @@ const Information = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
     })
     .then(res => res.json())
     .then(editedProject => console.log(editedProject))
-    
-
-
   }
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:8000/project/show_one_project', {
+      method: 'POST',
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        projectId: projectId,
+      })
+    })
+      .then(res => res.json())
+      .then(data => {
+        setInputTitle(data.project.title);
+        setInputDesc(data.project.description);
+      })
+  })
 
 
   return (

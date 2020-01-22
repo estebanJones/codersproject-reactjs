@@ -29,10 +29,6 @@ function MainProfile(props) {
    })
   }
 
-  const handleChange = (e) => {
-    // console.log(e.currentTarget.value);
-  }
-
   const transformEditCheckbox = () => {
     $('.checkBoxForm').replaceWith(function(){
       return $(<CheckBoxSpeciality />, {
@@ -72,7 +68,7 @@ function MainProfile(props) {
         <div className="allBlock row w-100 d-flex justify-content-lg-around px-0 mx-0 col-lg-12">
           <div  className="imgUser py-4 px-4 col-lg-4 ">
               <div className="d-flex flex-column ">
-                  <img src={userAvatar} className="img-fluid mx-auto mt-5" />
+                  <img src={userAvatar} className="img-fluid mx-auto mt-5" alt="img"/>
                   <canvas id="doughnutChart"></canvas>
               </div>
           </div>
@@ -119,23 +115,23 @@ function MainProfile(props) {
                             <div className="d-flex justify-content-center">
                                <div className="form-check">
                                   <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"></input>
-                                  <img src={badge1} className="img-fluid" />
+                                  <img src={badge1} className="img-fluid" alt="img"/>
                                </div>
                                <div className="d-flex justify-content-center">
                                   <div className="form-check">
                                     <input className="form-check-input" type="checkbox" value="" id="defaultCheck2"></input>
-                                    <img src={badge2} className="img-fluid" />
+                                    <img src={badge2} className="img-fluid" alt="img"/>
                                   </div>
                                 </div>
                                 <div className="d-flex justify-content-center">
                                   <div className="form-check">
                                     <input className="form-check-input" type="checkbox" value="" id="defaultCheck3"></input>
-                                    <img src={badge1} className="img-fluid" />
+                                    <img src={badge1} className="img-fluid" alt="img"/>
                                   </div>
                                 </div>
                                 <div className="d-flex justify-content-center">
                                   <input className="form-check-input mr-2" type="checkbox" value="" id="defaultCheck4"></input>
-                                  <img src={badge2} className="img-fluid" />
+                                  <img src={badge2} className="img-fluid" alt="img"/>
                                 </div>
                               </div>
                           </div>

@@ -8,7 +8,7 @@ function LoggedUser() {
   return (
     <div className="col-lg-3 px-0 d-flex flex-column text-center justify-content-center">
       <div className="d-flex justify-content-center">
-        <img src={userAvatar} className="w-100 d-none d-lg-block" />
+        <img src={userAvatar} className="w-100 d-none d-lg-block" alt="img"/>
       </div>
       <div className="d-flex justify-content-center">
 

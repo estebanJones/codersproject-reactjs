@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Table from "./componenToDoList/Table";
 
 // Import Icons
@@ -7,26 +7,26 @@ import { FaTasks } from "react-icons/fa";
 
 
 function ToDoList() {
-  const [cardCount, setCardCount] = useState(0);
-  const [columns, setColumns] = useState(
-    [
-      {
-        id: 1,
-        name: "À faire",
-        tasks: []
-      },
-      {
-        id: 2,
-        name: "En cours",
-        tasks: []
-      },
-      {
-        id: 3,
-        name: "Fait",
-        tasks: []
-      }
-    ]
-  )
+  // const [cardCount, setCardCount] = useState(0);
+  // const [columns, setColumns] = useState(
+  //   [
+  //     {
+  //       id: 1,
+  //       name: "À faire",
+  //       tasks: []
+  //     },
+  //     {
+  //       id: 2,
+  //       name: "En cours",
+  //       tasks: []
+  //     },
+  //     {
+  //       id: 3,
+  //       name: "Fait",
+  //       tasks: []
+  //     }
+  //   ]
+  // )
 
   // const onClickAddCard = () => {
   //   const idColumn = columns[0].id;

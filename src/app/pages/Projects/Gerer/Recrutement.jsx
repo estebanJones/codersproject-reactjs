@@ -7,10 +7,8 @@ import ModalEditRecruit from "./componentRecrutement/ModalEditRecruit";
 
 // Import Icons
 import {MdCompareArrows} from "react-icons/md";
-import { useEffect } from "react";
 
-
-const Recrutement = () => {  
+const Recrutement = () => {
 
   const [offer, setOffers] = useState([
     {title: 'Super Title', description: 'Description', spec: 'front'},
@@ -19,29 +17,6 @@ const Recrutement = () => {
   const [inputTitle, setInputTitle] = useState("");
   const [inputDescription, setInputDescription] = useState("");
   const [inputSpec, setInputSpec] = useState("front");
-
-  
-  // useEffect(() => {
-  //   fetchOffers(); 
-  // }, [])
-
-  // const fetchOffers = () => {
-    
-  //   fetch('http://127.0.0.1:8000/api/user/create_project', {
-  //     method : 'POST',
-  //     headers: {"Content-Type": "application/json" },
-  //     body: JSON.stringify({
-  //       projectID : titleValue,
-  //       description : descValue,
-  //       spec: specValue,
-  //       userId : "1"
-  //   })
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => console.log(data))
-  // }
-
-
 
   const getSpec = (spec) => {
 
@@ -103,11 +78,7 @@ const Recrutement = () => {
 
     setOffers(offerCopy);
   };
-
-  // const openningModal = () => {
-  //   setStatusModal(true);
-  // }
-
+  
   return (
 
 <div className="h-100 d-flex flex-column ">

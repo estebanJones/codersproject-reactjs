@@ -25,7 +25,7 @@ function MainArene(props) {
                         <div className="py-4 px-4 col-lg-7">
                         <h1 className="text-center">Battle à venir</h1>
                     <div className="mainAreneButton block-dark p-5 d-flex flex-column ">
-                        <img className="p-5 d-flex mx-auto w-50 " src={arena} />
+                        <img className="p-5 d-flex mx-auto w-50 " src={arena} alt="img" />
                         <h4 className="text-center"><em>Coming Soon ...</em></h4>
                         </div>
                         </div>
@@ -38,7 +38,7 @@ function MainArene(props) {
         {/* Single Result */}
         <div className="row mx-0 single-list-result block-dark-hover">
             <div className="d-flex justify-content-center col-3">
-            <img src={battleImg} className="h-75 my-auto d-flex justify-content-center" />
+            <img src={battleImg} className="h-75 my-auto d-flex justify-content-center" alt="img"/>
             </div>
             <div className="d-flex flex-column justify-content-center col-9">
             <div class="row mx-auto pt-3">
@@ -56,7 +56,7 @@ function MainArene(props) {
         {/* Single Result */}
         <div className="row mx-0 single-list-result block-dark-hover">
             <div className="d-flex justify-content-center col-3">
-            <img src={battleImg} className="h-75 my-auto d-flex justify-content-center" />
+            <img src={battleImg} className="h-75 my-auto d-flex justify-content-center" alt="img" />
             </div>
             <div className="d-flex flex-column justify-content-center col-9">
             <div class="row mx-auto pt-3">
@@ -74,7 +74,7 @@ function MainArene(props) {
         {/* Single Result */}
         <div className="row mx-0 single-list-result block-dark-hover">
             <div className="d-flex justify-content-center col-3">
-            <img src={battleImg} className="h-75 my-auto d-flex justify-content-center" />
+            <img src={battleImg} className="h-75 my-auto d-flex justify-content-center" alt="img"/>
             </div>
             <div className="d-flex flex-column justify-content-center col-9">
             <div class="row mx-auto pt-3">
@@ -92,7 +92,7 @@ function MainArene(props) {
         {/* Single Result */}
         <div className="row mx-0 single-list-result block-dark-hover">
             <div className="d-flex justify-content-center col-3">
-            <img src={battleImg} className="h-75 my-auto d-flex justify-content-center" />
+            <img src={battleImg} className="h-75 my-auto d-flex justify-content-center" alt="img"/>
             </div>
             <div className="d-flex flex-column justify-content-center col-9">
             <div class="row mx-auto pt-3">
@@ -110,7 +110,7 @@ function MainArene(props) {
         {/* Single Result */}
         <div className="row mx-0 single-list-result block-dark-hover">
             <div className="d-flex justify-content-center col-3">
-            <img src={battleImg} className="h-75 my-auto d-flex justify-content-center" />
+            <img src={battleImg} className="h-75 my-auto d-flex justify-content-center" alt="img"/>
             </div>
             <div className="d-flex flex-column justify-content-center col-9">
             <div class="row mx-auto pt-3">
@@ -128,7 +128,7 @@ function MainArene(props) {
         {/* Single Result */}
         <div className="row mx-0 single-list-result block-dark-hover">
             <div className="d-flex justify-content-center col-3">
-            <img src={battleImg} className="h-75 my-auto d-flex justify-content-center" />
+            <img src={battleImg} className="h-75 my-auto d-flex justify-content-center" alt="img"/>
             </div>
             <div className="d-flex flex-column justify-content-center col-9">
             <div class="row mx-auto pt-3">
@@ -146,7 +146,7 @@ function MainArene(props) {
         {/* Single Result */}
         <div className="row mx-0 single-list-result block-dark-hover">
             <div className="d-flex justify-content-center col-3">
-            <img src={battleImg} className="h-75 my-auto d-flex justify-content-center" />
+            <img src={battleImg} className="h-75 my-auto d-flex justify-content-center" alt="img"/>
             </div>
             <div className="d-flex flex-column justify-content-center col-9">
             <div class="row mx-auto pt-3">

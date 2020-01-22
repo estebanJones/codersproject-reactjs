@@ -1,4 +1,4 @@
-import React, { useState, createContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 
 // Import Pages
@@ -15,25 +15,19 @@ import ProjetSeul from "./app/pages/Projects/ProjetSeul.jsx";
 import MyApp from "./app/pages/Projects/Gerer/MyApp.jsx";
 
 function RouterCoder() {
-  const [userId, setUserId] = useState();
-  const [username, setUsername] = useState("");
   const [isOnline, setIsOnline] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(true);
+
 
   useEffect(() => {
     const myStorage = localStorage.getItem("userToken");
     if (myStorage) {
-      console.log("dans useeffect true");
       setIsOnline(true);
     } else {
       setIsOnline(false);
-      console.log("dans useeffect false");
     }
-  })
+  }, [])
 
   const updateUser = e => {
-    const myStorage = localStorage;
-    const token = myStorage.getItem('userData');
     return setIsOnline(true);
 
   };
