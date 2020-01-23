@@ -20,8 +20,8 @@ function HomeProjectList(){
     }, []);
 
     const listProject = projects.map((project) =>
-    <Link to={`projet/${project._id}`} handler={ProjetSeul}>
-    <div className="single-list-result block-dark-hover pointer py-2 px-4">
+    <div className="single-list-result block-dark-hover pointer py-2 px-4 ">
+           <Link to={`projet/${project._id}`} handler={ProjetSeul}>
     <div className="row mx-0">
         <div className="d-flex justify-content-center col-2">
             <GoTasklist />
@@ -33,8 +33,8 @@ function HomeProjectList(){
     <div className="row mx-0 text-center">
     <p>{project.description}</p>
         </div>
-        </div>
        </Link>
+        </div>
          );
 
         return (
