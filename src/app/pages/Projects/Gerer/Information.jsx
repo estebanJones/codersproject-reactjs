@@ -120,7 +120,7 @@ const Information = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
         setInputTitle(data.project.title);
         setInputDesc(data.project.description);
       })
-  })
+  },[projectId])
 
 
   return (
@@ -133,12 +133,12 @@ const Information = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
           <div className="block-light p-2 mr-2 h-100 ">
             <div className="d-flex align-items-center flex-column justify-content-start h-25">
               <p>Modifier le titre du projet</p>
-              <input onChange={({currentTarget: {value} }) => setInputTitle(value)} value={inputTitle} type="text" name="" id="" placeholder="Titre..." className="form-control rounded-0 text-center" />
+              <input onChange={(e) => setInputTitle(e.currentTarget.value)} value={inputTitle} type="text" name="" id="" placeholder="Titre..." className="form-control rounded-0 text-center" />
             </div>
             <div className="d-flex align-items-center flex-column justify-content-start h-75 ">
               <p>Description du projet</p>
               <textarea 
-                onChange={({currentTarget: {value}}) => setInputDesc(value)}
+                onChange={(e) => setInputDesc(e.currentTarget.value)}
                 value={inputDesc}
                 name=""
                 id=""
