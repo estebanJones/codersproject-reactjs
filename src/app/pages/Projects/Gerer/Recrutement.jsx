@@ -21,7 +21,6 @@ const Recrutement = () => {
 
 
   useEffect(() => {
-    console.log(projectId)
     fetch("http://127.0.0.1:8000/candidat/show/all", {
       headers: { "Content-Type": "application/json" },
       method: "POST",
@@ -75,8 +74,33 @@ const Recrutement = () => {
     setInputSpec("");
   };
 
-  const acceptCandidat = (e) => {
-    console.log("candidat accepté");
+  const acceptCandidat = (e, index) => {
+
+    fetch('http://127.0.0.1:8000/candidat/accept', {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        candidatId: candidatTab[index]._id,
+        projectId: projectId,
+        userId: candidatTab[index].user_id
+      })
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+      })
+
+    fetch("http://127.0.0.1:8000/candidat/show/all", {
+      headers: { "Content-Type": "application/json" },
+      method: "POST",
+      body: JSON.stringify({
+        projectId: projectId
+      })
+    })
+      .then(res => res.json())
+      .then(candidats => setCandidatTab(candidats))
+
+
   }
 
 
@@ -98,6 +122,7 @@ const Recrutement = () => {
       .then(res => res.json())
       .then(data => {
         console.log(data)
+
       })
 
     fetch("http://127.0.0.1:8000/candidat/show/all", {
