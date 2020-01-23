@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // Import Components
 import ModalRecruit from "./componentRecrutement/ModalRecruit.jsx";
@@ -6,6 +6,7 @@ import ModalEditRecruit from "./componentRecrutement/ModalEditRecruit";
 
 // Import Icons
 import { MdCompareArrows } from "react-icons/md";
+import { useParams } from "react-router-dom";
 
 const Recrutement = () => {
   const [offer, setOffers] = useState([
@@ -15,6 +16,22 @@ const Recrutement = () => {
   const [inputTitle, setInputTitle] = useState("");
   const [inputDescription, setInputDescription] = useState("");
   const [inputSpec, setInputSpec] = useState("front");
+  const [candidatTab, setCandidatTab] = useState([]);
+  const projectId = useParams("id").id
+
+
+  useEffect(() => {
+    console.log(projectId)
+    fetch("http://127.0.0.1:8000/candidat/show/all", {
+      headers: { "Content-Type": "application/json" },
+      method: "POST",
+      body: JSON.stringify({
+        projectId: projectId
+      })
+    })
+      .then(res => res.json())
+      .then(candidats => setCandidatTab(candidats))
+  }, [projectId])
 
   const getSpec = spec => {
     switch (spec) {
@@ -58,18 +75,48 @@ const Recrutement = () => {
     setInputSpec("");
   };
 
-  const suppr = index => {
+  const acceptCandidat = (e) => {
+    console.log("candidat accepté");
+  }
+
+
+  const suppr = (e, index) => {
     const offerCopy = [...offer];
-
     offerCopy.splice(index, 1);
-
     console.log(offerCopy);
-
     setOffers(offerCopy);
   };
 
+  const supprCandidat = (e, index) => {
+    fetch('http://127.0.0.1:8000/candidat/remove', {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        candidatId: candidatTab[index].id
+      })
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+      })
+
+    fetch("http://127.0.0.1:8000/candidat/show/all", {
+      headers: { "Content-Type": "application/json" },
+      method: "POST",
+      body: JSON.stringify({
+        projectId: projectId
+      })
+    })
+      .then(res => res.json())
+      .then(candidats => setCandidatTab(candidats))
+  }
+
+
+
+
   return (
     <div className="row col-lg-12 mx-0">
+      {console.log(candidatTab)}
       <div className="col-lg-6 mx-0">
         <div className="h-100 d-flex flex-column ">
           <div className="row mx-0">
@@ -129,6 +176,30 @@ const Recrutement = () => {
       </div>
       <div className="col-lg-6 mx-0">
         <h2 className="m-2 text-center">Candidature</h2>
+        <ul className="row mx-0 h-85 custom_scrollbar">
+
+          {candidatTab.map((candidat, index) => {
+            return (
+              <div className="col-lg-2 px-0 pr-1 h-35">
+                <li id={candidat.id} className="block-dark-hover d-flex flex-column justify-content-center h-100 px-2">
+                  <img className="h-50 w-25 mx-auto img-fluid img-circle p-2" />
+                  <h6 className="text-center h-25 d-flex flex-column justify-content-center">
+
+                    {candidat.username}</h6>
+                  <h6 className="text-center h-25 d-flex flex-column justify-content-center">
+
+                    {candidat.message}</h6>
+                  <button className="btn btn-success" onClick={e => acceptCandidat(e, index)}>Accepter</button>
+                  <button type="submit" onClick={(e) => supprCandidat(e, index)}
+                    className="btn btn-danger w-100 mx-0 rounded-0">Refuser</button>
+                </li>
+              </div>
+            )
+
+
+          })}
+
+        </ul>
       </div>
     </div>
   );
