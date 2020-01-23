@@ -1,32 +1,27 @@
-import React, { Component } from "react";
-import Card from "../componenToDoList/Card";
-import { GiBroadsword } from "react-icons/gi";
+import React from "react";
 
-class Column extends Component {
-  state = {};
-  render() {
+import Task from "./Task.jsx";
+
+const Column = ({ tasks, name, setDoingsState, setDonesState }) => {
+
     return (
-      <section className="">
-        <h2 className="text-light mr-2 ml-2">
+        <div className="col-12 col-md-4">
+            <h2 className="text-center">{name}</h2>
+            <ul className="column__tasks">
+            {
+                tasks.map(task => (
+                    <Task
 
-          {this.props.column.name}
-        </h2>
-        {this.props.column.cards.map(card => {
-          return (
-            <Card
-              key={card.id}
-              onDeleteCard={this.props.onDeleteCard}
-              onEditCard={this.props.onEditCard}
-              onClickLeft={this.props.onClickLeft}
-              onClickRight={this.props.onClickRight}
-              card={card}
-              column={this.props.column}
-            />
-          );
-        })}
-      </section>
-    );
-  }
+                        title={task.title}
+                        priority={task.priority}
+                        setDoingList={setDoingsState}
+                        setDonesList={setDonesState}
+                    />
+                ))
+            }
+            </ul>
+        </div>
+    )
 }
 
 export default Column;
