@@ -34,6 +34,8 @@ const ProjetSeul = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
         .then(data => { setProject(data.project) })
      },[])
 
+ 
+
 
      useEffect(() => {fetch('http://127.0.0.1:8000/teammate/show_all', {
     method : 'POST',
@@ -52,7 +54,7 @@ const ProjetSeul = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
     let divToReturn;
 
     for(let i = 0; i < listTeammate.length ; i++) {
-      console.log(listTeammate[i].user_id);
+ 
       if  (listTeammate[i].user_id === userId){
          return(
            divToReturn = (
@@ -75,6 +77,12 @@ const ProjetSeul = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
     }
 
     return divToReturn;
+  }
+
+  const getDateDifference = (date) => {
+
+    console.log(date);
+
   }
 
 
@@ -191,7 +199,7 @@ const ProjetSeul = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
  
         <div className="block-dark h-25 d-flex flex-column justify-content-center">
                            
-        <h5 className="text-center"><AiFillClockCircle className="pb-1" /> Projet démarré il y a 2 semaines, 4 jours et 5 heures.</h5>
+        <h5 className="text-center"><AiFillClockCircle className="pb-1" /> Projet démarré il y a {getDateDifference(project.dateCreation)}.</h5>
 
             </div>
         <div className="block-dark h-75 mt-2 mb-0 custom_scrollbar">
