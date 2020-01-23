@@ -40,7 +40,7 @@ const Equipe = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
 
         {teammateTab.map((teammate, index) => {
           return (
-            <div className="col-lg-2 px-0 pr-1 h-25">
+            <div className="col-lg-2 px-0 pr-1 h-35">
               <li id={teammate.id} className="block-dark-hover d-flex flex-column justify-content-center h-100 px-2">
                 <img src={logo} className="h-50 w-25 mx-auto img-fluid img-circle p-2" />
                 <h6 className="text-center h-25 d-flex flex-column justify-content-center">

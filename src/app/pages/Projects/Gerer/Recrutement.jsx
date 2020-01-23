@@ -1,42 +1,37 @@
 import React, { useState } from "react";
 
-
 // Import Components
 import ModalRecruit from "./componentRecrutement/ModalRecruit.jsx";
 import ModalEditRecruit from "./componentRecrutement/ModalEditRecruit";
 
 // Import Icons
-import {MdCompareArrows} from "react-icons/md";
+import { MdCompareArrows } from "react-icons/md";
 
 const Recrutement = () => {
-
   const [offer, setOffers] = useState([
-    {title: 'Super Title', description: 'Description', spec: 'front'},
-    {title: 'Super Title', description: 'Description', spec: 'back'}
+    { title: "Super Title", description: "Description", spec: "front" },
+    { title: "Super Title", description: "Description", spec: "back" }
   ]);
   const [inputTitle, setInputTitle] = useState("");
   const [inputDescription, setInputDescription] = useState("");
   const [inputSpec, setInputSpec] = useState("front");
 
-  const getSpec = (spec) => {
-
-    switch(spec){
+  const getSpec = spec => {
+    switch (spec) {
       case "front":
-      return "Front-End";
+        return "Front-End";
       case "back":
-      return "Back-End";
+        return "Back-End";
       case "graph":
-      return "Graphisme";
+        return "Graphisme";
       case "manage":
-      return "Management";
+        return "Management";
       default:
         return null;
     }
-
-  }
+  };
 
   const add = (title, desc, spec) => {
-
     setOffers([
       ...offer,
       {
@@ -46,15 +41,10 @@ const Recrutement = () => {
       }
     ]);
     setInputTitle("");
-    setInputDescription(""); 
-
+    setInputDescription("");
   };
 
   const modifier = () => {
-
-
-
-
     setOffers([
       ...offer,
       {
@@ -68,8 +58,7 @@ const Recrutement = () => {
     setInputSpec("");
   };
 
-  const suppr = (index) => {
-
+  const suppr = index => {
     const offerCopy = [...offer];
 
     offerCopy.splice(index, 1);
@@ -78,62 +67,68 @@ const Recrutement = () => {
 
     setOffers(offerCopy);
   };
-  
+
   return (
-
-<div className="h-100 d-flex flex-column ">
-        <div className="row mx-0">
-          <div className="col-lg-3 px-0">
-            
-          </div>
-          <div className="col-lg-6 px-0">
-          <h2 className="m-2 text-center"><MdCompareArrows /> Recrutement</h2>
-          </div>
-          <div className="col-lg-3 px-0 d-flex justify-content-end">
-          <ModalRecruit 
-          // onClick={openningModal}
-          // statusModal={statusModal}
-          // setStatusModal={setStatusModal}
-          ajouterOffre={add}
-          modalInputTitle={setInputTitle}
-          modalInputDesc={setInputDescription}
-          modalInputSpec={setInputSpec}
-          />
-
-        </div>
-      </div>
-
-      <div id="poste" className="w-100 custom_scrollbar mt-2 pr-1">
-        {offer.map((currentValue, index) => {
-          return (
-            <div className="poste d-flex flex-column justify-content-between">
-              <div className="d-flex flex-column justify-content-center h-100">
-              <h5 className="text-center">{currentValue.title}</h5>
-                <p className="text-center mb-0">{getSpec(currentValue.spec)}</p>
-                
-              </div>
-              
-              <div className="row mx-0">
-                <div className="col-lg-6 px-0  w-100">
-                <ModalEditRecruit
-                modifierOffre={modifier}
+    <div className="row col-lg-12 mx-0">
+      <div className="col-lg-6 mx-0">
+        <div className="h-100 d-flex flex-column ">
+          <div className="row mx-0">
+            <div className="col-lg-3 px-0"></div>
+            <div className="col-lg-6 px-0">
+              <h2 className="m-2 text-center">
+                <MdCompareArrows /> Recrutement
+              </h2>
+            </div>
+            <div className="col-lg-3 px-0 d-flex justify-content-end">
+              <ModalRecruit
+                // onClick={openningModal}
+                // statusModal={statusModal}
+                // setStatusModal={setStatusModal}
+                ajouterOffre={add}
                 modalInputTitle={setInputTitle}
                 modalInputDesc={setInputDescription}
                 modalInputSpec={setInputSpec}
-
-                />
-                </div>
-                <div className="col-lg-6 px-0 w-100">
-                <button
-                onClick={(e) => suppr(index)}
-                className="btn btn-danger rounded-0 w-100 m-0">
-                Supprimer </button>
-                </div>
-              </div>
-              
+              />
             </div>
-          );
-        })}
+          </div>
+
+          <div id="poste" className="w-100 custom_scrollbar mt-2 pr-1">
+            {offer.map((currentValue, index) => {
+              return (
+                <div className="poste d-flex flex-column justify-content-between">
+                  <div className="d-flex flex-column justify-content-center h-100">
+                    <h5 className="text-center">{currentValue.title}</h5>
+                    <p className="text-center mb-0">
+                      {getSpec(currentValue.spec)}
+                    </p>
+                  </div>
+
+                  <div className="row mx-0">
+                    <div className="col-lg-6 px-0  w-100">
+                      <ModalEditRecruit
+                        modifierOffre={modifier}
+                        modalInputTitle={setInputTitle}
+                        modalInputDesc={setInputDescription}
+                        modalInputSpec={setInputSpec}
+                      />
+                    </div>
+                    <div className="col-lg-6 px-0 w-100">
+                      <button
+                        onClick={e => suppr(index)}
+                        className="btn btn-danger rounded-0 w-100 m-0"
+                      >
+                        Supprimer{" "}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+      <div className="col-lg-6 mx-0">
+        <h2 className="m-2 text-center">Candidature</h2>
       </div>
     </div>
   );
