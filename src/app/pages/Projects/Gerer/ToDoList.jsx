@@ -1,67 +1,61 @@
-import React from "react";
-import Table from "./componenToDoList/Table";
+import React, { useState } from "react";
 
 // Import Icons
 import { GiBroadsword } from "react-icons/gi";
-import { FaTasks } from "react-icons/fa";
+
+// Import Components
+import ModalToDo from "./componenToDoList/ModalToDo";
+import Column from "./componenToDoList/Column";
 
 
-function ToDoList() {
-  // const [cardCount, setCardCount] = useState(0);
-  // const [columns, setColumns] = useState(
-  //   [
-  //     {
-  //       id: 1,
-  //       name: "À faire",
-  //       tasks: []
-  //     },
-  //     {
-  //       id: 2,
-  //       name: "En cours",
-  //       tasks: []
-  //     },
-  //     {
-  //       id: 3,
-  //       name: "Fait",
-  //       tasks: []
-  //     }
-  //   ]
-  // )
+const ToDoList = () => {
 
-  // const onClickAddCard = () => {
-  //   const idColumn = columns[0].id;
-  //   setCardCount(cardCount + 1);
+  const [todos, setTodos] = useState([]);
 
-  //   const newCard = {
-  //     id: cardCount,
-  //     content: 
-  //   }
-  //   console.log(idColumn);
-  // }
+const [doings, setDoings] = useState([]);
+
+const [dones, setDones] = useState([]);
+
+  const addCard = (title, importance) => {
+
+    setTodos([
+      ...todos,
+      {
+        title: title,
+        importance: importance
+      }]
+    )
+ 
+
+  };
+
 
   return (
-    <div className="h-100 d-flex flex-column ">
+    <div className="h-100 d-flex flex-column">
       <div className="row mx-0">
-        <div className="col-lg-3 px-0">
+          <div className="col-lg-3 px-0">
+            
+          </div>
+          <div className="col-lg-6 px-0">
+          <h2 className="m-2 text-center"><GiBroadsword /> To-Do List</h2>
+          </div>
+          <div className="col-lg-3 px-0 d-flex justify-content-end">
+          <ModalToDo 
 
-        </div>
-        <div className="col-lg-6 px-0">
-          <h2 className="m-2 text-center"><FaTasks /> To-Do List</h2>
-        </div>
-        <div className="col-lg-3 px-0 d-flex justify-content-end">
-          <button
+          ajouterOffre={addCard}
 
-            className="btn btn-success rounded-0 mr-2 ml-2"
-          >
-            <GiBroadsword />
-          </button>
+          />
+
         </div>
       </div>
-
-      <Table />
-
+      <div className="row mx-0">
+                <Column name="To-Do" tasks={todos} setDoingsState={setDoings}  />
+                <Column name="Doing" tasks={doings} setDonesState={setDones} />
+                <Column name="Done" tasks={dones} />
+      </div>
     </div>
-  );
+
+  )
 }
 
 export default ToDoList;

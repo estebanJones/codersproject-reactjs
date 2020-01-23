@@ -13,7 +13,6 @@ import Equipe from "./Equipe";
 import Recrutement from "./Recrutement";
 import ToDoList from "./ToDoList";
 import Parametre from "./Parametre";
-import ToDoList2 from "./ToDoList2.jsx";
 
 
 
