@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-
+import ModalNouveauCandidat from "./components/ModalNouveauCandidat";
 
 // Import Structure
 import Header from "../../base/Header/Header.jsx";
@@ -68,13 +68,9 @@ const ProjetSeul = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
 
         divToReturn = (
           <div className="block-dark-hover h-20 mt-2 ">
-          {console.log(listTeammate[i].user_id, userId)}
-              <Link to={`${project._id}/gerer`} className="h-100 w-100 d-flex flex-column justify-content-center text-white">
-              <h4 className="text-center"><GoTools className="pb-1" />Candidater</h4>
-              </Link>
+          <ModalNouveauCandidat/>
           </div>
         )
-
       }
     }
 
