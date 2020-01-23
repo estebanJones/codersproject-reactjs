@@ -90,16 +90,7 @@ const Recrutement = () => {
         console.log(data)
       })
 
-    fetch("http://127.0.0.1:8000/candidat/show/all", {
-      headers: { "Content-Type": "application/json" },
-      method: "POST",
-      body: JSON.stringify({
-        projectId: projectId
-      })
-    })
-      .then(res => res.json())
-      .then(candidats => setCandidatTab(candidats))
-
+    supprCandidat(e, index);
 
   }
 
