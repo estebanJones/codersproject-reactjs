@@ -25,10 +25,28 @@ const Equipe = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
  },[id])
 
 
-  const suppr = (index) => {
-    const teamMateCopy = [...teammateTab];
-    teamMateCopy.splice(index, 1);
-    setteammateTab(teamMateCopy);
+  const supprTeammate = (e, index) => {
+    fetch('http://127.0.0.1:8000/teammate/project/delete', {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        teammateId: teammateTab[index].id
+      })
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+      })
+
+    fetch("http://127.0.0.1:8000/teammate/show_all", {
+      headers: { "Content-Type": "application/json" },
+      method: "POST",
+      body: JSON.stringify({
+        projectId: id,
+      })
+    })
+      .then(res => res.json())
+      .then(teammates => setteammateTab(teammates))
   };
 
 
@@ -50,7 +68,7 @@ const Equipe = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
                 <h6 className="text-center h-25 d-flex flex-column justify-content-center">
 
                   {teammate.role}</h6>
-                <button onClick={(e) => suppr(index)} className="btn btn-danger w-100 mx-0 rounded-0">Expulser</button>
+                <button onClick={(e) => supprTeammate(e, index)} className="btn btn-danger w-100 mx-0 rounded-0">Expulser</button>
               </li>
             </div>
           )
