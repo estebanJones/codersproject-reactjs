@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 // Import Icons
@@ -27,7 +27,7 @@ const Parametre = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
         setCommentValue(data.project.coders_com_post);
         setTaskValue(data.project.coders_can_create_task);
       })
-  }, [])
+  }, [projectId])
 
 
   const updateProject = (e) => {

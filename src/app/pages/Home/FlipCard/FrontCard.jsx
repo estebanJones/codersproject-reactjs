@@ -1,14 +1,10 @@
-import React, { useState, useEffect} from "react";
-
-// Import base Theme
-import Header from "../../../base/Header/Header.jsx";
-import Footer from "../../../base/Footer/Footer.jsx";
+import React, { useState } from "react";
 
 // Import Icons
 import { AiFillPlusSquare } from "react-icons/ai";
-import { useContext } from "react";
+// import { useContext } from "react";
 
-import { StatusUserContext } from "../../../contexts/ThemeContext";
+// import { StatusUserContext } from "../../../contexts/ThemeContext";
 
 
 
@@ -42,7 +38,7 @@ function FrontCard(props) {
       });
   };
 
-  const { isOnline, setIsOnline } = useContext(StatusUserContext);
+  // const { isOnline, setIsOnline } = useContext(StatusUserContext);
 
   return (
     <div className="login-block block-dark w-100 h-100 px-4 py-4">
@@ -104,9 +100,9 @@ function FrontCard(props) {
           </div>
         </div>
         <div className="mt-3">
-          <a id="passLost" onClick={props.onFrontFlip}>
-            <h6>Identifiants oubliés ?</h6></a>
-          <a id="passLost" onClick={props.onRegisterFlip}><h3 className="mb-0 pt-3"><AiFillPlusSquare className="pb-1" />Créer un compte</h3></a>
+          <span id="passLost" onClick={props.onFrontFlip}>
+            <h6>Identifiants oubliés ?</h6></span>
+          <span id="passLost" onClick={props.onRegisterFlip}><h3 className="mb-0 pt-3"><AiFillPlusSquare className="pb-1" />Créer un compte</h3></span>
 
         </div>
       </form>

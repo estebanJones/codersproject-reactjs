@@ -9,7 +9,7 @@ function ModalPage(props) {
   const [statusModal, setStatusModal ] = useState(false);
   const [inputTitle, setInputTitle] = useState("");
   const [inputDesc, setInputDesc] = useState("");
-  const [inputSpec, setInputSpec] = useState("");
+  // const [inputSpec, setInputSpec] = useState("");
   const [userId, setUserId] = useState(localStorage.getItem("userId"));
 
 
@@ -77,7 +77,7 @@ function ajouterOffre(e) {
 
                   <h5 className="text-center mt-4">Image</h5>
                     <div className="d-flex justify-content-center col-12" >
-                      <img src="https://place-hold.it/200x200" />
+                      <img src="https://place-hold.it/200x200" alt="img"/>
                       </div>
                       <input
                       className="form-control w-100 rounded-0 mt-4"

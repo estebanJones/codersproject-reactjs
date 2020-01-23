@@ -21,7 +21,7 @@ const Equipe = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
   })
     .then(res => res.json())
     .then(teammates => { setteammateTab(teammates);})
- },[])
+ },[id])
 
 
   const suppr = (index) => {

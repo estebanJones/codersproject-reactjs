@@ -19,8 +19,9 @@ import {IoIosBarcode, IoMdCodeWorking} from "react-icons/io";
 const ProjetSeul = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
 
   const [project, setProject] = useState([]);
+  const [ listTeammate, setListTeammate] = useState([]);
+  const userId = localStorage.getItem("userId")
   const { id } = useParams();
-
 
   useEffect(() => {fetch('http://127.0.0.1:8000/project/show_one_project', {
         method : 'POST',
@@ -33,8 +34,51 @@ const ProjetSeul = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
         .then(data => { setProject(data.project) })
      },[])
 
-      // console.log(id);
-      // console.log(project.title);
+
+     useEffect(() => {fetch('http://127.0.0.1:8000/teammate/show_all', {
+    method : 'POST',
+    headers: {"Content-Type": "application/json" },
+    body: JSON.stringify({
+      projectId : id,
+  })
+  })
+    .then(res => res.json())
+    .then(teammates => { setListTeammate(teammates);
+    })
+ },[])
+
+ 
+  const GererLeProjet = () => {
+    let divToReturn;
+
+    for(let i = 0; i < listTeammate.length ; i++) {
+      if  (listTeammate[i].user_id === userId){
+
+          divToReturn = (
+            <div className="block-dark-hover h-20 mt-2 ">
+                <Link to={`${project._id}/gerer`} className="h-100 w-100 d-flex flex-column justify-content-center text-white">
+                <h4 className="text-center"><GoTools className="pb-1" /> Gérer le projet</h4>
+                </Link>
+            </div>
+          )
+
+      } else {
+
+        divToReturn = (
+          <div className="block-dark-hover h-20 mt-2 ">
+              <Link to={`${project._id}/gerer`} className="h-100 w-100 d-flex flex-column justify-content-center text-white">
+              <h4 className="text-center"><GoTools className="pb-1" />Candidater</h4>
+              </Link>
+          </div>
+        )
+
+      }
+    }
+
+    return divToReturn;
+  }
+
+
 
     return (
       <div id="wrapper">
@@ -99,7 +143,7 @@ const ProjetSeul = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
 
         <h4 className="text-center mt-3 mb-2"><FaSuitcase className="pb-1" /> Outils & Frameworks</h4>
 
-        <div class="row mx-0 h-50 w-100 pl-1 d-flex justify-content-center">
+        <div className="row mx-0 h-50 w-100 pl-1 d-flex justify-content-center">
           <div className="col-6 col-lg-3 pr-1 pl-0 w-100 h-100">
             <div className="block-dark-hover w-100 h-100 text-center d-flex flex-column justify-content-center">
               <FaSymfony className="mx-auto" size="2em" />
@@ -137,11 +181,7 @@ const ProjetSeul = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
 </div>
             </div>
         
-        <div className="block-dark-hover h-20 mt-2 ">
-        <Link to={`${project._id}/gerer`} className="h-100 w-100 d-flex flex-column justify-content-center text-white">                
-        <h4 className="text-center"><GoTools className="pb-1" /> Gérer le projet</h4>
-        </Link>
-            </div>
+              {GererLeProjet()}
         
           
         </div>
