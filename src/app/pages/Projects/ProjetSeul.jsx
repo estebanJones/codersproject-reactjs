@@ -47,25 +47,28 @@ const ProjetSeul = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
     })
  },[])
 
- 
+
   const GererLeProjet = () => {
     let divToReturn;
 
     for(let i = 0; i < listTeammate.length ; i++) {
+      console.log(listTeammate[i].user_id);
       if  (listTeammate[i].user_id === userId){
-
-          divToReturn = (
+         return(
+           divToReturn = (
             <div className="block-dark-hover h-20 mt-2 ">
                 <Link to={`${project._id}/gerer`} className="h-100 w-100 d-flex flex-column justify-content-center text-white">
                 <h4 className="text-center"><GoTools className="pb-1" /> Gérer le projet</h4>
                 </Link>
             </div>
           )
+        );
 
       } else {
 
         divToReturn = (
           <div className="block-dark-hover h-20 mt-2 ">
+          {console.log(listTeammate[i].user_id, userId)}
               <Link to={`${project._id}/gerer`} className="h-100 w-100 d-flex flex-column justify-content-center text-white">
               <h4 className="text-center"><GoTools className="pb-1" />Candidater</h4>
               </Link>
