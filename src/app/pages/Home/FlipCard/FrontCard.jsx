@@ -33,6 +33,7 @@ function FrontCard(props) {
       .then(data => {
         // JE TRANSFORME L OBJET EN STRING
         localStorage.setItem('userId', data.user._id);
+        localStorage.setItem('userName', data.user.username);
         localStorage.setItem('userToken', data.token);
         window.location.reload(false);
       });

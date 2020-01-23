@@ -34,6 +34,7 @@ function BackCard(props) {
             })
             // JE RECUPERE LA REPONSE
             .then(data => {
+                console.log(data);
                 // SI L INSCRIPTION EST UN SUCCESS
                 // RETOURNER SUR LE FLIP LOGIN
                 if (data.state === "success") {
