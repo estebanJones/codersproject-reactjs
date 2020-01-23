@@ -31,7 +31,7 @@ const MainProjects = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => 
             headers: { "Content-Type": "application/json" },
         })
             .then(res => res.json())
-            .then(data => { console.log(data); setProjects(data.liste) })
+            .then(data => { console.log(data); setProjects(data.projects) })
     }, [])
 
     let updateSearch = (event) => {
