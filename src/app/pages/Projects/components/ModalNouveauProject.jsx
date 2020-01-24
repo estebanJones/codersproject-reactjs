@@ -38,11 +38,7 @@ function ajouterOffre(e) {
     )
   })
     .then(res => res.json())
-    .then(data => {
-      console.log("retour projet creation");
-      console.log(data);
-      setStatusModal(false);
-    })
+    .then(data => {})
 
     fetch('http://127.0.0.1:8000/project/show_all_project', {
         method : 'GET',
@@ -50,6 +46,8 @@ function ajouterOffre(e) {
       })
         .then(res =>res.json())
         .then(data => { props.listPro(data.projects)})
+
+        setStatusModal(false)
 }
 
         return (
