@@ -29,6 +29,70 @@ const [dones, setDones] = useState([]);
 
   };
 
+  const switchColumn = (index, columnTarget) => {
+
+    if(columnTarget === "To-Do"){
+
+      let rowToSwitch = todos[index];
+      setDoings([
+        ...doings,
+        {
+          title: rowToSwitch.title,
+          importance: rowToSwitch.importance
+        }
+      ]);
+
+      const rowToRemove = [...todos];
+      rowToRemove.splice(index, 1);
+      setTodos(rowToRemove);
+
+    } else if(columnTarget === "Doing"){
+
+      let rowToSwitch = doings[index];
+      setDones([
+        ...dones,
+        {
+          title: rowToSwitch.title,
+          importance: rowToSwitch.importance
+        }
+      ]);
+
+      const rowToRemove = [...doings];
+      rowToRemove.splice(index, 1);
+      setDoings(rowToRemove);
+
+    }
+
+  }
+
+  const removeTask = (index, columnTarget) => {
+
+    switch (columnTarget) {
+      case "To-Do":
+        const taskToDoRemove = [...todos];
+        taskToDoRemove.splice(index, 1);
+        setTodos(taskToDoRemove);
+        break;
+      case "Doing":
+        const taskDoingRemove = [...doings];
+        taskDoingRemove.splice(index, 1);
+        setDoings(taskDoingRemove);
+        break;
+      case "Done":
+        const taskDoneRemove = [...dones];
+        taskDoneRemove.splice(index, 1);
+        setDones(taskDoneRemove);
+        break;
+    
+      default:
+        break;
+    }
+
+  
+
+
+  }
+
 
   return (
     <div className="h-100 d-flex flex-column">
@@ -49,9 +113,9 @@ const [dones, setDones] = useState([]);
         </div>
       </div>
       <div className="row mx-0">
-                <Column name="To-Do" tasks={todos} setDoingsState={setDoings}  />
-                <Column name="Doing" tasks={doings} setDonesState={setDones} />
-                <Column name="Done" tasks={dones} />
+                <Column name="To-Do" tasks={todos} setDoingsState={setDoings} setSwitchColumn={switchColumn} weRemoveTask={removeTask}  />
+                <Column name="Doing" tasks={doings} setDonesState={setDones} setSwitchColumn={switchColumn} weRemoveTask={removeTask} />
+                <Column name="Done" tasks={dones} weRemoveTask={removeTask} />
       </div>
     </div>
 

@@ -26,7 +26,7 @@ function ModalToDo(props){
   const createOffer = e => {
 
     props.ajouterOffre(titleValue, importanceValue);
-
+    setImportanceValue("low");
 
 
     setModal1(false);

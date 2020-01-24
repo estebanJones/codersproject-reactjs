@@ -7,30 +7,11 @@ import { FaPlus, FaSymfony, FaReact, FaGithub } from "react-icons/fa";
 
 const Information = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
 
-  const [frameTools, setFrameTools] = useState([
-    { name: 'symfony' },
-    { name: 'react' },
-    { name: 'github' },
-    { name: 'symfony' },
-    { name: 'react' },
-    { name: 'github' },
-    { name: 'symfony' },
-    { name: 'react' },
-    { name: 'github' },
-  ]);
-  const [fonctionsAtt, setFonctionsAtt] = useState([
-    { title: 'La fonction attendue' },
-    { title: 'react' },
-    { title: 'github' },
-    { title: 'react' },
-    { title: 'github' },
-    { title: 'github' },
-    { title: 'react' },
-    { title: 'github' },
-  ]);
+  const [frameTools, setFrameTools] = useState([]);
+  const [fonctionsAtt, setFonctionsAtt] = useState([]);
 
   const [inputFrameTool, setInputFrameTool] = useState("symfony");
-  const [inputFonctionsAtt, setInputFonctionsAtt] = useState("symfony");
+  const [inputFonctionsAtt, setInputFonctionsAtt] = useState("");
   const [inputTitle, setInputTitle] = useState("");
   const [inputDesc, setInputDesc] = useState("");
   const projectId = useParams("id").id;
