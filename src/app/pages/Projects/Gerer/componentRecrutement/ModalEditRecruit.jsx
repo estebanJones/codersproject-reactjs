@@ -4,6 +4,7 @@ import {  MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 
 // Import Icons
 import {IoMdAdd} from "react-icons/io";
 import {MdCompareArrows} from "react-icons/md";
+import {GoCheck} from "react-icons/go";
 
 class ModalPage extends Component {
 state = {
@@ -23,7 +24,7 @@ render() {
 
         return (
             <div>
-              <MDBBtn className="rounded-0 m-0 w-100" color="success" onClick={this.toggle(2)}>Modifier</MDBBtn>
+              <MDBBtn className="rounded-0 m-0 w-100" color="success" onClick={this.toggle(2)}><GoCheck /></MDBBtn>
               <MDBModal isOpen={this.state.modal2} toggle={this.toggle(2)} fullHeight position="right"  >
                 <MDBModalHeader toggle={this.toggle(2)}><MdCompareArrows /> Modifier une offre</MDBModalHeader>
                 <MDBModalBody>

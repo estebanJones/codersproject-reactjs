@@ -4,9 +4,14 @@ import React, { useState, useEffect } from "react";
 import ModalRecruit from "./componentRecrutement/ModalRecruit.jsx";
 import ModalEditRecruit from "./componentRecrutement/ModalEditRecruit";
 
+// Import Images
+import userImg from "../../../../img/avatars/avatar-footer.png";
+
 // Import Icons
 import { MdCompareArrows } from "react-icons/md";
 import { useParams } from "react-router-dom";
+import { TiCancel } from "react-icons/ti";
+import { GoCheck } from "react-icons/go";
 
 const Recrutement = () => {
   const [offer, setOffers] = useState([]);
@@ -127,7 +132,7 @@ const Recrutement = () => {
   return (
     <div className="row col-lg-12 mx-0">
 
-      <div className="col-lg-6 mx-0">
+      <div className="col-lg-8 border-right border-info mx-0">
         <div className="h-100 d-flex flex-column ">
           <div className="row mx-0">
             <div className="col-lg-3 px-0"></div>
@@ -174,7 +179,7 @@ const Recrutement = () => {
                         onClick={e => suppr(index)}
                         className="btn btn-danger rounded-0 w-100 m-0"
                       >
-                        Supprimer{" "}
+                        <TiCancel />{" "}
                       </button>
                     </div>
                   </div>
@@ -184,25 +189,27 @@ const Recrutement = () => {
           </div>
         </div>
       </div>
-      <div className="col-lg-6 mx-0">
+      <div className="col-lg-4 mx-0">
         <h2 className="m-2 text-center">Candidature</h2>
-        <ul className="row mx-0 h-85 custom_scrollbar">
+        <ul className="mt-3 row mx-0 h-85 custom_scrollbar">
           {console.log(candidatTab)}
           {candidatTab.map((candidat, index) => {
             
             return (
-              <div className="col-lg-2 px-0 pr-1 h-35">
+              <div className="col-lg-6 px-0 pr-1 h-40">
                 <li id={candidat.id} className="block-dark-hover d-flex flex-column justify-content-center h-100 px-2">
-                  <img className="h-50 w-25 mx-auto img-fluid img-circle p-2" />
+                  <img src={userImg} className=" w-25 mx-auto img-fluid img-circle p-2" />
                   <h6 className="text-center h-25 d-flex flex-column justify-content-center">
 
                     {candidat.username}</h6>
                   <h6 className="text-center h-25 d-flex flex-column justify-content-center">
 
                     {candidat.message}</h6>
-                  <button className="btn btn-success" onClick={e => acceptCandidat(e, index)}>Accepter</button>
+                    <div className="row mx-0">
+                  <button className="btn btn-success w-50 mx-0 rounded-0" onClick={e => acceptCandidat(e, index)}><GoCheck /></button>
                   <button type="submit" onClick={(e) => supprCandidat(e, index)}
-                    className="btn btn-danger w-100 mx-0 rounded-0">Refuser</button>
+                    className="btn btn-danger w-50 mx-0 rounded-0"><TiCancel /></button>
+                    </div>
                 </li>
               </div>
             )
