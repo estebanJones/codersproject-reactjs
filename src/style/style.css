@@ -95,6 +95,10 @@ hr {
   cursor: default;
 }
 
+a:hover {
+  text-decoration: none !important;
+}
+
 button {
   border: none;
 }

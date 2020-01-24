@@ -40,7 +40,6 @@ function createCandidat(e) {
   })
     .then(res => res.json())
     .then(data => {
-      alert(data);
       setStatusModal(false);
     })
 
@@ -48,7 +47,7 @@ function createCandidat(e) {
 
         return (
             <div className="h-100">
-              <MDBBtn className="btn block-dark-hover text-white w-100 p-4 h-100 m-0 rounded-0" onClick={openModal}><FaPlusCircle size="2em" className="mr-2" /> Candidater</MDBBtn>
+              <MDBBtn className="block-dark-hover text-white w-100 p-4 h-100 m-0 rounded-0" onClick={openModal}><FaPlusCircle size="2em" className="mr-2" /> Candidater</MDBBtn>
               <MDBModal isOpen={statusModal}  fullHeight position="left"  >
                 <MDBModalHeader ><FaProjectDiagram /> Candidater pour un Projet</MDBModalHeader>
                 <MDBModalBody className="p-2">

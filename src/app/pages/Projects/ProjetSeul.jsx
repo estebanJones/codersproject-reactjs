@@ -69,7 +69,7 @@ const ProjetSeul = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
       } else {
 
         divToReturn = (
-          <div className="block-dark-hover h-20 mt-2 ">
+          <div className="h-20 mt-2 ">
           <ModalNouveauCandidat/>
           </div>
         )
@@ -81,7 +81,7 @@ const ProjetSeul = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
 
   const getDateDifference = (date) => {
 
-    console.log(date);
+
 
   }
 
@@ -124,24 +124,7 @@ const ProjetSeul = ({ checkUserStatus: isOnline, onLogoutUser: onLogout }) => {
           <li className="h-10 mb-1 text-center block-light-hover d-flex flex-column justify-content-center">
             Gestionnaire de Devis
           </li>
-          <li className="h-10 mb-1 text-center block-light-hover d-flex flex-column justify-content-center">
-            Espace Membre
-          </li>
-          <li className="h-10 mb-1 text-center block-light-hover d-flex flex-column justify-content-center">
-            Administration
-          </li>
-          <li className="h-10 mb-1 text-center block-light-hover d-flex flex-column justify-content-center">
-            Blog
-          </li>
-          <li className="h-10 mb-1 text-center block-light-hover d-flex flex-column justify-content-center">
-            Page de Contact
-          </li>
-          <li className="h-10 mb-1 text-center block-light-hover d-flex flex-column justify-content-center">
-            Services
-          </li>
-          <li className="h-10 mb-1 text-center block-light-hover d-flex flex-column justify-content-center">
-            Gestionnaire de Devis
-          </li>
+          
 
         </ul>
 

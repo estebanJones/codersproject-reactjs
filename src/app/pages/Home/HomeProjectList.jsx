@@ -21,17 +21,17 @@ function HomeProjectList(){
 
     const listProject = projects.map((project) =>
     <div className="single-list-result block-dark-hover pointer py-2 px-4 ">
-           <Link to={`projet/${project._id}`} handler={ProjetSeul}>
+           <Link to={`projet/${project._id}`} handler={ProjetSeul} className="list-unstyled">
     <div className="row mx-0">
-        <div className="d-flex justify-content-center col-2">
+        <div className="d-flex justify-content-center col-2 text-white">
             <GoTasklist />
         </div>
         <div key={project._id} className="d-flex justify-content-center col-10">
-        <h4>{project.title}</h4>
+        <h4 className="text-white">{project.title}</h4>
         </div>
     </div>
     <div className="row mx-0 text-center">
-    <p>{project.description}</p>
+    <p className="text-white">{project.description}</p>
         </div>
        </Link>
         </div>

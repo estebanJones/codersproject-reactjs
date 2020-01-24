@@ -9,10 +9,7 @@ import { MdCompareArrows } from "react-icons/md";
 import { useParams } from "react-router-dom";
 
 const Recrutement = () => {
-  const [offer, setOffers] = useState([
-    { title: "Super Title", description: "Description", spec: "front" },
-    { title: "Super Title", description: "Description", spec: "back" }
-  ]);
+  const [offer, setOffers] = useState([]);
   const [inputTitle, setInputTitle] = useState("");
   const [inputDescription, setInputDescription] = useState("");
   const [inputSpec, setInputSpec] = useState("front");
@@ -87,7 +84,6 @@ const Recrutement = () => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data)
       })
 
     supprCandidat(e, index);
@@ -98,7 +94,6 @@ const Recrutement = () => {
   const suppr = (e, index) => {
     const offerCopy = [...offer];
     offerCopy.splice(index, 1);
-    console.log(offerCopy);
     setOffers(offerCopy);
   };
 
@@ -112,7 +107,6 @@ const Recrutement = () => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data)
 
       })
 
@@ -132,7 +126,7 @@ const Recrutement = () => {
 
   return (
     <div className="row col-lg-12 mx-0">
-      {console.log(candidatTab)}
+
       <div className="col-lg-6 mx-0">
         <div className="h-100 d-flex flex-column ">
           <div className="row mx-0">
@@ -193,8 +187,9 @@ const Recrutement = () => {
       <div className="col-lg-6 mx-0">
         <h2 className="m-2 text-center">Candidature</h2>
         <ul className="row mx-0 h-85 custom_scrollbar">
-
+          {console.log(candidatTab)}
           {candidatTab.map((candidat, index) => {
+            
             return (
               <div className="col-lg-2 px-0 pr-1 h-35">
                 <li id={candidat.id} className="block-dark-hover d-flex flex-column justify-content-center h-100 px-2">
